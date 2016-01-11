@@ -1,0 +1,55 @@
+.preloader {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: #000;
+    z-index: 10000;
+}
+
+.loader {
+	@include brand-gradient();
+    @include transform(translate(-50%, -50%));
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 120px;
+    height: 120px;
+    margin: auto;
+    border-radius: 50%;
+    overflow: hidden;
+
+    .word {
+        @include transform(translate(-60px, -50%));
+        position: absolute;
+        width: 500px;
+        top: 50%;
+        left: 50%;
+        animation: loader-animation 2.5s steps(4) infinite;
+    }
+
+    .letter {
+        color: #FFF;
+        font-size: 70px;
+        width: 120px;
+        height: 120px;
+        display: inline-block;
+        text-align: center;
+        line-height: 120px;
+        margin-left: -4px;
+
+        &:first-child {
+            margin-left: 0;
+        }
+    }
+}
+
+@keyframes loader-animation {
+    from {
+        @include transform(translate(-60px, -50%));
+    }
+    to {
+        @include transform(translate(-540px, -50%));
+    }
+}

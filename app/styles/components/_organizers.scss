@@ -1,0 +1,98 @@
+#organizers {
+  padding-bottom: 20%;
+
+  @include respond-to("up to phablet") {
+    padding-bottom: 40%;
+  }
+}
+
+.organizers-text {
+  font-size: 1rem;
+  font-weight: 300;
+}
+
+.organizers-characters {
+  position: absolute;
+  bottom: 0;
+  right: -5%;
+  width: 85%;
+  height: 32%;
+
+  @include respond-to("up to phablet") {
+    height: 25%;
+    width: 90%;
+    right: 15%;
+  }
+
+  @include respond-to("mobile") {
+    height: 20%;
+    right: 11%;
+  }
+
+}
+
+.organizer {
+  position: relative;
+  display: inline-block;
+  width: 16%;
+  height: 100%;
+
+  @include respond-to("up to phablet") {
+  	width: 14%;
+  }
+
+  &:hover .organizer-header {
+    display: block;
+  }
+}
+
+.organizer-header {
+  position: absolute;
+  bottom: 100%;
+  padding: 8% 12%;
+  min-width: 100%;
+  display: none;
+  text-align: center;
+  white-space: nowrap;
+  background-color: rgba(30,30,30,0.8);
+}
+
+.organizer-name {
+  margin-bottom: -8%;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.6rem;
+  color: $color-white;
+}
+
+.organizer-link {
+  color: $color-green;
+  @include animated-link($color-green, 6px);
+  font-weight: 300;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+}
+
+.organizer-photo {
+  position: absolute;
+  bottom: 0;
+  height: 92%;
+}
+
+.contact-us {
+  font-weight: 300;
+
+  .title {
+    font-weight: 400;
+  }
+
+  p {
+    padding-bottom: 30px;
+  }
+}
+
+.contact-us-link {
+  color: $color-green;
+  @include animated-link($color-green, 6px);
+}

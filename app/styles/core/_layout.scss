@@ -1,0 +1,19 @@
+html,
+body {
+	height: 100%;
+}
+
+body {
+	margin: 0;
+    overflow-x: hidden;
+}
+
+main {
+	height: 100%;
+
+	&:before,
+	&:after {
+		content: " ";
+		display: table;
+	}
+}

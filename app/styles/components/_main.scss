@@ -1,0 +1,26 @@
+body {
+  color: #ffffff;
+}
+
+.pages-stack--open {
+  height: 100vh;
+  overflow: hidden;
+}
+
+.multiple-wrapper {
+
+  position: relative;
+  width: 50%;
+  height: 100px;
+  background: #cfcfcf;
+  white-space: nowrap;
+
+  * {
+    position: absolute;
+    pointer-events: none;
+  }
+
+  .transitionTopLeft {
+    transition: all .3s linear;
+  }
+}

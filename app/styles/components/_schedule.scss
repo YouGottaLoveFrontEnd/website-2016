@@ -1,0 +1,14 @@
+#schedule {
+
+  width: 55%;
+
+  @include js-mobile() {
+    width: 88%;
+  }
+
+  .coming-soon {
+    font-weight: 300;
+  }
+}
+
+
