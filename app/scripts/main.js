@@ -340,7 +340,7 @@ function initShadow(config) {
   var shadowCount = config.count + 1;
   $('.shadow').each(function () {
     var child = $(this).children().eq(0);
-    var margin = 5;
+    var margin = 1;
     for (var i = 1; i < shadowCount; i++) {
       var xpoz = margin * i;
       var ypoz = xpoz + child.height();
@@ -430,7 +430,7 @@ $(document).ready(function () {
     $(this).toggleClass('full', $(this).val() !== '');
   });
 
-  initShadow({count: 2});
+  initShadow({count: 4});
 //  buildStack();
 //  initEvents();
   hashchange();
@@ -448,7 +448,7 @@ $(document).ready(function () {
     success: function (e) {
       var city = e.name;
       var celTemp = Math.round(e.main.temp);
-      var ferTemp = celTemp * 9 / 5 + 32;
+      var ferTemp = Math.round(celTemp * 9 / 5 + 32);
       var country = e.sys.country;
       $('span.city').text(city);
       $('span.celTemp').text(celTemp);
