@@ -27,18 +27,20 @@
 
   .menu-button {
     padding: 0;
-    border: 1px solid $color-white;
+    border: 1px solid $color-grey;
     cursor: pointer;
     outline: none;
     background: transparent;
-    color: $color-white;
-    width: 79px;
-    height: 75px;
+    color: $color-grey;
+    width: 72px;
+    height: 70px;
     font-size: 21px;
     line-height: 25px;
     word-break: break-word;
     letter-spacing: 6px;
     transition: all .3s linear;
+    font-size: 16px;
+    font-weight: 300;
 
     span {
       float: left;
@@ -46,7 +48,7 @@
 
       &:first-child,
       &:nth-child(3n) {
-        margin-left: 21px;
+        margin-left: 19px;
       }
 
       &:nth-child(2n) {
@@ -67,7 +69,7 @@
     margin-left: 20px;
 
     svg {
-      fill: $color-white;
+      fill: $color-grey;
       height: 20px;
       width: 23px;
       transition: all .3s .1s linear;
