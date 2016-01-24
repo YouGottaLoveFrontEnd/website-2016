@@ -1,11 +1,11 @@
 @each $side in (right left) {
-	.pull-#{$side} {
-		float: $side;
-	}
+  .pull-#{$side} {
+    float: $side;
+  }
 }
 
 .clearfix {
-	@include clearfix();
+  @include clearfix();
 }
 
 .underline {
@@ -59,4 +59,17 @@ i {
       margin-right: 0;
     }
   }
+}
+
+div,
+span,
+label,
+input,
+p {
+  font-family: $font-family;
+}
+
+.libre {
+  font-family: $font-libre;
+
 }
