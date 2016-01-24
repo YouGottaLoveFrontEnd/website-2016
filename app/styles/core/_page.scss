@@ -15,9 +15,46 @@
 }
 
 .menu-trigger:hover ~ .menu-wrapper {
-  .menu-button {
-    background: $color-white;
-    color: $color-blue;
+  .full-btn {
+    color: $color-green;
+
+    &:after {
+      padding: 0px 35px
+    }
+  }
+}
+
+.menu-trigger:checked ~ .menu-wrapper {
+
+  .menu-button span {
+    &:nth-child(1) {
+      &:after {
+        content: 'Y';
+      }
+    }
+    &:nth-child(2) {
+      &:after {
+        content: 'G';
+      }
+    }
+    &:nth-child(3) {
+      &:after {
+        content: 'L';
+      }
+    }
+    &:nth-child(4) {
+      &:after {
+        content: 'F';
+      }
+    }
+  }
+}
+
+.menu-wrapper {
+  .full-btn {
+    &:after {
+      transition: padding .2s linear;
+    }
   }
 }
 
@@ -27,32 +64,54 @@
 
   .menu-button {
     padding: 0;
-    border: 1px solid #eff1f2;
+    border: 1px solid $color-grey;
     cursor: pointer;
     outline: none;
-    background: transparent;
-    color: #eff1f2;
-    width: 68px;
-    height: 66px;
+    width: 72px;
+    height: 70px;
     font-size: 21px;
-    line-height: 22px;
+    line-height: 25px;
     word-break: break-word;
     letter-spacing: 6px;
     transition: all .3s linear;
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 300;
 
     span {
       float: left;
-      width: 15px;
+      width: 16px;
 
       &:first-child,
       &:nth-child(3n) {
-        margin-left: 17px;
+        margin-left: 19px;
       }
 
       &:nth-child(2n) {
         margin-left: 8px;
+      }
+
+      &:after {
+        transition: all .2s linear;
+      }
+      &:nth-child(1) {
+        &:after {
+          content: 'M';
+        }
+      }
+      &:nth-child(2) {
+        &:after {
+          content: 'E';
+        }
+      }
+      &:nth-child(3) {
+        &:after {
+          content: 'N';
+        }
+      }
+      &:nth-child(4) {
+        &:after {
+          content: 'U';
+        }
       }
     }
 
@@ -79,28 +138,17 @@
       margin: 7px 0;
       display: inline-block;
       position: relative;
-      &:after {
-        display: block;
-        position: absolute;
-        top: 0;
-        left: 30px;
-        color: $color-white;
-        opacity: 0;
-        pointer-events: none;
-        transform: rotate(90deg);
-        transition: all .2s linear;
-        transform-origin: 0;
-      }
-
-      &:hover:after {
-        opacity: 1;
-        transform: rotate(0);
-      }
     }
 
     .facebook {
       &:after {
         content: 'Facebook';
+      }
+    }
+    .transparent-btn:hover {
+      &:after {
+        max-width: 200px;
+        left: 30px;
       }
     }
 
