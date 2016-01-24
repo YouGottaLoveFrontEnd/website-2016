@@ -27,28 +27,28 @@
 
   .menu-button {
     padding: 0;
-    border: 1px solid $color-grey;
+    border: 1px solid #eff1f2;
     cursor: pointer;
     outline: none;
     background: transparent;
-    color: $color-grey;
-    width: 72px;
-    height: 70px;
+    color: #eff1f2;
+    width: 68px;
+    height: 66px;
     font-size: 21px;
-    line-height: 25px;
+    line-height: 22px;
     word-break: break-word;
     letter-spacing: 6px;
     transition: all .3s linear;
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 300;
 
     span {
       float: left;
-      width: 16px;
+      width: 15px;
 
       &:first-child,
       &:nth-child(3n) {
-        margin-left: 19px;
+        margin-left: 17px;
       }
 
       &:nth-child(2n) {

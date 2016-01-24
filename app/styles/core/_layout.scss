@@ -206,10 +206,16 @@ section {
   }
 
   hr {
-    max-width: 140px;
-    margin-right: calc(100% - 140px);
+    max-width: 100px;
+    margin-right: calc(100% - 100px);
     border-color: $color-green;
     margin-bottom: 88px;
+  }
+
+  label{
+    font-weight: 100;
+    font-size: 20px;
+    letter-spacing: 2px;
   }
 }
 
