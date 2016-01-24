@@ -19,14 +19,14 @@ body {
     float: left;
     width: 100%;
     letter-spacing: 8px;
-    font-size: 11px;
+    font-size: 15px;
     font-weight: 100;
   }
 
   .description {
     margin-bottom: 57px;
     letter-spacing: 4px;
-    font-size: 16px;
+    font-size: 25px;
   }
 
   h1,
@@ -35,14 +35,14 @@ body {
   }
 
   .register {
-    font-size: 15px;
+    font-size: 18px;
     font-weight: 400;
-    line-height: 50px;
-    padding: 1px 15px 0px 23px;
+    line-height: 56px;
+    padding: 1px 20px 0px 29px;
     letter-spacing: 10px;
-    color: $color-blue;
-    border: 1px solid $color-light-grey;
-    background-color: $color-grey;
+    color: #021e40;
+    border: 1px solid #c0c7ce;
+    background-color: #eff1f2;
     cursor: pointer;
     outline: none;
     font-family: $font-family;

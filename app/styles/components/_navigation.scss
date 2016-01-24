@@ -1,27 +1,30 @@
 .pages-nav {
   position: absolute;
-  top: 20px;
+  top: 60px;
 
   ul {
     width: 460px;
     text-align: center;
 
     li {
-      margin: 46px auto;
+      margin: 70px auto;
 
       a {
-        color: $color-white;
+        color: $color-grey;
         text-decoration: none;
         position: relative;
         padding: 0 10px;
         transition: color .2s .1s linear;
+        font-size: 18px;
+        font-weight: 300;
+        letter-spacing: 4px;
 
         &:after {
           content: ' ';
           transition: all .3s linear;
           width: 0;
           height: 29px;
-          background-color: $color-white;
+          background-color: $color-grey;
           display: block;
           position: absolute;
           top: 0;
