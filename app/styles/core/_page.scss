@@ -1,0 +1,182 @@
+.menu-trigger,
+.menu-wrapper {
+  position: absolute;
+  z-index: 1000;
+  top: 30px;
+  left: 30px;
+
+}
+
+.menu-trigger {
+  opacity: 0;
+  cursor: pointer;
+  width: 76px;
+  height: 72px;
+}
+
+.menu-trigger:hover ~ .menu-wrapper {
+  .menu-button {
+    background: $color-white;
+    color: $color-blue;
+  }
+}
+
+.menu-wrapper {
+  width: 126px;
+  height: 82px;
+
+  .menu-button {
+    padding: 0;
+    border: 1px solid $color-white;
+    cursor: pointer;
+    outline: none;
+    background: transparent;
+    color: $color-white;
+    width: 79px;
+    height: 75px;
+    font-size: 21px;
+    line-height: 25px;
+    word-break: break-word;
+    letter-spacing: 6px;
+    transition: all .3s linear;
+
+    span {
+      float: left;
+      width: 16px;
+
+      &:first-child,
+      &:nth-child(3n) {
+        margin-left: 21px;
+      }
+
+      &:nth-child(2n) {
+        margin-left: 8px;
+      }
+    }
+
+  }
+
+  .menu-social,
+  .menu-button {
+    float: left;
+  }
+
+  .menu-social {
+    width: 20px;
+    text-align: center;
+    margin-left: 20px;
+
+    svg {
+      fill: $color-white;
+      height: 20px;
+      width: 23px;
+      transition: all .3s .1s linear;
+    }
+
+    a {
+      margin: 7px 0;
+      display: inline-block;
+      position: relative;
+      &:after {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 30px;
+        color: $color-white;
+        opacity: 0;
+        pointer-events: none;
+        transform: rotate(90deg);
+        transition: all .2s linear;
+        transform-origin: 0;
+      }
+
+      &:hover:after {
+        opacity: 1;
+        transform: rotate(0);
+      }
+    }
+
+    .facebook {
+      &:after {
+        content: 'Facebook';
+      }
+    }
+
+    .twitter {
+      &:after {
+        content: 'Twitter';
+      }
+    }
+  }
+}
+
+.pages-nav {
+  display: none;
+}
+
+.menu-trigger:checked ~ .pages-nav {
+  display: block;
+}
+
+.pages-stack {
+  z-index: 100;
+  pointer-events: none;
+  perspective: 1200px;
+  perspective-origin: 50%;
+  overflow: hidden;
+  transition: all .4s .2s linear;
+  clear: both;
+
+}
+
+.menu-trigger:checked ~ .pages-stack {
+  perspective-origin: 50% -50%;
+  height: 100vh;
+
+  .page {
+    border: 1px solid $color-green;
+
+    &:not(.current) {
+      pointer-events: auto;
+
+      &:hover {
+        top: -50px;
+        cursor: pointer;
+      }
+    }
+
+  }
+}
+
+.page {
+  padding-top: 194px;
+  transition: transform .3s linear, top .2s linear, border .3s .3s linear;
+  position: relative;
+  z-index: 5;
+  width: 100%;
+  height: 100vh;
+
+  box-shadow: 0 -1px 10px rgba(0, 0, 0, 0.1);
+  overflow-y: scroll;
+
+  &.current {
+    z-index: 9;
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+    pointer-events: auto;
+  }
+
+  &:not(.current) {
+    position: absolute;
+    top: 0;
+    opacity: 0;
+    pointer-events: none;
+
+  }
+
+}
+
+.not-active {
+  pointer-events: none;
+  cursor: default;
+}

@@ -1,0 +1,43 @@
+.pages-nav {
+  position: absolute;
+  top: 20px;
+
+  ul {
+    width: 460px;
+    text-align: center;
+
+    li {
+      margin: 46px auto;
+
+      a {
+        color: $color-white;
+        text-decoration: none;
+        position: relative;
+        padding: 0 10px;
+        transition: color .2s .1s linear;
+
+        &:after {
+          content: ' ';
+          transition: all .3s linear;
+          width: 0;
+          height: 29px;
+          background-color: $color-white;
+          display: block;
+          position: absolute;
+          top: 0;
+          left: 0;
+          z-index: -1;
+        }
+
+        &:hover {
+          color: $color-blue;
+
+          &:after {
+            width: 100%;
+          }
+        }
+      }
+
+    }
+  }
+}

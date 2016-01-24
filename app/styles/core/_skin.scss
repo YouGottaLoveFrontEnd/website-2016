@@ -19,4 +19,10 @@ html {
 
 body {
 	font-family: $skin-font-family;
+    background-color: $color-body;
+}
+
+.green {
+  color: $color-green;
+  fill: $color-green;
 }

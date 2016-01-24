@@ -1,0 +1,24 @@
+.shadow {
+  position: relative;
+  display: table;
+
+  .box {
+    border: 1px solid;
+    transition: all .1s linear;
+  }
+
+  &.hide-stroke {
+    .stroke {
+      transition: all .2s linear;
+      pointer-events: none;
+      -webkit-text-fill-color: transparent;
+      -webkit-text-stroke-width: 1px;
+      display: none;
+    }
+    &:hover {
+      .stroke {
+        display: block;
+      }
+    }
+  }
+}

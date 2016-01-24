@@ -10,10 +10,14 @@ $color-blue: #1105e7;
 $color-green: #00d09d;
 $color-white: #ffffff;
 $color-black: #000000;
-
+$color-fold-bg: #021e40;
+$color-blue: $color-fold-bg;
+$color-light-grey: #c0c7ce;
+$color-grey: #eff1f2;
+$color-body: #051931;
 // Font
 // ----------------------------------------------------------------------
-$font-family: Futura-pt, Arial;
+$font-family: 'sofia-pro', Futura-pt, Arial;
 
 // Misc
 // ----------------------------------------------------------------------
@@ -59,13 +63,13 @@ $intro-title-offset: -15%;
 $intro-title-subtitle-font-size: 30%;
 $intro-title-subtitle-letter-spacing: 3.2px;
 
-
 // Footer
 // ----------------------------------------------------------------------
 $footer-padding: 150px;
 $footer-logo-border-width: 3px;
 $footer-logo-padding: 1%;
-$footer-logo-font-size: 20px;	// need it always t be a square, so use px
+$footer-logo-font-size: 20px;
+// need it always t be a square, so use px
 $footer-subtitle-font-size: 1rem;
 $footer-subtitle-letter-spacing: 2;
 $footer-email-font-size: 1rem;
@@ -73,7 +77,6 @@ $footer-email-font-weight: 100;
 $footer-email-letter-spacing: 2px;
 $footer-spacing: 20px;
 $footer-letter-width: 20px;
-
 
 // Sections
 // ----------------------------------------------------------------------
@@ -90,7 +93,8 @@ $section-brand-letter-color: $color-green;
 $section-brand-letter-font-size: 16rem;
 $section-header-hr-width: 60px;
 $section-header-hr-height: 2px;
-$section-header-hr-background: $color-black;;
+$section-header-hr-background: $color-black;
+;
 $section-header-inner-spacings: 3%;
 $section-title-font-size: 0.6rem;
 $section-subtitle-font-size: 2.1rem;
@@ -115,7 +119,7 @@ $button-letter-spacing: 0.05rem;
 // Speakers
 // ----------------------------------------------------------------------
 $speaker-sizes: (
-	"mobile": 1,
+	'mobile': 1,
 	"down to phablet": 2,
 	"desktop": 2
 );

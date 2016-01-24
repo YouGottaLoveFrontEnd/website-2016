@@ -1,14 +1,116 @@
-#schedule {
-
-  width: 55%;
-
-  @include js-mobile() {
-    width: 88%;
+.itinerary {
+  @keyframes slideOut {
+    0% {
+      left: 0;
+      opacity: 1;
+    }
+    20% {
+      left: 0;
+      opacity: 1;
+    }
+    60% {
+      left: -60;
+      opacity: 0;
+    }
+    99% {
+      left: -99%;
+      opacity: 0;
+    }
+    100% {
+      left: -100%;
+      opacity: 0;
+    }
   }
 
-  .coming-soon {
-    font-weight: 300;
+  @keyframes slideIn {
+    0% {
+      left: 100%;
+      opacity: 0;
+    }
+    100% {
+      left: 0;
+      opacity: 1;
+    }
+  }
+
+  ul {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    text-align: center;
+    border-bottom: 1px solid $color-white;
+    height: 30px;
+
+    li {
+      &:hover {
+        border-bottom: 1px solid $color-white;
+        margin-bottom: -5px
+      }
+    }
+
+    label {
+      cursor: pointer;
+    }
+  }
+
+  input[type='radio'] {
+    display: none;
+
+    &#day-1:checked ~ .views .day-1 {
+      display: block;
+      animation-name: slideIn;
+    }
+
+    &#day-2:checked ~ .views .day-2 {
+      display: block;
+      animation-name: slideIn;
+    }
+
+    &#day-3:checked ~ .views .day-3 {
+      display: block;
+      animation-name: slideIn;
+    }
+  }
+
+  .views {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+  }
+
+  .view {
+    display: none;
+    top: 0;
+    animation-name: slideOut;
+    animation-duration: 1s;
+    width: 100%;
+    padding-top: 30px;
+    position: relative;
+
+    .single-event {
+      margin-bottom: 40px;
+    }
   }
 }
 
+.event-description {
+  margin-bottom: 10px;
+  max-height: 60px;
+  transition: max-height .5s linear;
+  overflow: hidden;
+}
 
+.read-toggle{
+  width: 100px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 23px;
+  margin: 0;
+  cursor: pointer;
+  opacity: 0;
+}
+
+.read-toggle:checked ~ .event-description  {
+  max-height: 220px;
+}

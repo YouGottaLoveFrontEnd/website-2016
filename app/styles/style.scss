@@ -18,9 +18,14 @@
 @import "core/common";
 @import "core/layout";
 @import "core/skin";
+@import "core/page";
 
 // ======================================================================
 // =| Components |=======================================================
 // ======================================================================
 
+@import "components/shadow";
+@import "components/navigation";
 @import "components/main";
+@import "components/schedule";
+@import "components/sponsors";

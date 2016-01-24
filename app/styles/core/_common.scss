@@ -11,3 +11,52 @@
 .underline {
   text-decoration: underline;
 }
+
+h1 {
+  font-size: 5.2vmin;
+  line-height: 6.6vmin;
+  letter-spacing: .4vmax;
+}
+
+.description {
+  font-size: 2.4vmin;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+i {
+  display: inline-block;
+
+  &.facebook {
+    background-image: image-url('../images/svg/facebook.svg');
+    width: 11px;
+    height: 20px;
+  }
+
+  &.twitter {
+    background-image: image-url('../images/svg/twitter.svg');
+    width: 17px;
+    height: 14px;
+  }
+
+  &.linkedin {
+    background-image: image-url('../images/svg/linkedin.svg');
+    width: 19px;
+    height: 19px;
+  }
+}
+
+.sponsors-logos {
+  display: flex;
+
+  .single-sponsor {
+    width: 114px;
+    margin-right: 114px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}

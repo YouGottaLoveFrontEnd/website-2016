@@ -22,6 +22,18 @@ module.exports = function (grunt) {
     dist: 'dist'
   };
 
+  function getHtmlParts(directory) {
+    var obj = {};
+    var item;
+
+    grunt.file.recurse( directory + '/', function (abspath, rootdir, subdir, filename) {
+      item = filename.replace('.html', '');
+      obj[item] = grunt.file.read(directory + '/' + filename);
+    });
+
+    return obj;
+  }
+
   // Define the configuration for all the tasks
   grunt.initConfig({
 
@@ -34,6 +46,13 @@ module.exports = function (grunt) {
       //	files: ['bower.json'],
       //	tasks: ['wiredep']
       //},
+      html: {
+        files: ['<%= config.app %>/index.html','<%= config.app %>/pages/*.html'],
+        tasks: ['template:serve'],
+        options: {
+          livereload: true
+        }
+      },
       js: {
         files: ['<%= config.app %>/scripts/{,*/}*.js'],
         tasks: ['jshint'],
@@ -113,14 +132,16 @@ module.exports = function (grunt) {
     // Empties folders to start fresh
     clean: {
       dist: {
-        files: [{
-          dot: true,
-          src: [
-            '.tmp',
-            '<%= config.dist %>/*',
-            '!<%= config.dist %>/.git*'
-          ]
-        }]
+        files: [
+          {
+            dot: true,
+            src: [
+              '.tmp',
+              '<%= config.dist %>/*',
+              '!<%= config.dist %>/.git*'
+            ]
+          }
+        ]
       },
       server: '.tmp'
     },
@@ -184,12 +205,14 @@ module.exports = function (grunt) {
         browsers: ['last 1 version']
       },
       dist: {
-        files: [{
-          expand: true,
-          cwd: '.tmp/styles/',
-          src: '{,*/}*.css',
-          dest: '.tmp/styles/'
-        }]
+        files: [
+          {
+            expand: true,
+            cwd: '.tmp/styles/',
+            src: '{,*/}*.css',
+            dest: '.tmp/styles/'
+          }
+        ]
       }
     },
 
@@ -201,7 +224,7 @@ module.exports = function (grunt) {
             '<%= config.dist %>/scripts/{,*/}*.js',
             '<%= config.dist %>/styles/{,*/}*.css',
             //'<%= config.dist %>/images/{,*/}*.*',
-            '<%= config.dist %>/styles/fonts/{,*/}*.*',
+            '<%= config.dist %>/styles/fonts/{,*/}*.*'
             //'<%= config.dist %>/*.{ico,png}'
           ]
         }
@@ -230,23 +253,27 @@ module.exports = function (grunt) {
     // The following *-min tasks produce minified files in the dist folder
     imagemin: {
       dist: {
-        files: [{
-          expand: true,
-          cwd: '<%= config.app %>/images',
-          src: '{,*/}*.{gif,jpeg,jpg,png}',
-          dest: '<%= config.dist %>/images'
-        }]
+        files: [
+          {
+            expand: true,
+            cwd: '<%= config.app %>/images',
+            src: '{,*/}*.{gif,jpeg,jpg,png}',
+            dest: '<%= config.dist %>/images'
+          }
+        ]
       }
     },
 
     svgmin: {
       dist: {
-        files: [{
-          expand: true,
-          cwd: '<%= config.app %>/images',
-          src: '{,*/}*.svg',
-          dest: '<%= config.dist %>/images'
-        }]
+        files: [
+          {
+            expand: true,
+            cwd: '<%= config.app %>/images',
+            src: '{,*/}*.svg',
+            dest: '<%= config.dist %>/images'
+          }
+        ]
       }
     },
 
@@ -262,12 +289,14 @@ module.exports = function (grunt) {
           removeRedundantAttributes: true,
           useShortDoctype: true
         },
-        files: [{
-          expand: true,
-          cwd: '<%= config.dist %>',
-          src: '{,*/}*.html',
-          dest: '<%= config.dist %>'
-        }]
+        files: [
+          {
+            expand: true,
+            cwd: '<%= config.dist %>',
+            src: '{,*/}*.html',
+            dest: '<%= config.dist %>'
+          }
+        ]
       }
     },
 
@@ -300,35 +329,39 @@ module.exports = function (grunt) {
     // Copies remaining files to places other tasks can use
     copy: {
       dist: {
-        files: [{
-          expand: true,
-          dot: true,
-          cwd: '<%= config.app %>',
-          dest: '<%= config.dist %>',
-          src: [
-            '*.{ico,png,txt}',
-            '.htaccess',
-            'images/{,*/}*.webp',
-            '{,*/}*.html',
-            'styles/fonts/{,*/}*.*'
-          ]
-        }, {
-          expand: true,
-          dot: true,
-          cwd: './',
-          dest: '<%= config.dist %>',
-          src: [
-            'resources/**/*'
-          ]
-        }, {
-          expand: true,
-          dot: true,
-          cwd: './',
-          dest: '<%= config.dist %>',
-          src: [
-            'CNAME'
-          ]
-        }]
+        files: [
+          {
+            expand: true,
+            dot: true,
+            cwd: '<%= config.app %>',
+            dest: '<%= config.dist %>',
+            src: [
+              '*.{ico,png,txt}',
+              '.htaccess',
+              'images/{,*/}*.webp',
+              '{,*/}*.html',
+              'styles/fonts/{,*/}*.*'
+            ]
+          },
+          {
+            expand: true,
+            dot: true,
+            cwd: './',
+            dest: '<%= config.dist %>',
+            src: [
+              'resources/**/*'
+            ]
+          },
+          {
+            expand: true,
+            dot: true,
+            cwd: './',
+            dest: '<%= config.dist %>',
+            src: [
+              'CNAME'
+            ]
+          }
+        ]
       },
       styles: {
         expand: true,
@@ -361,9 +394,20 @@ module.exports = function (grunt) {
         base: 'dist'
       },
       src: ['**']
+    },
+    'template': {
+      'serve': {
+        'options': {
+          data: {
+            'pages': getHtmlParts('app/pages')
+          }
+        },
+        'files': {
+          '.tmp/index.html': 'app/index.html'
+        }
+      }
     }
   });
-
 
   grunt.registerTask('serve', 'start the server and preview your app, --allow-remote for remote access', function (target) {
     if (grunt.option('allow-remote')) {
@@ -375,6 +419,7 @@ module.exports = function (grunt) {
 
     grunt.task.run([
       'clean:server',
+      'template:serve',
       'concurrent:server',
       'autoprefixer',
       'connect:livereload',
@@ -392,7 +437,8 @@ module.exports = function (grunt) {
       grunt.task.run([
         'clean:server',
         'concurrent:test',
-        'autoprefixer'
+        'autoprefixer',
+        'template:serve'
       ]);
     }
 

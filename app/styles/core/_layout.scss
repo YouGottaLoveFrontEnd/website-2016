@@ -1,19 +1,210 @@
 html,
 body {
-	height: 100%;
-}
-
-body {
-	margin: 0;
-    overflow-x: hidden;
+  height: 100%;
+  margin: 0;
+  overflow-x: hidden;
+  color: $color-white;
 }
 
 main {
-	height: 100%;
+  height: 100%;
 
-	&:before,
-	&:after {
-		content: " ";
-		display: table;
-	}
+  &:before,
+  &:after {
+    content: " ";
+    display: table;
+  }
 }
+
+.page {
+  background-color: $color-blue;
+  overflow-x: hidden;
+}
+
+section {
+  width: calc(100vw - 40px);
+  max-width: 1318px;
+  margin: 0 auto;
+
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+.center {
+  margin: 0 auto;
+}
+
+.w100 {
+  width: 100%;
+  position: relative;
+}
+
+.w50 {
+  width: 49%;
+  position: relative;
+}
+
+.w33 {
+  width: 33%;
+  position: relative;
+}
+
+.w66 {
+  width: 66%;
+  position: relative;
+}
+
+.js .pages-stack--open {
+  .page {
+    overflow: hidden;
+  }
+}
+
+.footer {
+  height: 542px;
+  border-top: 1px solid;
+  border-bottom: 1px solid;
+  padding: 68px 0 206px;
+
+  h4 {
+    letter-spacing: 9px;
+    margin-bottom: 45px;
+  }
+
+  .link {
+    line-height: 30px;
+    font-weight: 400;
+    font-size: 15px;
+    transition: all .3s;
+
+    hr {
+      opacity: 0;
+      width: 0;
+      position: absolute;
+      bottom: -3px;
+      transition: all .3s;
+
+    }
+
+    &:hover {
+      padding: 0 10px;
+
+      hr {
+        opacity: 1;
+        width: 10%;
+        margin-left: -10px;
+      }
+    }
+  }
+
+  p {
+    line-height: 30px;
+    font-weight: 400;
+    font-size: 20px;
+  }
+
+  .link,
+  p {
+
+    width: 342px;
+    letter-spacing: 3px;
+    color: $color-white;
+
+  }
+
+  form {
+    margin-top: 67px;
+
+    label {
+      position: relative;
+      width: 212px;
+      height: 50px;
+      display: inline-block;
+      float: left;
+      border: 2px solid $color-white;
+      border-right: 0;
+
+      * {
+        position: absolute;
+      }
+
+      input.full ~ span,
+      input:valid ~ span,
+      input:focus ~ span {
+        top: -18px;
+        left: 0;
+        font-size: 14px;
+      }
+
+      input:focus {
+        outline: none;
+      }
+
+      span {
+        top: 15px;
+        left: 11px;
+        transition: all .2s;
+        font-size: 16px;
+        font-weight: 200;
+      }
+
+    }
+  }
+
+  input {
+    line-height: 54px;
+    height: 54px;
+    font-size: 18px;
+    letter-spacing: 1px;
+    padding: 0 11px;
+    border: none;
+
+    &[type='email'] {
+      background: transparent;
+      color: $color-white;
+
+    }
+
+    &[type='submit'] {
+      border: 2px solid $color-white;
+      color: $color-blue;
+      background-color: $color-white;
+    }
+
+  }
+
+}
+
+.page-intro {
+  height: 403px;
+  margin-bottom: 210px;
+
+  .multiple-wrapper {
+    width: 255px;
+    height: 80px;
+    margin: 80px 0;
+  }
+
+  h2 {
+    font-size: 70px;
+  }
+
+  .sub-title {
+    margin-left: -20px;
+    font-size: 18px;
+  }
+
+  hr {
+    max-width: 140px;
+    margin-right: calc(100% - 140px);
+    border-color: $color-green;
+    margin-bottom: 88px;
+  }
+}
+
