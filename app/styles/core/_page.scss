@@ -73,7 +73,7 @@
     line-height: 25px;
     word-break: break-word;
     letter-spacing: 6px;
-    transition: all .3s linear;
+    transition: all .5s cubic-bezier(0.420, 0.000, 1.000, 1.000);;
     font-size: 16px;
     font-weight: 300;
 

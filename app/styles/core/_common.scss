@@ -106,15 +106,15 @@ p {
     max-width: 0;
     content: ' ';
     height: 100%;
-    transition: max-width .3s linear;
+    transition: max-width .5s cubic-bezier(0.420, 0.000, 1.000, 1.000);
   }
 }
 
 .full-btn {
-  color: $color-white;
+  color: $color-grey;
 
   &:after {
-    background-color: $color-white;
+    background-color: $color-grey;
     z-index: -1;
   }
 
@@ -128,7 +128,7 @@ p {
 }
 
 .btn {
-  color: $color-white;
+  color: $color-grey;
 
   &:after {
     background-color: transparent;
@@ -152,12 +152,14 @@ p {
 
   &:after {
     background-color: transparent;
-    color: $color-green;
+    color: $color-grey;
     z-index: 1;
-    text-transform: uppercase;
     overflow: hidden;
-    padding: 1px 15px 0px 23px;
+    padding: 6px 15px 0px 23px;
     opacity: 0;
+    font-size: 16px;
+    font-weight: 100;
+    letter-spacing: 2px;
   }
 
   &:hover {
