@@ -36,7 +36,7 @@
     font-weight: 400;
     line-height: 56px;
     letter-spacing: 10px;
-    border: 1px solid #c0c7ce;
+    border: 1px solid $color-light-grey;
     cursor: pointer;
     outline: none;
     font-family: $font-family;
@@ -45,7 +45,6 @@
       content: 'register';
     }
   }
-
 
   .cloud {
     width: 27px;
@@ -75,8 +74,6 @@
     color: transparent;
     -webkit-text-fill-color: transparent; /* Will override color (regardless of order) */
     -webkit-text-stroke-width: 1px;
-
-
 
   }
 
@@ -141,7 +138,6 @@
 }
 
 .single-speaker {
-  width: 100%;
   height: 512px;
   position: relative;
   margin-bottom: 216px;
@@ -155,7 +151,12 @@
 
   .speaker-info {
     position: relative;
-    width: 515px;
+    max-width: 50%;
+    border-top: 1px solid;
+    border-bottom: 1px solid;
+    padding: 5px 0;
+    width: 100%;
+    transition: max-width .3s linear;
 
     h3,
     p {
@@ -184,6 +185,8 @@
     }
 
     &:hover {
+      max-width: calc(100% - 64px);
+
       h3 {
         top: 20%;
       }
@@ -198,7 +201,7 @@
 
 .single-speaker.left {
   .speaker-social {
-    right: -40px;
+    left: -64px;
   }
 
   .expertise {
@@ -220,7 +223,7 @@
 
 .single-speaker.right {
   .speaker-social {
-    left: -40px;
+    right: -50px;
   }
 
   .expertise {
@@ -230,13 +233,16 @@
   .speaker-info {
     margin-right: 64px;
     float: right;
+    text-align: right;
 
     h3 {
       left: -80px;
+      text-align: left;
     }
 
     p {
       left: -80px;
+      text-align: left;
     }
   }
 }
@@ -253,7 +259,7 @@
 
 .speaker-social {
   position: absolute;
-  top: 0;
+  bottom: 0;
   width: 23px;
 
   svg {
