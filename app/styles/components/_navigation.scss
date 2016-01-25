@@ -1,46 +1,46 @@
 .pages-nav {
   position: absolute;
-  top: 60px;
+  top: 20px;
 
   ul {
     width: 460px;
     text-align: center;
 
     li {
-      margin: 70px auto;
+      margin: 46px auto;
 
       a {
-        color: $color-grey;
         text-decoration: none;
-        position: relative;
-        padding: 0 10px;
-        transition: color .2s .1s linear;
-        font-size: 18px;
-        font-weight: 300;
-        letter-spacing: 4px;
 
         &:after {
-          content: ' ';
-          transition: all .3s linear;
-          width: 0;
-          height: 29px;
-          background-color: $color-grey;
-          display: block;
-          position: absolute;
-          top: 0;
-          left: 0;
-          z-index: -1;
+          line-height: 29px;
         }
 
-        &:hover {
-          color: $color-blue;
-
+        &[href="#page-home"] {
           &:after {
-            width: 100%;
+            content: 'home';
+          }
+        }
+
+        &[href="#page-sponsors"] {
+          &:after {
+            content: 'sponsors';
+          }
+        }
+
+        &[href="#page-schedule"] {
+          &:after {
+            content: 'schedule';
+          }
+        }
+
+        &[href="#page-home"] {
+          &:after {
+            content: 'HOME';
           }
         }
       }
-
     }
+
   }
 }
