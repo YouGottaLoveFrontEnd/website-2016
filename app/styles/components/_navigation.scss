@@ -1,6 +1,6 @@
 .pages-nav {
   position: absolute;
-  top: 80px;
+  top: 20px;
 
   ul {
     width: 460px;
@@ -11,9 +11,6 @@
 
       a {
         text-decoration: none;
-        font-size: 18px;
-        letter-spacing: 2px;
-        font-weight: 200;
 
         &:after {
           line-height: 29px;

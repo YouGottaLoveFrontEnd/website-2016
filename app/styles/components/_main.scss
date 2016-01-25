@@ -39,6 +39,9 @@
     font-family: $font-family;
 
     &:after {
+      content: ' ';
+    }
+    &:before {
       content: 'register';
     }
   }

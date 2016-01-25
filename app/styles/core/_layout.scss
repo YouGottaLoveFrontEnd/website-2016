@@ -4,6 +4,11 @@ body {
   margin: 0;
   overflow-x: hidden;
   color: $color-white;
+
+  &.menu--open {
+    height: 100vh;
+    overflow: hidden;
+  }
 }
 
 main {

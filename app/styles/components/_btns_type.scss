@@ -1,0 +1,120 @@
+
+.full-btn,
+.btn,
+.transparent-btn {
+  background-color: transparent;
+  position: relative;
+  cursor: pointer;
+  padding: 1px 15px 0px 23px;
+
+  &:after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    max-width: 0;
+    content: ' ';
+    height: 100%;
+    transition: max-width .3s linear;
+  }
+}
+
+.full-btn {
+  color: $color-white;
+
+  &:after {
+    background-color: $color-white;
+    z-index: -1;
+  }
+
+  &:hover {
+    color: $color-blue;
+
+    &:after {
+      padding: 0px 35px;
+    }
+  }
+}
+
+.btn {
+  color: $color-white;
+  overflow: hidden;
+
+  &:after,
+  &:before {
+    background-color: $color-light-grey;
+    max-width: 100%;
+    color: $color-blue;
+    z-index: 1;
+    text-transform: uppercase;
+    overflow: hidden;
+    padding: 1px 15px 0px 23px;
+    opacity: 1;
+    transition: max-width .3s linear;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  span {
+    z-index: 3;
+    position: inherit;
+    color: $color-blue;
+  }
+
+  &:after {
+    background-color: $color-green;
+    max-width: 0;
+    padding: 0;
+    transition: padding .3s linear;
+  }
+  &:hover {
+    &:after {
+      padding: 100%;
+    }
+  }
+}
+
+.transparent-btn {
+
+  &:after {
+    background-color: transparent;
+    color: $color-green;
+    z-index: 1;
+    text-transform: uppercase;
+    overflow: hidden;
+    padding: 1px 15px 0px 23px;
+    opacity: 0;
+  }
+
+  &:hover {
+    &:after {
+      max-width: 100%;
+      opacity: 1;
+    }
+  }
+}
+
+.text-btn {
+  color: $color-white;
+  position: relative;
+
+  &:after {
+    background-color: transparent;
+    max-width: 0;
+    color: $color-green;
+    z-index: 1;
+    text-transform: uppercase;
+    overflow: hidden;
+    opacity: 1;
+    transition: max-width .3s linear;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  &:hover {
+    &:after {
+      max-width: 100%;
+    }
+  }
+}

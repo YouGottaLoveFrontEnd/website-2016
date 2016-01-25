@@ -253,8 +253,8 @@ function onPageClick(e) {
   window.location.hash = '#' + $(this).attr('id');
 }
 
-function onMenuTriggerChange() {
-  var margin = 50;
+function reorderPages() {
+  var margin = 10;
   var zindex = 9;
   var numOfPages = $('.pages-stack').children('.page').length;
   var currentCue = $('.page').index($('.current'));
@@ -267,38 +267,51 @@ function onMenuTriggerChange() {
       currentCue = 0;
     }
   }
-  if ($('#menu-trigger:checked').length) {
 
-    for (var i = 0; i < pagesNewOrder.length; i++) {
-      var page = pagesNewOrder[i];
-      if (i === 0) {
-        page.css({zIndex: zindex, opacity: 1, transform: 'translate3d(0px, 75%, -200px)'});
-      } else {
-        var depth = 200 + (margin * i);
-        var newIndex = zindex - i;
-        var newOpacity = (1 / numOfPages) * (numOfPages - i);
-        page.css({zIndex: newIndex, opacity: newOpacity, transform: 'translate3d(0px, 75%, -' + depth + 'px)'});
-      }
-      page.on('click tap touch', onPageClick);
+  for (var i = 0; i < pagesNewOrder.length; i++) {
+    var page = pagesNewOrder[i];
+    if (i === 0) {
+      page.css({zIndex: zindex, opacity: 1, top: 270, transform: 'scale(.9)'});
+    } else {
+      var depth = 300 - (margin * i);
+      var newWidth = 0.9 - (i / 10) + 0.05;
+      var newIndex = zindex - i;
+      var newOpacity = (1 / numOfPages) * (numOfPages - i);
+      page.css({zIndex: newIndex, opacity: newOpacity, top: depth, transform: 'scaleX(' + newWidth + ')'});
     }
+  }
+}
 
+function onMenuTriggerChange() {
+
+  if ($('#menu-trigger:checked').length) {
+    reorderPages();
+    $('footer').toggleClass('show');
   } else {
     $('.pages-stack').children('.page').each(function () {
       $(this).removeAttr('style');
       $(this).unbind('click tap touch', onPageClick);
     });
+    setTimeout(function () {
+      $('footer').toggleClass('show');
+    }, 400);
   }
 }
 
 function disableLink(hash) {
   $('.link.not-active').removeClass('not-active');
 
-  $('.pages-nav').children('.link').each(function () {
+  $('.pages-nav .link').each(function () {
     if ($(this).attr('href').slice(1) === hash) {
       $(this).addClass('not-active');
     }
   });
 }
+
+function fixOffset() {
+  $('.page.current').offset({top: 0, left: 0})
+}
+
 function hashchange() {
   var hash = location.hash.slice(1);
   if (hash === undefined || hash === '' || $('#' + hash).hasClass('current')) {
@@ -310,10 +323,6 @@ function hashchange() {
   }
   $('.page.current').removeClass('current');
   $('#' + hash).addClass('current');
-  if ($('#menu-trigger:checked').length) {
-    $('#menu-trigger').attr('checked', false);
-    onMenuTriggerChange();
-  }
   disableLink(hash);
 }
 
@@ -413,14 +422,21 @@ $(document).ready(function () {
   });
 
   initShadow({count: 4});
-//  buildStack();
-//  initEvents();
   hashchange();
-  $(window).on('hashchange', hashchange);
-  $('.pages-nav').children('.link').each(function () {
+//  $(window).on('hashchange', hashchange);
+  $('.pages-nav .link').each(function () {
     $(this).on('click tap touch', function (e) {
-      e.preventDefault;
-      window.location.hash = $(this).attr('href');
+      var hash = $(this).attr('href');
+      e.preventDefault();
+      $('.page.current').removeClass('current');
+      $(hash).addClass('current');
+      reorderPages();
+      setTimeout(function () {
+        $('#menu-trigger').attr('checked', false);
+        onMenuTriggerChange();
+        disableLink(hash.slice(1));
+//        window.location.hash = hash;
+      }, 400);
     });
   });
   var weatherURL = 'http://api.openweathermap.org/data/2.5/weather';
@@ -441,6 +457,7 @@ $(document).ready(function () {
   });
 
   $('#menu-trigger').on('click tap touch', onMenuTriggerChange);
+  $('footer').toggleClass('show');
 });
 
 $(window).load(function () {
