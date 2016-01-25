@@ -95,14 +95,6 @@ function pageGalleryTouch(e) {
     }, 1000);
   }
 }
-var moduleInterval = 20;
-function pageGalleryChange(e) {
-  var deltaY = e.originalEvent.wheelDeltaY > 0 ? 1 : -1;
-  if (e.originalEvent.wheelDeltaY % moduleInterval === deltaY) {
-    var currentPageIndex = getActivePageIndex();
-    changeActivePage(currentPageIndex, deltaY, 5);
-  }
-}
 
 function thisConfigProps(e, _this) {
   return {offset: _this.offset(), relX: e.pageX - _this.offset().left, relY: e.pageY - _this.offset().top, x: _this.width() / 2, y: _this.height() / 2};
@@ -298,16 +290,6 @@ function onMenuTriggerChange() {
   }
 }
 
-function onPageChange(pageId) {
-
-  $('.page.current').removeClass('current');
-  $('#' + pageId).addClass('current');
-  if ($('#menu-trigger:checked').length) {
-    $('#menu-trigger').attr('checked', false);
-  }
-  onMenuTriggerChange();
-}
-
 function disableLink(hash) {
   $('.link.not-active').removeClass('not-active');
 
@@ -371,10 +353,10 @@ function initShadow(config) {
             matrix = $(this).css('transform').replace('matrix(', '').replace(')', '').split(','),
             distanceX = parseInt(matrix[matrix.length - 2]),
             distanceY = parseInt(matrix[matrix.length - 1]),
-            margin = 5 * (index + 1);
+            margin = 1 * (index + 1);
         if (mouseX >= box.x && mouseX <= box.xmax) {
           point.x = ((mouseX - box.x) / box.xmax) * 10;
-          direction = point.x > .5 ? 1 : -1;
+          direction = point.x > 0.5 ? 1 : -1;
           distanceX = (point.x * margin);
           if (direction < 0) {
             distanceX += margin * direction;
@@ -461,15 +443,6 @@ $(document).ready(function () {
   $('#menu-trigger').on('click tap touch', onMenuTriggerChange);
 });
 
-//$('.menu-button').on('click tap touch', function () {
-//  if ($('.pages-nav').hasClass('pages-nav--open')) {
-//    $(window).on('mousewheel', pageGalleryChange);
-//    $('.pages-stack').on('touchmove', pageGalleryTouch);
-//  } else {
-//    $(window).unbind('mousewheel', pageGalleryChange);
-//    $('.pages-stack').unbind('touchmove', pageGalleryTouch);
-//  }
-//});
 $(window).load(function () {
   pageLoaded = true;
 
