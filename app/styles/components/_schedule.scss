@@ -39,7 +39,7 @@
     justify-content: space-around;
     text-align: center;
     border-bottom: 1px solid $color-white;
-    height: 30px;
+    height: 45px;
 
     li {
       &:hover {
@@ -76,6 +76,7 @@
     width: 80%;
     margin: 0 auto;
     display: flex;
+    padding-top: 50px;
   }
 
   .view {
@@ -109,8 +110,39 @@
   margin: 0;
   cursor: pointer;
   opacity: 0;
+
+}
+
+.read-toggle-label{
+  font-size: 13px;
+  color: $color-green;
 }
 
 .read-toggle:checked ~ .event-description  {
   max-height: 220px;
+}
+
+.hosted-by{
+  display: block;
+  font-size: 16px;
+  font-weight: 100;
+  margin-top: 15px;
+}
+
+.event-description{
+  font-family: $font-libre;
+  font-size: 14px;
+  line-height: 25px;
+  letter-spacing: 2px;
+  margin-top: 25px;
+}
+
+.event-name{
+
+  font-size: 18px;
+  font-weight: 300;
+}
+
+.event-time{
+  font-size: 18px;
 }
