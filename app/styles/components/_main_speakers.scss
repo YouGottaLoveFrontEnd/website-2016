@@ -1,7 +1,84 @@
 
 .speakers-wrapper {
   display: table;
+}
 
+@keyframes shiftSpeakerName {
+  0% {
+    top: 58%;
+  }
+  50% {
+    top: 15%;
+  }
+  100% {
+    top: 15%;
+  }
+}
+
+@keyframes shiftSpeakerNameOut {
+  0% {
+    top: 15%;
+  }
+  50% {
+    top: 15%;
+  }
+  100% {
+    top: 58%;
+  }
+}
+
+@keyframes shiftSpeakerBio {
+  0% {
+    top: 74%;
+  }
+  50% {
+    top: 26%;
+  }
+  100% {
+    top: 26%;
+  }
+}
+
+@keyframes shiftSpeakerBioOut {
+  0% {
+    top: 26%;
+  }
+  50% {
+    top: 26%;
+  }
+  100% {
+    top: 74%;
+  }
+}
+
+@keyframes shiftSpeakerDescription {
+  0% {
+    top: 87%;
+    max-height: 0;
+  }
+  50% {
+    top: 36%;
+    max-height: 0;
+  }
+  100% {
+    top: 36%;
+    max-height: 70%;
+  }
+}
+
+@keyframes shiftSpeakerDescriptionOut {
+  0% {
+    top: 36%;
+    max-height: 70%;
+  }
+  50% {
+    top: 36%;
+    max-height: 0;
+  }
+  100% {
+    top: 87%;
+    max-height: 0;
+  }
 }
 
 .single-speaker {
@@ -15,14 +92,14 @@
     transform-origin: 0;
     top: 7px;
     font-size: 10px;
-    color: rgba(255,255,255,0.5);
+    color: rgba(255, 255, 255, 0.5);
   }
 
   .speaker-info {
     position: relative;
     max-width: 50%;
-    border-top: 1px solid rgba(0,208,157,0.3);
-    border-bottom: 1px solid rgba(0,208,157,0.3);
+    border-top: 1px solid rgba(0, 208, 157, 0.3);
+    border-bottom: 1px solid rgba(0, 208, 157, 0.3);
     padding: 10px 0;
     width: 100%;
     transition: max-width .5s linear;
@@ -30,29 +107,45 @@
     h3,
     p {
       pointer-events: none;
+
     }
 
     h3 {
       font-size: 45px;
       position: absolute;
-      top: 68%;
-      transition: top .5s linear;
+      top: 58%;
+      animation: shiftSpeakerNameOut .5s forwards;
+      //      transition: top .5s linear;
       letter-spacing: 2px;
       font-weight: 400;
-
+      max-width: 390px;
+      width: 390px;
     }
 
-    p {
+    .speaker-bio,
+    .speaker-description {
       position: absolute;
       font-size: 16px;
       font-weight: 100;
       line-height: 26px;
       letter-spacing: 1px;
-      max-height: 55px;
       width: 390px;
       overflow: hidden;
-      top: 84%;
       transition: max-height .5s linear, top .5s linear;
+    }
+
+    .speaker-description {
+      top: 87%;
+      max-height: 0;
+      animation: shiftSpeakerDescriptionOut .5s forwards;
+    }
+
+    .speaker-bio {
+      top: 74%;
+      animation: shiftSpeakerBioOut .5s forwards;
+
+      max-height: auto;
+      font-weight: bolder;
     }
 
     .speaker-image {
@@ -63,12 +156,15 @@
       max-width: calc(100% - 64px);
 
       h3 {
-        top: 20%;
+        animation: shiftSpeakerName .5s forwards;
       }
 
-      p {
-        max-height: 70%;
-        top: 36%;
+      .speaker-bio {
+        animation: shiftSpeakerBio .5s forwards;
+      }
+
+      .speaker-description {
+        animation: shiftSpeakerDescription .5s forwards;
       }
     }
   }
@@ -86,12 +182,10 @@
   .speaker-info {
     margin-left: 64px;
 
-    h3 {
-      right: 0px;
-    }
-
-    p {
-      right: -75px;
+    h3,
+    .speaker-bio,
+    .speaker-description {
+      left: 50%;
     }
   }
 }
@@ -102,7 +196,9 @@
   }
 
   .expertise {
-    right: -210px;
+    right: 10px;
+    transform: rotate(-90deg);
+    transform-origin: 100%;
   }
 
   .speaker-info {
@@ -110,13 +206,10 @@
     float: right;
     text-align: right;
 
-    h3 {
-      left: -80px;
-      text-align: left;
-    }
-
-    p {
-      left: -80px;
+    h3,
+    .speaker-bio,
+    .speaker-description {
+      right: 50%;
       text-align: left;
     }
   }
