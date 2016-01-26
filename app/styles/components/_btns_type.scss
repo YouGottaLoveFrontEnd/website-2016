@@ -19,10 +19,10 @@
 }
 
 .full-btn {
-  color: $color-white;
+  color: $color-grey;
 
   &:after {
-    background-color: $color-white;
+    background-color: $color-grey;
     z-index: -1;
   }
 
@@ -36,7 +36,7 @@
 }
 
 .btn {
-  color: $color-white;
+  color: $color-grey;
   overflow: hidden;
 
   &:after,
@@ -96,7 +96,7 @@
 }
 
 .text-btn {
-  color: $color-white;
+  color: $color-grey;
   position: relative;
 
   &:after {
