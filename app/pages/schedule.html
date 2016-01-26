@@ -19,9 +19,9 @@
 <section class="itinerary">
     <div>
         <ul>
-            <li class="w33"><label for="day-1">Day 1</label></li>
-            <li class="w33"><label for="day-2">Day 2</label></li>
-            <li class="w33"><label for="day-3">Day 3</label></li>
+            <li class="w33 full-btn active-tab"><label for="day-1">Day 1</label></li>
+            <li class="w33 full-btn"><label for="day-2">Day 2</label></li>
+            <li class="w33 full-btn"><label for="day-3">Day 3</label></li>
         </ul>
         <input type="radio" name="view" id="day-1" checked>
         <input type="radio" name="view" id="day-2">
@@ -32,9 +32,19 @@
                     <label class="event-time left w33">08:30 - 09:30</label>
                     <div class="event-info right w66">
                         <label class="event-name">Day 1</label>
-                        <p class="event-description">Grab your badges,
-                            breakfast from our food carts,
-                            and complimentary coffee drinks from Roseline Coffee.</p>
+                        <input class="read-toggle" type="checkbox">
+                        <p class="event-description">The web was originally imagined to be a simple
+                            distributed document retrieval system. It is now being used for applications
+                            that go far beyond the system's original capabilities and intentions.
+                            We have found ways to make it work,
+                            but they are difficult and far too fragile.
+                            Many times companies have offered to replace
+                            the web with superior proprietary systems, but we rejected them.
+                            We have been adding features to the web, but this does little to correct the deep underlying deficiencies, increasing instead of reducing its complexity.
+                            This talk suggests a way forward,
+                            taking inspiration from our successful transition from NTSC to HDTV.
+                            There is a way forward to a web that is safer, easier, and as good as we desire.</p>
+                        <label class="read-toggle-label "></label>
                     </div>
                 </div>
                 <div class="single-event left">
@@ -54,7 +64,7 @@
                             This talk suggests a way forward,
                             taking inspiration from our successful transition from NTSC to HDTV.
                             There is a way forward to a web that is safer, easier, and as good as we desire.</p>
-                        <label data-more="read-more" data-less="read-less" class="read-toggle-label">read more</label>
+                        <label class="read-toggle-label "></label>
                     </div>
                 </div>
                 <div class="single-event left">

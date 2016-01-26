@@ -1,4 +1,6 @@
 .itinerary {
+  padding-bottom: 100px;
+
   @keyframes slideOut {
     0% {
       left: 0;
@@ -38,18 +40,32 @@
     flex-flow: row wrap;
     justify-content: space-around;
     text-align: center;
-    border-bottom: 1px solid $color-white;
+    width: 80%;
+    margin: 0 auto;
     height: 45px;
 
     li {
-      &:hover {
-        border-bottom: 1px solid $color-white;
-        margin-bottom: -5px
+      overflow: hidden;
+      padding: 0;
+      border-bottom: 1px solid $color-white;
+
+      &:after {
+        background-color: $color-green;
+        transition: padding .3s linear;
+      }
+
+      &.active-tab:after,
+      &:hover:after {
+        padding: 0 400px;
+      }
+
+      &.active-tab {
+        color: $color-blue;
       }
     }
-
     label {
       cursor: pointer;
+      line-height: 45px;
     }
   }
 
@@ -96,7 +112,7 @@
 
 .event-description {
   margin-bottom: 10px;
-  max-height: 60px;
+  max-height: 50px;
   transition: max-height .5s linear;
   overflow: hidden;
 }
@@ -116,10 +132,20 @@
 .read-toggle-label{
   font-size: 13px;
   color: $color-green;
+
+  &:before {
+    content: 'Read More';
+  }
+}
+
+.read-toggle:checked ~ .read-toggle-label {
+  &:before {
+    content: 'Read Less';
+  }
 }
 
 .read-toggle:checked ~ .event-description  {
-  max-height: 220px;
+  max-height: 300px;
 }
 
 .hosted-by{
