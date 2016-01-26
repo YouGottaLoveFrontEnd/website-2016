@@ -171,6 +171,8 @@
 .menu-trigger:checked ~ .pages-stack {
   perspective-origin: 50% -50%;
   height: 100vh;
+  margin-top: -260px;
+  margin-bottom: 0;
 
   .page {
     border: 1px solid $color-green;

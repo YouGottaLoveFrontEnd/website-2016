@@ -14,6 +14,10 @@
       a {
         text-decoration: none;
 
+        &.not-active {
+          color: $color-green;
+        }
+
         &:after {
           line-height: 29px;
         }
