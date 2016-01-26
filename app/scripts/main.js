@@ -21,6 +21,36 @@ var minimalLoadTimeInterval = setInterval(function () {
     });
   }
 }, 1000);
+function fixScheduleHeader(active) {
+  if (active) {
+    $('.schedule-nav li , .itinerary ul li').each(function (index) {
+      $(this).on('click tap touch', function () {
+        var child = index % 3;
+        $('.itinerary input[name="view"]:checked').prop('checked', false);
+        $('#' + $(this).children('label').attr('for')).prop('checked', true);
+        $('.active-tab').removeClass('active-tab');
+        $('.schedule-nav').children().eq(child).addClass('active-tab');
+        $('.itinerary ul').children().eq(child).addClass('active-tab');
+        var scrollToVal = window.scrollY < 811 ? window.scrollY : 811;
+        $(window).scrollTop(scrollToVal)
+      });
+    });
+    $(window).on('scroll', function () {
+      if (window.scrollY > 810) {
+        if (!$('.schedule-nav').hasClass('show')) {
+          $('.schedule-nav').addClass('show');
+        }
+      } else if (window.scrollY <= 810) {
+        if ($('.schedule-nav').hasClass('show')) {
+          $('.schedule-nav').removeClass('show');
+        }
+      }
+    });
+
+  } else {
+    $(window).unbind('scroll');
+  }
+}
 
 function getActivePageIndex() {
   var currentPageIndex;
@@ -321,6 +351,13 @@ function hashchange() {
     disableLink($('.page').eq(0).attr('id').slice(1));
     return;
   }
+
+  if (hash === 'page-schedule') {
+    fixScheduleHeader(true);
+  }else {
+    fixScheduleHeader(false)
+  }
+
   $('.page.current').removeClass('current');
   $('#' + hash).addClass('current');
   disableLink(hash);
@@ -423,7 +460,6 @@ $(document).ready(function () {
 
   initShadow({count: 4});
   hashchange();
-//  $(window).on('hashchange', hashchange);
   $('.pages-nav .link').each(function () {
     $(this).on('click tap touch', function (e) {
       var hash = $(this).attr('href');
@@ -431,11 +467,15 @@ $(document).ready(function () {
       $('.page.current').removeClass('current');
       $(hash).addClass('current');
       reorderPages();
+      if (hash === '#page-schedule') {
+        fixScheduleHeader(true);
+      }else {
+        fixScheduleHeader(false)
+      }
       setTimeout(function () {
         $('#menu-trigger').attr('checked', false);
         onMenuTriggerChange();
         disableLink(hash.slice(1));
-//        window.location.hash = hash;
       }, 400);
     });
   });

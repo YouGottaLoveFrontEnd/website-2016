@@ -1,3 +1,46 @@
+.schedule-nav {
+  position: fixed;
+  width: 100%;
+  left: 0;
+  z-index: 999999;
+  background-color: $color-blue;
+  display: none;
+
+  &.show {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    text-align: center;
+    width: 100%;
+    margin: 0 auto;
+    height: 45px;
+  }
+
+  li {
+    overflow: hidden;
+    padding: 0;
+    border-bottom: 1px solid $color-white;
+
+    &:after {
+      background-color: $color-green;
+      transition: padding .3s linear;
+    }
+
+    &.active-tab:after,
+    &:hover:after {
+      padding: 0 400px;
+    }
+
+    &.active-tab {
+      color: $color-blue;
+    }
+  }
+  label {
+    cursor: pointer;
+    line-height: 45px;
+  }
+}
+
 .itinerary {
   padding-bottom: 100px;
 
@@ -34,7 +77,6 @@
       opacity: 1;
     }
   }
-
   ul {
     display: flex;
     flex-flow: row wrap;
@@ -68,7 +110,6 @@
       line-height: 45px;
     }
   }
-
   input[type='radio'] {
     display: none;
 
@@ -117,7 +158,7 @@
   overflow: hidden;
 }
 
-.read-toggle{
+.read-toggle {
   width: 100px;
   position: absolute;
   bottom: 0;
@@ -129,7 +170,7 @@
 
 }
 
-.read-toggle-label{
+.read-toggle-label {
   font-size: 13px;
   color: $color-green;
 
@@ -144,18 +185,18 @@
   }
 }
 
-.read-toggle:checked ~ .event-description  {
+.read-toggle:checked ~ .event-description {
   max-height: 300px;
 }
 
-.hosted-by{
+.hosted-by {
   display: block;
   font-size: 16px;
   font-weight: 100;
   margin-top: 15px;
 }
 
-.event-description{
+.event-description {
   font-family: $font-libre;
   font-size: 14px;
   line-height: 25px;
@@ -163,12 +204,11 @@
   margin-top: 25px;
 }
 
-.event-name{
-
+.event-name {
   font-size: 18px;
   font-weight: 300;
 }
 
-.event-time{
+.event-time {
   font-size: 18px;
 }
