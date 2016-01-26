@@ -1,6 +1,8 @@
 .pages-nav {
-  position: absolute;
-  top: 20px;
+  width: 100%;
+  max-width: 1380px;
+  margin: 90px auto 0;
+  display: none;
 
   ul {
     width: 460px;
