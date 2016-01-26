@@ -1,8 +1,20 @@
+footer {
+  position: fixed;
+  bottom: 0;
+  display: none;
+  z-index: -1;
+  width: 100%;
+
+  &.show {
+    display: block;
+  }
+}
+
 .footer {
-  height: 542px;
-  border-top: 1px solid;
-  border-bottom: 1px solid;
-  padding: 68px 0 206px;
+  height: 50vh;
+  position: relative;
+  top: 10vh;
+  margin: 0 auto;
 
   h4 {
     letter-spacing: 9px;
