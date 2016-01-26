@@ -82,14 +82,12 @@
     z-index: 1;
     text-transform: uppercase;
     overflow: hidden;
-    padding: 1px 15px 0px 23px;
-    opacity: 0;
+    margin-left: 30px;
   }
 
   &:hover {
     &:after {
       max-width: 100%;
-      opacity: 1;
     }
   }
 }
