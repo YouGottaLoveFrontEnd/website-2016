@@ -100,7 +100,6 @@
 
     img {
       height: 15px;
-      width: 23px;
     }
 
     a {
@@ -113,6 +112,7 @@
     .facebook {
       &:after {
         content: 'Facebook';
+        margin-left: 20px;
       }
     }
     .transparent-btn:hover {
