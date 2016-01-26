@@ -1,0 +1,192 @@
+.menu-trigger,
+.menu-wrapper {
+  position: absolute;
+  z-index: 1000;
+  top: 60px;
+  left: 60px;
+
+}
+
+.menu-button,
+.menu-trigger {
+  width: 72px;
+  height: 70px;
+}
+
+.menu-trigger {
+  opacity: 0;
+  cursor: pointer;
+  z-index: 1001;
+  top: 60px;
+  left: 60px;
+  margin: 0;
+}
+
+.menu-wrapper {
+  .full-btn {
+    &:after {
+      transition: padding .2s linear;
+    }
+  }
+}
+
+.menu-wrapper {
+  width: 126px;
+  height: 82px;
+
+  .menu-button {
+    padding: 0;
+    border: 1px solid $color-grey;
+    cursor: pointer;
+    outline: none;
+
+    font-size: 21px;
+    line-height: 25px;
+    word-break: break-word;
+    letter-spacing: 6px;
+    transition: all .3s linear;
+    font-size: 16px;
+    font-weight: 300;
+
+    span {
+      float: left;
+      width: 16px;
+
+      &:first-child,
+      &:nth-child(3n) {
+        margin-left: 19px;
+      }
+
+      &:nth-child(2n) {
+        margin-left: 8px;
+      }
+
+      &:after {
+        transition: all .2s linear;
+      }
+      &:nth-child(1) {
+        &:after {
+          content: 'M';
+        }
+      }
+      &:nth-child(2) {
+        &:after {
+          content: 'E';
+        }
+      }
+      &:nth-child(3) {
+        &:after {
+          content: 'N';
+        }
+      }
+      &:nth-child(4) {
+        &:after {
+          content: 'U';
+        }
+      }
+    }
+
+  }
+
+  .menu-social,
+  .menu-button {
+    float: left;
+  }
+
+  .menu-social {
+    width: 20px;
+    text-align: center;
+    margin-left: 10px;
+
+    img {
+      height: 15px;
+      width: 23px;
+    }
+
+    a {
+      margin: 7px 0;
+      display: inline-block;
+      position: relative;
+      padding: 0;
+    }
+
+    .facebook {
+      &:after {
+        content: 'Facebook';
+      }
+    }
+    .transparent-btn:hover {
+      &:after {
+        max-width: 200px;
+        left: 10px;
+      }
+    }
+
+    .twitter {
+      &:after {
+        content: 'Twitter';
+      }
+    }
+  }
+}
+
+.menu-trigger:checked ~ .pages-nav {
+  display: block;
+}
+
+
+.menu-trigger:hover ~ .menu-wrapper {
+  .full-btn {
+    color: $color-green;
+
+    &:after {
+      padding: 0px 35px
+    }
+  }
+}
+
+.menu-trigger:checked ~ .menu-wrapper {
+
+  .menu-button span {
+    &:nth-child(1) {
+      &:after {
+        content: 'Y';
+      }
+    }
+    &:nth-child(2) {
+      &:after {
+        content: 'G';
+      }
+    }
+    &:nth-child(3) {
+      &:after {
+        content: 'L';
+      }
+    }
+    &:nth-child(4) {
+      &:after {
+        content: 'F';
+      }
+    }
+  }
+}
+
+.menu-trigger:checked ~ .pages-stack {
+  perspective-origin: 50% -50%;
+  height: 100vh;
+
+  .page {
+    border: 1px solid $color-green;
+
+    &:not(.current) {
+      pointer-events: auto;
+
+      &:hover {
+        top: -50px;
+        cursor: pointer;
+      }
+    }
+
+  }
+}
+

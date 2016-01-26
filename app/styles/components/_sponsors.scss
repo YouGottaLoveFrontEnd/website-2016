@@ -3,3 +3,26 @@
     margin-bottom: 107px;
   }
 }
+
+.sponsors-wrapper {
+  height: 504px;
+  padding-top: 80px;
+  letter-spacing: 9px;
+
+  h4 {
+    margin-bottom: 45px;
+  }
+}
+
+.sponsors-logos {
+  display: flex;
+
+  .single-sponsor {
+    width: 114px;
+    margin-right: 114px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}

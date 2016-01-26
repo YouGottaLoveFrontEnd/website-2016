@@ -24,10 +24,14 @@
 // =| Components |=======================================================
 // ======================================================================
 
+@import "components/menu_trigger";
+@import "components/flying_letters";
 @import "components/btns_type";
 @import "components/footer";
 @import "components/shadow";
 @import "components/navigation";
-@import "components/main";
+//@import "components/main";
+@import "components/main_intro";
+@import "components/main_speakers";
 @import "components/schedule";
 @import "components/sponsors";

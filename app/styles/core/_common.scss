@@ -65,19 +65,6 @@ i {
   }
 }
 
-.sponsors-logos {
-  display: flex;
-
-  .single-sponsor {
-    width: 114px;
-    margin-right: 114px;
-
-    &:last-child {
-      margin-right: 0;
-    }
-  }
-}
-
 div,
 span,
 label,
@@ -88,82 +75,4 @@ p {
 
 .libre {
   font-family: $font-libre;
-}
-
-
-.full-btn,
-.btn,
-.transparent-btn {
-  background-color: transparent;
-  position: relative;
-  cursor: pointer;
-  padding: 1px 15px 0px 23px;
-
-  &:after {
-    position: absolute;
-    top: 0;
-    left: 0;
-    max-width: 0;
-    content: ' ';
-    height: 100%;
-    transition: max-width .3s linear;
-  }
-}
-
-.full-btn {
-  color: $color-white;
-
-  &:after {
-    background-color: $color-white;
-    z-index: -1;
-  }
-
-  &:hover {
-    color: $color-green;
-
-    &:after {
-      max-width: 100%;
-    }
-  }
-}
-
-.btn {
-  color: $color-white;
-
-  &:after {
-    background-color: transparent;
-    color: $color-green;
-    z-index: 1;
-    text-transform: uppercase;
-    overflow: hidden;
-    padding: 1px 15px 0px 23px;
-    opacity: 0;
-  }
-
-  &:hover {
-    &:after {
-      max-width: 100%;
-      opacity: 1;
-    }
-  }
-}
-
-.transparent-btn {
-
-  &:after {
-    background-color: transparent;
-    color: $color-green;
-    z-index: 1;
-    text-transform: uppercase;
-    overflow: hidden;
-    padding: 1px 15px 0px 23px;
-    opacity: 0;
-  }
-
-  &:hover {
-    &:after {
-      max-width: 100%;
-      opacity: 1;
-    }
-  }
 }

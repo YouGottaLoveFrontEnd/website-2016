@@ -1,0 +1,69 @@
+.multiple-wrapper {
+
+  position: relative;
+
+  white-space: nowrap;
+
+  .item {
+    position: absolute;
+    pointer-events: none;
+    color: transparent;
+    -webkit-text-fill-color: transparent; /* Will override color (regardless of order) */
+    -webkit-text-stroke-width: 1px;
+
+  }
+
+  .transitionTopLeft {
+    transition: all .3s linear;
+  }
+}
+
+.flying-letters {
+  position: absolute;
+  top: 85px;
+  right: 0;
+  z-index: 9;
+  width: 400px;
+  height: 400px;
+
+  .single-letter {
+    position: absolute;
+    pointer-events: none;
+  }
+
+  .item {
+    transition: all .4s;
+    font-size: 220px;
+    line-height: 152px;
+
+    &:first-child {
+      color: transparent;
+      -webkit-text-fill-color: transparent;
+    }
+
+    &:last-child {
+      color: $color-green;
+      -webkit-text-fill-color: $color-green;
+    }
+  }
+
+  .logo-Y {
+    top: 0;
+    left: 0;
+  }
+
+  .logo-G {
+    top: 0;
+    left: 50%;
+  }
+
+  .logo-L {
+    top: 50%;
+    left: 30px;
+  }
+
+  .logo-F {
+    top: 50%;
+    left: 60%;
+  }
+}

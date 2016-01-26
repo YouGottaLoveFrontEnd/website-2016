@@ -21,19 +21,6 @@ main {
   }
 }
 
-.page {
-  background-color: $color-blue;
-  overflow-x: hidden;
-
-}
-
-section {
-  width: calc(100vw - 40px);
-  max-width: 1318px;
-  margin: 0 auto;
-
-}
-
 .left {
   float: left;
 }
@@ -65,47 +52,3 @@ section {
   width: 66%;
   position: relative;
 }
-
-.js .pages-stack--open {
-  .page {
-    overflow: hidden;
-  }
-}
-
-.page-intro {
-  height: 403px;
-  margin-bottom: 210px;
-
-  .multiple-wrapper {
-    width: 255px;
-    height: 80px;
-    margin: 80px 0;
-  }
-
-  h2 {
-    font-size: 90px;
-    padding:30px 0;
-  }
-
-  .sub-title {
-    margin-left: -20px;
-    font-size: 12px;
-    font-weight: 100;
-    letter-spacing: 8px;
-  }
-
-  hr {
-    max-width: 100px;
-    margin-right: calc(100% - 100px);
-    border-color: $color-green;
-    margin-bottom: 88px;
-  }
-
-  label{
-    font-weight: 100;
-    font-size: 20px;
-    letter-spacing: 2px;
-    line-height:30px;
-  }
-}
-

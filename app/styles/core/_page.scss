@@ -1,171 +1,6 @@
-.menu-trigger,
-.menu-wrapper {
-  position: absolute;
-  z-index: 1000;
-  top: 60px;
-  left: 60px;
-
-}
-
-.menu-trigger {
-  opacity: 0;
-  cursor: pointer;
-  width: 76px;
-  height: 72px;
-}
-
-.menu-trigger:hover ~ .menu-wrapper {
-  .full-btn {
-    color: $color-green;
-
-    &:after {
-      padding: 0px 35px
-    }
-  }
-}
-
-.menu-trigger:checked ~ .menu-wrapper {
-
-  .menu-button span {
-    &:nth-child(1) {
-      &:after {
-        content: 'Y';
-      }
-    }
-    &:nth-child(2) {
-      &:after {
-        content: 'G';
-      }
-    }
-    &:nth-child(3) {
-      &:after {
-        content: 'L';
-      }
-    }
-    &:nth-child(4) {
-      &:after {
-        content: 'F';
-      }
-    }
-  }
-}
-
-.menu-wrapper {
-  .full-btn {
-    &:after {
-      transition: padding .2s linear;
-    }
-  }
-}
-
-.menu-wrapper {
-  width: 126px;
-  height: 82px;
-
-  .menu-button {
-    padding: 0;
-    border: 1px solid $color-grey;
-    cursor: pointer;
-    outline: none;
-    width: 72px;
-    height: 70px;
-    font-size: 21px;
-    line-height: 25px;
-    word-break: break-word;
-    letter-spacing: 6px;
-    transition: all .3s linear;
-    font-size: 16px;
-    font-weight: 300;
-
-    span {
-      float: left;
-      width: 16px;
-
-      &:first-child,
-      &:nth-child(3n) {
-        margin-left: 19px;
-      }
-
-      &:nth-child(2n) {
-        margin-left: 8px;
-      }
-
-      &:after {
-        transition: all .2s linear;
-      }
-      &:nth-child(1) {
-        &:after {
-          content: 'M';
-        }
-      }
-      &:nth-child(2) {
-        &:after {
-          content: 'E';
-        }
-      }
-      &:nth-child(3) {
-        &:after {
-          content: 'N';
-        }
-      }
-      &:nth-child(4) {
-        &:after {
-          content: 'U';
-        }
-      }
-    }
-
-  }
-
-  .menu-social,
-  .menu-button {
-    float: left;
-  }
-
-  .menu-social {
-    width: 20px;
-    text-align: center;
-    margin-left: 20px;
-
-    svg {
-      fill: $color-grey;
-      height: 20px;
-      width: 23px;
-      transition: all .3s .1s linear;
-    }
-
-    a {
-      margin: 7px 0;
-      display: inline-block;
-      position: relative;
-    }
-
-    .facebook {
-      &:after {
-        content: 'Facebook';
-      }
-    }
-    .transparent-btn:hover {
-      &:after {
-        max-width: 200px;
-        left: 30px;
-      }
-    }
-
-    .twitter {
-      &:after {
-        content: 'Twitter';
-      }
-    }
-  }
-}
 
 .pages-nav {
   display: none;
-}
-
-.menu-trigger:checked ~ .pages-nav {
-  display: block;
 }
 
 .pages-stack {
@@ -179,26 +14,16 @@
 
 }
 
-.menu-trigger:checked ~ .pages-stack {
-  perspective-origin: 50% -50%;
-  height: 100vh;
+section {
+  width: calc(100vw - 40px);
+  max-width: 1318px;
+  margin: 0 auto;
 
-  .page {
-    border: 1px solid $color-green;
-
-    &:not(.current) {
-      pointer-events: auto;
-
-      &:hover {
-        top: -50px;
-        cursor: pointer;
-      }
-    }
-
-  }
 }
 
 .page {
+  background-color: $color-blue;
+  overflow-x: hidden;
   padding-top: 194px;
   transition: transform .3s linear, top .2s linear, border .3s .3s linear;
   position: relative;
@@ -224,6 +49,44 @@
 
   }
 
+}
+
+
+.page-intro {
+  height: 403px;
+  margin-bottom: 210px;
+
+  .multiple-wrapper {
+    width: 255px;
+    height: 80px;
+    margin: 80px 0;
+  }
+
+  h2 {
+    font-size: 90px;
+    padding:30px 0;
+  }
+
+  .sub-title {
+    margin-left: -20px;
+    font-size: 12px;
+    font-weight: 100;
+    letter-spacing: 8px;
+  }
+
+  hr {
+    max-width: 100px;
+    margin-right: calc(100% - 100px);
+    border-color: $color-green;
+    margin-bottom: 88px;
+  }
+
+  label{
+    font-weight: 100;
+    font-size: 20px;
+    letter-spacing: 2px;
+    line-height:30px;
+  }
 }
 
 .not-active {
