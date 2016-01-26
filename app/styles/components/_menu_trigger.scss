@@ -39,12 +39,10 @@
     border: 1px solid $color-grey;
     cursor: pointer;
     outline: none;
-
     font-size: 21px;
     line-height: 25px;
     word-break: break-word;
     letter-spacing: 6px;
-    transition: all .3s linear;
     font-size: 16px;
     font-weight: 300;
 
@@ -136,7 +134,7 @@
 
 .menu-trigger:hover ~ .menu-wrapper {
   .full-btn {
-    color: $color-green;
+    color: $color-blue;
 
     &:after {
       padding: 0px 35px
