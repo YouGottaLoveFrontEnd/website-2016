@@ -7,23 +7,25 @@
 .single-speaker {
   height: 512px;
   position: relative;
-  margin-bottom: 216px;
+  margin-bottom: 100px;
 
   .expertise {
     position: absolute;
     transform: rotate(90deg);
     transform-origin: 0;
-    top: -9px;
+    top: 7px;
+    font-size: 10px;
+    color: rgba(255,255,255,0.5);
   }
 
   .speaker-info {
     position: relative;
     max-width: 50%;
-    border-top: 1px solid;
-    border-bottom: 1px solid;
-    padding: 5px 0;
+    border-top: 1px solid rgba(0,208,157,0.3);
+    border-bottom: 1px solid rgba(0,208,157,0.3);
+    padding: 10px 0;
     width: 100%;
-    transition: max-width .3s linear;
+    transition: max-width .5s linear;
 
     h3,
     p {
@@ -34,21 +36,27 @@
       font-size: 45px;
       position: absolute;
       top: 68%;
-      transition: top .3s linear;
+      transition: top .5s linear;
+      letter-spacing: 2px;
+      font-weight: 400;
+
     }
 
     p {
       position: absolute;
-      font-size: 18px;
+      font-size: 16px;
+      font-weight: 100;
+      line-height: 26px;
+      letter-spacing: 1px;
       max-height: 55px;
       width: 390px;
       overflow: hidden;
       top: 84%;
-      transition: max-height .3s linear, top .3s linear;
+      transition: max-height .5s linear, top .5s linear;
     }
 
     .speaker-image {
-      max-width: 515px;
+      max-width: 450px;
     }
 
     &:hover {
@@ -79,11 +87,11 @@
     margin-left: 64px;
 
     h3 {
-      right: -80px;
+      right: 0px;
     }
 
     p {
-      right: -220px;
+      right: -75px;
     }
   }
 }
