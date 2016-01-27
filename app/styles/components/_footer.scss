@@ -20,7 +20,7 @@ footer {
   height: 28vh;
   padding-top: 10vh;
   position: relative;
-  border-bottom: 1px solid $color-white;
+  border-bottom: 1px solid $color-blue;
 
   h4 {
     letter-spacing: 9px;
@@ -46,7 +46,7 @@ footer {
 
     width: 342px;
     letter-spacing: 3px;
-    color: $color-white;
+    color: $color-blue;
 
   }
 
@@ -59,8 +59,9 @@ footer {
       height: 50px;
       display: inline-block;
       float: left;
-      border: 2px solid $color-white;
+      border: 2px solid $color-blue;
       border-right: 0;
+      color: $color-blue;
 
       * {
         position: absolute;
@@ -69,7 +70,7 @@ footer {
       input.full ~ span,
       input:valid ~ span,
       input:focus ~ span {
-        top: -18px;
+        top: -22px;
         left: 0;
         font-size: 14px;
       }
@@ -98,15 +99,16 @@ footer {
     border: none;
 
     &[type='email'] {
-      background: transparent;
-      color: $color-white;
-
+      color: $color-blue;
+      height: 50px;
+      line-height: 50px;
+      width: 298px;
     }
 
     &[type='submit'] {
-      border: 2px solid $color-white;
-      color: $color-blue;
-      background-color: $color-white;
+      border: 2px solid $color-blue;
+      color: $color-white;
+      background-color: $color-blue;
     }
 
   }
