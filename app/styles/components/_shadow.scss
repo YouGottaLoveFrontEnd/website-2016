@@ -1,16 +1,32 @@
 .shadow {
   position: relative;
   display: table;
+  perspective: 100px;
+  perspective-origin: 50% -50%;
+  transform-style: preserve-3d;
+  width: 380px;
+  height: 150px;
 
-  .box {
-    border: 1px solid;
-    transition: all .1s linear;
-  }
-
-  .stroke {
+  .item {
     transition: all .2s linear;
     pointer-events: none;
     -webkit-text-fill-color: transparent;
     -webkit-text-stroke-width: 1px;
+    font-size: 90px;
+    position: absolute;
+    top: 29px;
+
+   
+  }
+
+  @for $i from 0 through 7 {
+    .stroke-#{$i} {
+      transform: translateZ(0px - 2 * $i) translateX(0px + 6* $i);
+      opacity: 1/ $i;
+    }
+  }
+  
+  .stroke-1 {
+    opacity: .9;
   }
 }

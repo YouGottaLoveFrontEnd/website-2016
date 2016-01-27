@@ -31,16 +31,16 @@ function fixScheduleHeader(active) {
         $('.active-tab').removeClass('active-tab');
         $('.schedule-nav').children().eq(child).addClass('active-tab');
         $('.itinerary ul').children().eq(child).addClass('active-tab');
-        var scrollToVal = window.scrollY < 811 ? window.scrollY : 811;
-        $(window).scrollTop(scrollToVal)
+        var scrollToVal = window.scrollY < $('.itinerary ul').offset().top ? window.scrollY : $('.itinerary ul').offset().top;
+        $(window).scrollTop(scrollToVal);
       });
     });
     $(window).on('scroll', function () {
-      if (window.scrollY > 810) {
+      if (window.scrollY > $('.itinerary ul').offset().top) {
         if (!$('.schedule-nav').hasClass('show')) {
           $('.schedule-nav').addClass('show');
         }
-      } else if (window.scrollY <= 810) {
+      } else if (window.scrollY <= $('.itinerary ul').offset().top) {
         if ($('.schedule-nav').hasClass('show')) {
           $('.schedule-nav').removeClass('show');
         }
@@ -49,80 +49,6 @@ function fixScheduleHeader(active) {
 
   } else {
     $(window).unbind('scroll');
-  }
-}
-
-function getActivePageIndex() {
-  var currentPageIndex;
-  $('.page').each(function (index) {
-    if (!$(this).hasClass('page--inactive')) {
-      currentPageIndex = index;
-    }
-  });
-  return currentPageIndex;
-}
-
-function newCSSPosValues(index) {
-  var cssValuesObj = {
-    zIndex: 9,
-    opacity: 1,
-    transform: 200
-  };
-  if (index < 0) {
-    cssValuesObj.zIndex = 0;
-    cssValuesObj.opacity = 0;
-    cssValuesObj.transform = 400;
-  } else {
-    index--;
-    cssValuesObj.zIndex = cssValuesObj.zIndex - index;
-    cssValuesObj.opacity = cssValuesObj.opacity - (index * 0.1);
-    cssValuesObj.transform = cssValuesObj.transform + (index * 50);
-  }
-  cssValuesObj.transform = cssValuesObj.transform < 400 ? cssValuesObj.transform : 400;
-  cssValuesObj.transform = 'translate3d(0px, 75%, -' + cssValuesObj.transform + 'px)';
-  return cssValuesObj;
-}
-
-function changeActivePage(page, dir, numOfPages) {
-  var pageIndexToChange = page;
-  var i = 0;
-  var poz = 0;
-  var pageLength = $('.pages-stack').children('.page').length - 1;
-  dir = dir < 0 ? -1 : 1;
-
-  $('.page').eq(pageIndexToChange).css(newCSSPosValues(-1));
-
-  while (i < numOfPages) {
-    poz++;
-    pageIndexToChange = pageIndexToChange + (1 * dir);
-    pageIndexToChange = pageIndexToChange > pageLength ? 0 : pageIndexToChange;
-    pageIndexToChange = pageIndexToChange < 0 ? pageLength : pageIndexToChange;
-    $('.page').eq(pageIndexToChange).css(newCSSPosValues(poz));
-    i++;
-  }
-
-  var newCurrentPageIndex = page + dir;
-  newCurrentPageIndex = newCurrentPageIndex > pageLength ? 0 : newCurrentPageIndex;
-  newCurrentPageIndex = newCurrentPageIndex < 0 ? pageLength : newCurrentPageIndex;
-  $('.page').eq(newCurrentPageIndex).removeClass('page--inactive');
-  $('.page').eq(page).addClass('page--inactive');
-
-}
-
-var lastTouchMove = 0;
-function pageGalleryTouch(e) {
-  var touchPointY = e.originalEvent.touches[0].clientY;
-  if (lastTouchMove === 0) {
-    lastTouchMove = touchPointY;
-  } else {
-    $('.pages-stack').unbind('touchmove', pageGalleryTouch);
-    var currentPageIndex = getActivePageIndex();
-    var deltaY = lastTouchMove > touchPointY ? 1 : -1;
-    changeActivePage(currentPageIndex, deltaY, 5);
-    lastTouchMove = 0;
-    setTimeout(function () {
-      $('.pages-stack').on('touchmove', pageGalleryTouch);
-    }, 1000);
   }
 }
 
@@ -279,10 +205,6 @@ function textAnimationOut() {
   }
 }
 
-function onPageClick(e) {
-  window.location.hash = '#' + $(this).attr('id');
-}
-
 function reorderPages() {
   var margin = 10;
   var zindex = 9;
@@ -320,7 +242,6 @@ function onMenuTriggerChange() {
   } else {
     $('.pages-stack').children('.page').each(function () {
       $(this).removeAttr('style');
-      $(this).unbind('click tap touch', onPageClick);
     });
     setTimeout(function () {
       $('footer').toggleClass('show');
@@ -338,10 +259,6 @@ function disableLink(hash) {
   });
 }
 
-function fixOffset() {
-  $('.page.current').offset({top: 0, left: 0})
-}
-
 function hashchange() {
   var hash = location.hash.slice(1);
   if (hash === undefined || hash === '' || $('#' + hash).hasClass('current')) {
@@ -354,8 +271,8 @@ function hashchange() {
 
   if (hash === 'page-schedule') {
     fixScheduleHeader(true);
-  }else {
-    fixScheduleHeader(false)
+  } else {
+    fixScheduleHeader(false);
   }
 
   $('.page.current').removeClass('current');
@@ -364,62 +281,39 @@ function hashchange() {
 }
 
 function initShadow(config) {
-  //you should always shift 5 * i + current value so that is will move according to the limitation of its margin
   var shadowCount = config.count + 1;
   $('.shadow').each(function () {
-    var child = $(this).children().eq(0);
-    var margin = 1;
-    for (var i = 1; i < shadowCount; i++) {
-      var xpoz = margin * i;
-      var ypoz = xpoz + child.height();
-      var opacity = 1 - ((1 / shadowCount) * i);
-      var shadowDemi;
-      switch ($(this).attr('type')) {
-        case 'box':
-          shadowDemi = '<div class="item box" cue="' + i + '" style="width: 158px; height: 60px; transform: translate(-' + xpoz + 'px, -' + ypoz + 'px); position: absolute; z-index: -1; opacity: ' + opacity + ';"></div>';
-          break;
-        case 'stroke':
-          shadowDemi = '<div class="item stroke" cue="' + i + '" style="width: 158px; height: 60px; transform: translate(-' + xpoz + 'px, -' + ypoz + 'px); position: absolute; z-index: -1; opacity: ' + opacity + '; font-size: ' + child.css('font-size') + '">' + child.text() + '</div>';
-          break;
-      }
+    var firstChildValue = $(this).children().eq(0).text();
+    for (var i = 0; i < shadowCount; i++) {
+      var shadowDemi = '<div class="item stroke-' + i + '">' + firstChildValue + '</div>';
       $(this).append(shadowDemi);
     }
   });
 
-  $(window).on('mousemove', function (e) {
-    var mouseX = e.clientX;
-    var mouseY = e.clientY;
-
+  $(window).on('mousemove', function () {
     $('.shadow').each(function () {
-      $(this).children('.item').each(function (index) {
-        var direction = 0,
-            point = {},
-            parent = $(this).parent(),
-            box = {x: parent.offset().left, xmax: parent.offset().left + parent.width(), width: parent.width(), y: parent.offset().top, ymax: parent.offset().top + parent.height(), height: parent.height()},
-            matrix = $(this).css('transform').replace('matrix(', '').replace(')', '').split(','),
-            distanceX = parseInt(matrix[matrix.length - 2]),
-            distanceY = parseInt(matrix[matrix.length - 1]),
-            margin = 1 * (index + 1);
-        if (mouseX >= box.x && mouseX <= box.xmax) {
-          point.x = ((mouseX - box.x) / box.xmax) * 10;
-          direction = point.x > 0.5 ? 1 : -1;
-          distanceX = (point.x * margin);
-          if (direction < 0) {
-            distanceX += margin * direction;
-          }
-        }
-        if (mouseY >= box.y && mouseY <= box.ymax) {
-          point.y = (mouseY - box.y) / box.height;
-          direction = point.y > .5 ? 1 : -1;
-          distanceY = (point.y * margin) - box.height;
-          if (direction < 0) {
-            distanceY += margin * direction;
-          }
-        }
-        $(this).css('transform', 'translate(' + distanceX + 'px, ' + distanceY + 'px)');
+      $(this).mousemove(function (evt) {
+        var box = {
+              centerX: $(this).width() /2,
+              centerY: $(this).height()/2
+            };
+        var pointer = {x: evt.offsetX, y: evt.offsetY};
+        var range = 400;
+        var Xunit = $(this).width() / range;
+        var originX = pointer.x/ Xunit - (range/3);
+        var Yunit = $(this).height() / range;
+        var originY = pointer.y/ Yunit - (range/3);
+        $(this).css({'perspective-origin': originX+'% '+originY+'%'});
       });
     });
   });
+}
+
+function windowResize () {
+  var scheduleNavWidth = $('.itinerary ul').width(),
+      scheduleNavLeft = (window.innerWidth - scheduleNavWidth) /2;
+
+  $('.schedule-nav').css({width: scheduleNavWidth, left:scheduleNavLeft});
 }
 
 $(document).ready(function () {
@@ -469,8 +363,8 @@ $(document).ready(function () {
       reorderPages();
       if (hash === '#page-schedule') {
         fixScheduleHeader(true);
-      }else {
-        fixScheduleHeader(false)
+      } else {
+        fixScheduleHeader(false);
       }
       setTimeout(function () {
         $('#menu-trigger').attr('checked', false);
@@ -498,6 +392,9 @@ $(document).ready(function () {
 
   $('#menu-trigger').on('click tap touch', onMenuTriggerChange);
   $('footer').toggleClass('show');
+
+ $(window).resize(windowResize);
+  windowResize();
 });
 
 $(window).load(function () {
