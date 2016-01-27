@@ -3,84 +3,6 @@
   display: table;
 }
 
-@keyframes shiftSpeakerName {
-  0% {
-    top: 58%;
-  }
-  50% {
-    top: 15%;
-  }
-  100% {
-    top: 15%;
-  }
-}
-
-@keyframes shiftSpeakerNameOut {
-  0% {
-    top: 15%;
-  }
-  50% {
-    top: 15%;
-  }
-  100% {
-    top: 58%;
-  }
-}
-
-@keyframes shiftSpeakerBio {
-  0% {
-    top: 74%;
-  }
-  50% {
-    top: 26%;
-  }
-  100% {
-    top: 26%;
-  }
-}
-
-@keyframes shiftSpeakerBioOut {
-  0% {
-    top: 26%;
-  }
-  50% {
-    top: 26%;
-  }
-  100% {
-    top: 74%;
-  }
-}
-
-@keyframes shiftSpeakerDescription {
-  0% {
-    top: 87%;
-    max-height: 0;
-  }
-  50% {
-    top: 36%;
-    max-height: 0;
-  }
-  100% {
-    top: 36%;
-    max-height: 70%;
-  }
-}
-
-@keyframes shiftSpeakerDescriptionOut {
-  0% {
-    top: 36%;
-    max-height: 70%;
-  }
-  50% {
-    top: 36%;
-    max-height: 0;
-  }
-  100% {
-    top: 87%;
-    max-height: 0;
-  }
-}
-
 .single-speaker {
   height: 512px;
   position: relative;
@@ -107,15 +29,12 @@
     h3,
     p {
       pointer-events: none;
-
     }
 
     h3 {
       font-size: 45px;
       position: absolute;
-      top: 58%;
-      animation: shiftSpeakerNameOut .5s forwards;
-      //      transition: top .5s linear;
+      top: 13%;
       letter-spacing: 2px;
       font-weight: 400;
       max-width: 390px;
@@ -129,23 +48,24 @@
       font-weight: 100;
       line-height: 26px;
       letter-spacing: 1px;
-      width: 390px;
       overflow: hidden;
-      transition: max-height .5s linear, top .5s linear;
     }
 
     .speaker-description {
-      top: 87%;
-      max-height: 0;
-      animation: shiftSpeakerDescriptionOut .5s forwards;
+      top: 42%;
+      max-width: 500px;
+      width: 90%;
+      opacity: 0;
     }
 
     .speaker-bio {
-      top: 74%;
-      animation: shiftSpeakerBioOut .5s forwards;
-
+      top: 26%;
+      font-family: $font-libre;
+      font-style: italic;
       max-height: auto;
       font-weight: bolder;
+      max-width: 390px;
+      width: 90%;
     }
 
     .speaker-image {
@@ -155,16 +75,8 @@
     &:hover {
       max-width: calc(100% - 64px);
 
-      h3 {
-        animation: shiftSpeakerName .5s forwards;
-      }
-
-      .speaker-bio {
-        animation: shiftSpeakerBio .5s forwards;
-      }
-
       .speaker-description {
-        animation: shiftSpeakerDescription .5s forwards;
+        opacity: 1;
       }
     }
   }
@@ -185,7 +97,16 @@
     h3,
     .speaker-bio,
     .speaker-description {
-      left: 50%;
+      left: 45%;
+      transition: left .5s linear, opacity .5s linear;
+    }
+
+    &:hover {
+      h3,
+      .speaker-bio,
+      .speaker-description {
+        left: 34%;
+      }
     }
   }
 }
@@ -209,8 +130,18 @@
     h3,
     .speaker-bio,
     .speaker-description {
-      right: 50%;
+      left: 15%;
       text-align: left;
+      transition: left .5s linear, opacity .5s linear;
+    }
+
+
+    &:hover {
+      h3,
+      .speaker-bio,
+      .speaker-description {
+        left: 34%;
+      }
     }
   }
 }

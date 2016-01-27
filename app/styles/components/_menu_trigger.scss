@@ -3,7 +3,7 @@
   position: fixed;
   z-index: 1000;
   top: 60px;
-  left: 60px;
+  left: 15vh;
 
 }
 
@@ -17,8 +17,6 @@
   opacity: 0;
   cursor: pointer;
   z-index: 1001;
-  top: 60px;
-  left: 60px;
   margin: 0;
 }
 
@@ -182,12 +180,13 @@
 .menu-trigger:checked ~ .pages-stack {
   perspective-origin: 50% -50%;
   height: 100vh;
-  margin-top: -260px;
+  top: 0;
   margin-bottom: 0;
 
   .page {
     border: 1px solid $color-green;
     height: 100vh;
+    margin-top: 30vh;
 
     &:not(.current) {
       pointer-events: auto;

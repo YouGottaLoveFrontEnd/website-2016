@@ -1,5 +1,6 @@
 
 .pages-stack {
+  margin-bottom: 63vh;
   z-index: 100;
   pointer-events: none;
   perspective: 1200px;
@@ -8,26 +9,25 @@
   transition: perspective-origin .4s .2s linear;
   clear: both;
   position: absolute;
-  margin-bottom: 100vh;
   width: 100%;
 }
 
 section {
-  width: calc(100vw - 40px);
-  max-width: 1318px;
+  width: calc(100vw - 30vh);
+  display: table;
   margin: 0 auto;
-
 }
 
 .page {
   background-color: $color-blue;
   padding-top: 194px;
-  transition: transform .3s linear, top .2s linear, border .3s .3s linear;
+  transition: transform .3s linear, top .2s linear;
   position: relative;
   z-index: 5;
   width: 100%;
   box-shadow: 0 -1px 10px rgba(0, 0, 0, 0.1);
   top: 0;
+  padding-bottom: 4vh;
 
   &.current {
     z-index: 9;

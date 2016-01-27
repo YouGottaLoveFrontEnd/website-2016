@@ -29,19 +29,22 @@ function fixScheduleHeader(active) {
         $('.itinerary input[name="view"]:checked').prop('checked', false);
         $('#' + $(this).children('label').attr('for')).prop('checked', true);
         $('.active-tab').removeClass('active-tab');
-        $('.schedule-nav').children().eq(child).addClass('active-tab');
+        $('.schedule-nav ul').children().eq(child).addClass('active-tab');
         $('.itinerary ul').children().eq(child).addClass('active-tab');
-        var scrollToVal = window.scrollY < $('.itinerary ul').offset().top ? window.scrollY : $('.itinerary ul').offset().top;
+        var scrollToVal = window.scrollY < $('#menu-stopper').offset().top ? window.scrollY :$('#menu-stopper').offset().top;
         $(window).scrollTop(scrollToVal);
       });
     });
     $(window).on('scroll', function () {
-      if (window.scrollY > $('.itinerary ul').offset().top) {
+      if ($('#menu-trigger').offset().top + 100 > $('.itinerary ul').offset().top) {
         if (!$('.schedule-nav').hasClass('show')) {
           $('.schedule-nav').addClass('show');
+          $('.itinerary ul').css({opacity:0});
+
         }
-      } else if (window.scrollY <= $('.itinerary ul').offset().top) {
+      } else {
         if ($('.schedule-nav').hasClass('show')) {
+          $('.itinerary ul').css({opacity:1});
           $('.schedule-nav').removeClass('show');
         }
       }

@@ -1,25 +1,29 @@
 .schedule-nav {
   position: fixed;
+  padding-top: 160px;
   width: 100%;
-  max-width: 1318px;
-  z-index: 999999;
-  background-color: $color-blue;
   display: none;
+  z-index: 999;
+  background-color: $color-blue;
 
-  &.show {
+  ul {
+    height: 51px;
     display: flex;
     flex-flow: row wrap;
     justify-content: space-around;
     text-align: center;
-
     margin: 0 auto;
-    height: 45px;
+  }
+
+  &.show {
+    display: block;
   }
 
   li {
     overflow: hidden;
     padding: 0;
     border-bottom: 1px solid $color-white;
+    text-align: left;
 
     &:after {
       background-color: $color-green;
@@ -35,14 +39,17 @@
       color: $color-blue;
     }
   }
+
   label {
     cursor: pointer;
     line-height: 45px;
+    margin-left: 40px;
   }
+
 }
 
 .itinerary {
-  padding-bottom: 100px;
+  margin-top: 17vh;
 
   @keyframes slideOut {
     0% {
@@ -82,14 +89,15 @@
     flex-flow: row wrap;
     justify-content: space-around;
     text-align: center;
-    width: 80%;
+    width: 100%;
     margin: 0 auto;
-    height: 45px;
+    height: 51px;
 
     li {
       overflow: hidden;
       padding: 0;
       border-bottom: 1px solid $color-white;
+      text-align: left;
 
       &:after {
         background-color: $color-green;
@@ -108,6 +116,7 @@
     label {
       cursor: pointer;
       line-height: 45px;
+      margin-left: 40px;
     }
   }
   input[type='radio'] {
@@ -130,7 +139,7 @@
   }
 
   .views {
-    width: 80%;
+    width: calc(100% - 80px);
     margin: 0 auto;
     display: flex;
     padding-top: 50px;
@@ -147,6 +156,7 @@
 
     .single-event {
       margin-bottom: 40px;
+      width: 100%;
     }
   }
 }
