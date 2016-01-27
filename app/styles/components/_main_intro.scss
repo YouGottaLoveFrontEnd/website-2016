@@ -52,12 +52,4 @@
     position: relative;
     top: 6px;
   }
-  .item {
-    -webkit-text-stroke-color: $color-green;
-
-    &:first-child {
-      color: $color-green;
-      -webkit-text-fill-color: $color-green;
-    }
-  }
 }

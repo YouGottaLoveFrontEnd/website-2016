@@ -43,9 +43,9 @@
           }
         }
 
-        &[href="#page-home"] {
+        &[href="#page-about"] {
           &:after {
-            content: 'HOME';
+            content: 'about';
           }
         }
       }

@@ -334,7 +334,7 @@ $(document).ready(function () {
         $(this).append(item);
       }
     }
-
+    return;
     $(this).on('mousemove', function (e) {
       switch ($(this).attr('data-move')) {
         case 'trailing':
@@ -357,6 +357,7 @@ $(document).ready(function () {
 
   initShadow({count: 4});
   hashchange();
+
   $('.pages-nav .link').each(function () {
     $(this).on('click tap touch', function (e) {
       var hash = $(this).attr('href');
@@ -376,6 +377,7 @@ $(document).ready(function () {
       }, 400);
     });
   });
+
   var weatherURL = 'http://api.openweathermap.org/data/2.5/weather';
   $.ajax({
     url: weatherURL,

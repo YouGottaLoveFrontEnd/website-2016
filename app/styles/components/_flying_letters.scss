@@ -1,69 +1,31 @@
 .multiple-wrapper {
-
   position: relative;
-
-  white-space: nowrap;
-
-  .item {
-    position: absolute;
-    pointer-events: none;
-    color: transparent;
-    -webkit-text-fill-color: transparent; /* Will override color (regardless of order) */
-    -webkit-text-stroke-width: 1px;
-
-  }
-
-  .transitionTopLeft {
-    transition: all .3s linear;
-  }
-}
-
-.flying-letters {
-  position: absolute;
-  top: 85px;
-  right: 0;
-  z-index: 9;
+  display: table;
   width: 400px;
   height: 400px;
+//  background: red;
+  perspective: 100px;
+  perspective-origin: 50% -50%;
+  transform-style: preserve-3d;
 
   .single-letter {
-    position: absolute;
-    pointer-events: none;
+    float: left;
+    width: 200px;
+    height: 200px;
   }
 
   .item {
-    transition: all .4s;
-    font-size: 220px;
-    line-height: 152px;
+    position: absolute;
+    pointer-events: none;
+    -webkit-text-stroke: 1px $color-white;
+    color: transparent;
+    font-size: 200px;
+  }
 
-    &:first-child {
-      color: transparent;
-      -webkit-text-fill-color: transparent;
+  @for $i from 0 through 7 {
+    .stroke-#{$i} {
+      transform: translateZ(0px - 2 * $i) translateX(0px + 6 * $i);
+      opacity: 1/ $i;
     }
-
-    &:last-child {
-      color: $color-green;
-      -webkit-text-fill-color: $color-green;
-    }
-  }
-
-  .logo-Y {
-    top: 0;
-    left: 0;
-  }
-
-  .logo-G {
-    top: 0;
-    left: 50%;
-  }
-
-  .logo-L {
-    top: 50%;
-    left: 30px;
-  }
-
-  .logo-F {
-    top: 50%;
-    left: 60%;
   }
 }

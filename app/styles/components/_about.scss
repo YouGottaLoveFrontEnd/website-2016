@@ -1,0 +1,97 @@
+.yglf-description {
+  position: relative;
+
+  img {
+    width: 100%;
+  }
+
+  p {
+    position: absolute;
+    top: 35vh;
+    right: 0;
+    max-width: 600px;
+    width: 50%;
+    padding: 80px 60px;
+    background-color: $color-blue;
+  }
+}
+
+.yglf-timeline {
+  margin-top: 100px;
+
+  article {
+    margin: 50px 0 150px;
+    display: table;
+
+    a {
+      color: $color-green;
+    }
+  }
+
+  p {
+    column-count: 2;
+    column-gap: 40px;
+    line-height: 27px;
+
+  }
+
+  .team-gallery {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    margin-left: 33%;
+    margin-top: 100px;
+
+  }
+
+  .team-member {
+    width: 180px;
+    position: relative;
+    height: 180px;
+    overflow: hidden;
+    margin: 0 2% 2% 0;
+
+    &:nth-child(4n) {
+      margin-right: 0;
+    }
+
+    .member-info {
+      position: absolute;
+      bottom: 100%;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,.5);
+      transition: bottom .5s linear;
+
+      .name,
+      a,
+      hr {
+        position: absolute;
+        left: 10px;
+      }
+
+      .name {
+        bottom: 50px;
+      }
+
+      hr {
+        width: 20px;
+        bottom: 30px;
+      }
+
+      a {
+        bottom: 10px;
+        color: $color-green;
+        font-family: $font-libre;
+        font-style: italic;
+      }
+    }
+
+    &:hover {
+      .member-info {
+        bottom: 0;
+      }
+    }
+  }
+}
