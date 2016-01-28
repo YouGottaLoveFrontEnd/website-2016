@@ -21,6 +21,18 @@ var minimalLoadTimeInterval = setInterval(function () {
     });
   }
 }, 1000);
+
+function autoScroll (to) {
+  if($(window.scrollY > to)) {
+    $(window).scrollTop(window.scrollY--);
+    setTimeout(function () {
+      autoScroll (to)
+    },50);
+  }else if (window.scrollY < to) {
+    $(window).scrollTop(to);
+  }
+}
+
 function fixScheduleHeader(active) {
   if (active) {
     $('.schedule-nav li , .itinerary ul li').each(function (index) {
