@@ -25,13 +25,13 @@ function fixScheduleHeader(active) {
   if (active) {
     $('.schedule-nav li , .itinerary ul li').each(function (index) {
       $(this).on('click tap touch', function () {
-        var child = index % 3;
+        var child = index % 2;
         $('.itinerary input[name="view"]:checked').prop('checked', false);
         $('#' + $(this).children('label').attr('for')).prop('checked', true);
         $('.active-tab').removeClass('active-tab');
         $('.schedule-nav ul').children().eq(child).addClass('active-tab');
         $('.itinerary ul').children().eq(child).addClass('active-tab');
-        var scrollToVal = window.scrollY < $('#menu-stopper').offset().top ? window.scrollY :$('#menu-stopper').offset().top;
+        var scrollToVal = window.scrollY < $('#menu-trigger').offset().top + 100 ? window.scrollY : $('#menu-trigger').offset().top + 100;
         $(window).scrollTop(scrollToVal);
       });
     });
@@ -39,12 +39,12 @@ function fixScheduleHeader(active) {
       if ($('#menu-trigger').offset().top + 100 > $('.itinerary ul').offset().top) {
         if (!$('.schedule-nav').hasClass('show')) {
           $('.schedule-nav').addClass('show');
-          $('.itinerary ul').css({opacity:0});
+          $('.itinerary ul').css({opacity: 0});
 
         }
       } else {
         if ($('.schedule-nav').hasClass('show')) {
-          $('.itinerary ul').css({opacity:1});
+          $('.itinerary ul').css({opacity: 1});
           $('.schedule-nav').removeClass('show');
         }
       }
@@ -297,26 +297,26 @@ function initShadow(config) {
     $('.shadow').each(function () {
       $(this).mousemove(function (evt) {
         var box = {
-              centerX: $(this).width() /2,
-              centerY: $(this).height()/2
-            };
+          centerX: $(this).width() / 2,
+          centerY: $(this).height() / 2
+        };
         var pointer = {x: evt.offsetX, y: evt.offsetY};
         var range = 400;
         var Xunit = $(this).width() / range;
-        var originX = pointer.x/ Xunit - (range/3);
+        var originX = pointer.x / Xunit - (range / 3);
         var Yunit = $(this).height() / range;
-        var originY = pointer.y/ Yunit - (range/3);
-        $(this).css({'perspective-origin': originX+'% '+originY+'%'});
+        var originY = pointer.y / Yunit - (range / 3);
+        $(this).css({'perspective-origin': originX + '% ' + originY + '%'});
       });
     });
   });
 }
 
-function windowResize () {
+function windowResize() {
   var scheduleNavWidth = $('.itinerary ul').width(),
-      scheduleNavLeft = (window.innerWidth - scheduleNavWidth) /2;
+      scheduleNavLeft = (window.innerWidth - scheduleNavWidth) / 2;
 
-  $('.schedule-nav').css({width: scheduleNavWidth, left:scheduleNavLeft});
+  $('.schedule-nav').css({width: scheduleNavWidth, left: scheduleNavLeft});
 }
 
 $(document).ready(function () {
@@ -398,7 +398,7 @@ $(document).ready(function () {
   $('#menu-trigger').on('click tap touch', onMenuTriggerChange);
   $('footer').toggleClass('show');
 
- $(window).resize(windowResize);
+  $(window).resize(windowResize);
   windowResize();
 });
 

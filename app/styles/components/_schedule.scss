@@ -20,30 +20,18 @@
   }
 
   li {
-    overflow: hidden;
     padding: 0;
-    border-bottom: 1px solid $color-white;
-    text-align: left;
-
-    &:after {
-      background-color: $color-green;
-      transition: padding .3s linear;
-    }
-
-    &.active-tab:after,
-    &:hover:after {
-      padding: 0 400px;
-    }
+    border-bottom: 2px solid $color-white;
+    cursor: pointer;
 
     &.active-tab {
-      color: $color-blue;
+      border: 2px solid $color-green;
     }
   }
 
   label {
     cursor: pointer;
     line-height: 45px;
-    margin-left: 40px;
   }
 
 }
@@ -51,39 +39,6 @@
 .itinerary {
   margin-top: 17vh;
 
-  @keyframes slideOut {
-    0% {
-      left: 0;
-      opacity: 1;
-    }
-    20% {
-      left: 0;
-      opacity: 1;
-    }
-    60% {
-      left: -60;
-      opacity: 0;
-    }
-    99% {
-      left: -99%;
-      opacity: 0;
-    }
-    100% {
-      left: -100%;
-      opacity: 0;
-    }
-  }
-
-  @keyframes slideIn {
-    0% {
-      left: 100%;
-      opacity: 0;
-    }
-    100% {
-      left: 0;
-      opacity: 1;
-    }
-  }
   ul {
     display: flex;
     flex-flow: row wrap;
@@ -94,65 +49,69 @@
     height: 51px;
 
     li {
-      overflow: hidden;
       padding: 0;
-      border-bottom: 1px solid $color-white;
-      text-align: left;
+      border-bottom: 2px solid $color-white;
+      cursor: pointer;
+      position: relative;
+      transition: color .2s ease-out, border-bottom .2s ease-out;
 
       &:after {
-        background-color: $color-green;
-        transition: padding .3s linear;
+        content: ' ';
+        height: 100%;
+        max-height: 0;
+        width: 100%;
+        position: absolute;
+        left: 0;
+        bottom: -1px;
+        transition: max-height .2s ease-out;
       }
 
-      &.active-tab:after,
-      &:hover:after {
-        padding: 0 400px;
+      &:not(.active-tab) {
+        &:hover {
+          color: $color-green;
+          border-bottom: 2px solid $color-green;
+        }
       }
 
       &.active-tab {
-        color: $color-blue;
+        color: $color-green;
+
+        &:after {
+          border: 2px solid $color-green;
+          max-height: 100%;
+        }
       }
     }
     label {
       cursor: pointer;
       line-height: 45px;
-      margin-left: 40px;
     }
   }
   input[type='radio'] {
     display: none;
 
     &#day-1:checked ~ .views .day-1 {
-      display: block;
-      animation-name: slideIn;
+      opacity: 1;
     }
 
     &#day-2:checked ~ .views .day-2 {
-      display: block;
-      animation-name: slideIn;
-    }
-
-    &#day-3:checked ~ .views .day-3 {
-      display: block;
-      animation-name: slideIn;
+      opacity: 1;
     }
   }
 
   .views {
-    width: calc(100% - 80px);
     margin: 0 auto;
     display: flex;
     padding-top: 50px;
   }
 
   .view {
-    display: none;
     top: 0;
-    animation-name: slideOut;
-    animation-duration: 1s;
     width: 100%;
     padding-top: 30px;
     position: relative;
+    opacity: .5;
+    transition: opacity .2s linear;
 
     .single-event {
       margin-bottom: 40px;
@@ -166,6 +125,11 @@
   max-height: 50px;
   transition: max-height .5s linear;
   overflow: hidden;
+}
+
+.event-info {
+  border-bottom: 2px solid rgba($color-grey, .5);
+  padding-bottom: 20px;
 }
 
 .read-toggle {

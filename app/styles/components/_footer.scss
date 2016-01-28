@@ -27,45 +27,25 @@ footer {
     margin-bottom: 45px;
   }
 
-  .link {
-    line-height: 30px;
-    font-weight: 400;
-    font-size: 15px;
+  a {
+    color: $color-blue;
     transition: all .3s;
     text-decoration: none;
   }
 
-  p {
-    line-height: 30px;
-    font-weight: 400;
-    font-size: 20px;
-  }
-
   .link,
   p {
-
     width: 342px;
     letter-spacing: 3px;
     color: $color-blue;
-
   }
 
   form {
     margin-top: 67px;
 
     label {
-      position: relative;
-      width: 320px;
-      height: 50px;
-      display: inline-block;
-      float: left;
-      border: 2px solid $color-blue;
-      border-right: 0;
       color: $color-blue;
-
-      * {
-        position: absolute;
-      }
+      padding: 0;
 
       input.full ~ span,
       input:valid ~ span,
@@ -80,8 +60,8 @@ footer {
       }
 
       span {
+        position: absolute;
         top: 15px;
-        left: 11px;
         transition: all .2s;
         font-size: 16px;
         font-weight: 200;
@@ -93,16 +73,15 @@ footer {
   input {
     line-height: 54px;
     height: 54px;
-    font-size: 18px;
+
     letter-spacing: 1px;
-    padding: 0 11px;
-    border: none;
+//    padding: 0 11px;
+//    border: none;
 
     &[type='email'] {
       color: $color-blue;
       height: 50px;
       line-height: 50px;
-      width: 298px;
     }
 
     &[type='submit'] {

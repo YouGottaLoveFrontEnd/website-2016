@@ -16,6 +16,11 @@
         font-weight: 300;
         font-size: 18px;
         letter-spacing: 2px;
+        font-smoothing: antialiased;
+
+        &:hover {
+          color: $color-white;
+        }
 
         &.not-active {
           color: $color-green;
@@ -23,6 +28,7 @@
 
         &:after {
           line-height: 26px;
+          font-smoothing: antialiased;
         }
 
         &[href="#page-home"] {

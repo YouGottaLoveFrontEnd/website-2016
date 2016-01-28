@@ -2,6 +2,7 @@
   "name": "website-2015",
   "version": "0.0.0",
   "dependencies": {
+    "bootstrap": "^4.0.0-alpha.2",
     "grunt-contrib-compass": "^1.0.4",
     "grunt-template": "^0.2.3"
   },

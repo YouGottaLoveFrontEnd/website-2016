@@ -13,7 +13,7 @@
 }
 
 section {
-  width: calc(100vw - 30vh);
+  width: 70vw;
   display: table;
   margin: 0 auto;
 }
@@ -80,6 +80,10 @@ section {
     font-size: 20px;
     letter-spacing: 2px;
     line-height: 30px;
+
+    &:first-child {
+      padding-left: 0;
+    }
   }
 }
 

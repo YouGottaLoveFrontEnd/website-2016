@@ -3,7 +3,7 @@
   position: fixed;
   z-index: 1000;
   top: 60px;
-  left: 15vh;
+  left: 15vw;
 
 }
 
@@ -20,10 +20,13 @@
   margin: 0;
 }
 
+
 .menu-wrapper {
-  .full-btn {
-    &:after {
-      transition: padding .2s linear;
+  &:hover {
+    .menu-social {
+      a {
+        opacity: 1;
+      }
     }
   }
 }
@@ -32,9 +35,15 @@
   width: 126px;
   height: 82px;
 
+  .full-btn {
+    &:after {
+      transition: padding .2s linear;
+    }
+  }
+
   .menu-button {
     padding: 0;
-    border: 1px solid $color-grey;
+    border: 2px solid $color-grey;
     cursor: pointer;
     outline: none;
     font-size: 21px;
@@ -61,11 +70,11 @@
 
       &:first-child,
       &:nth-child(3n) {
-        margin-left: 19px;
+        margin-left: 18px;
       }
 
       &:nth-child(2n) {
-        margin-left: 8px;
+        margin-left: 7px;
       }
 
       &:after {
@@ -114,6 +123,7 @@
       display: inline-block;
       position: relative;
       padding: 0;
+      opacity: 0;
     }
 
     .facebook {
@@ -147,6 +157,12 @@
 
     &:after {
       padding: 0px 35px
+    }
+  }
+
+  .menu-social {
+    a {
+      opacity: 1;
     }
   }
 }

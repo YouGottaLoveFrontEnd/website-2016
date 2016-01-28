@@ -20,7 +20,7 @@
   .description {
     margin-bottom: 57px;
     letter-spacing: 4px;
-    font-size: 25px;
+
   }
 
   h1,
@@ -28,14 +28,11 @@
     margin-bottom: 57px;
   }
 
-  .register {
-    font-size: 18px;
-    font-weight: 400;
+  button {
     line-height: 56px;
     letter-spacing: 10px;
     border: 1px solid rgba(255,255,255,0);
     cursor: pointer;
-    outline: none;
     font-family: $font-family;
 
     &:after {

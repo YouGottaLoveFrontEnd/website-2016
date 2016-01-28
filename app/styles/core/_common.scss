@@ -31,9 +31,6 @@ label{
   letter-spacing: 2px;
 }
 
-.description {
-  font-size: 2.4vmin;
-}
 
 .uppercase {
   text-transform: uppercase;
@@ -65,14 +62,49 @@ i {
   }
 }
 
+
+.description { //label
+  font-size: 25px;
+}
+
 div,
 span,
 label,
 input,
 p {
   font-family: $font-family;
+
+}
+
+p {
+  text-align: justify;
 }
 
 .libre {
   font-family: $font-libre;
+}
+
+.footer {
+  a {
+    line-height: 30px;
+    font-weight: 400;
+    font-size: 15px;
+  }
+
+  input {
+    font-size: 18px;
+  }
+
+  p {
+    line-height: 30px;
+    font-weight: 400;
+    font-size: 20px;
+  }
+}
+.intro {
+  button {
+    font-size: 18px;
+    font-weight: 400;
+    outline: none;
+  }
 }
