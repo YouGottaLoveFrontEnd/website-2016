@@ -23,11 +23,11 @@ var minimalLoadTimeInterval = setInterval(function () {
 }, 1000);
 
 function autoScroll (to) {
-  if($(window.scrollY > to)) {
-    $(window).scrollTop(window.scrollY--);
+  if(window.scrollY > to) {
+    $(window).scrollTop(window.scrollY - 10);
     setTimeout(function () {
       autoScroll (to)
-    },50);
+    },10);
   }else if (window.scrollY < to) {
     $(window).scrollTop(to);
   }
@@ -43,8 +43,11 @@ function fixScheduleHeader(active) {
         $('.active-tab').removeClass('active-tab');
         $('.schedule-nav ul').children().eq(child).addClass('active-tab');
         $('.itinerary ul').children().eq(child).addClass('active-tab');
-        var scrollToVal = window.scrollY < $('#menu-trigger').offset().top + 100 ? window.scrollY : $('#menu-trigger').offset().top + 100;
-        $(window).scrollTop(scrollToVal);
+        if(window.scrollY > $('#schedule-inner-nav').offset().top -150 ) {
+          autoScroll($('#schedule-inner-nav').offset().top -150);
+        }
+//        var scrollToVal = window.scrollY < $('#menu-trigger').offset().top + 100 ? window.scrollY : $('#menu-trigger').offset().top + 100;
+//        $(window).scrollTop(scrollToVal);
       });
     });
     $(window).on('scroll', function () {
