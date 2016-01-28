@@ -76,6 +76,12 @@ p {
 
 }
 
+
+a,
+p {
+  font-weight: 400;
+}
+
 p {
   text-align: justify;
 }
@@ -87,7 +93,6 @@ p {
 .footer {
   a {
     line-height: 30px;
-    font-weight: 400;
     font-size: 15px;
   }
 
@@ -97,10 +102,11 @@ p {
 
   p {
     line-height: 30px;
-    font-weight: 400;
+
     font-size: 20px;
   }
 }
+
 .intro {
   button {
     font-size: 18px;
