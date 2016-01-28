@@ -147,7 +147,9 @@
 }
 
 .menu-trigger:checked ~ .pages-nav {
-  display: flex;
+  max-height: auto;
+  transform: scale(1) translateY(130px) ;
+  opacity: 1;
 }
 
 
