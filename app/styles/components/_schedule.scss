@@ -146,8 +146,9 @@
 }
 
 .read-toggle-label {
-  font-size: 13px;
+  font-size: 10px;
   color: $color-green;
+  text-transform: uppercase;
 
   &:before {
     content: 'Read More';
@@ -166,14 +167,14 @@
 
 .hosted-by {
   display: block;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 100;
-  margin-top: 15px;
+  margin-top: 10px;
 }
 
 .event-description {
   font-family: $font-libre;
-  font-size: 14px;
+  font-size: 12px;
   line-height: 25px;
   letter-spacing: 2px;
   margin-top: 25px;
@@ -181,7 +182,7 @@
 
 .event-name {
   font-size: 16px;
-  font-weight: 300;
+  font-weight: 400;
   line-height: 22px;
   text-transform: uppercase;
 }
