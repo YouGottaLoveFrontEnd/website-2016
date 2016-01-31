@@ -22,13 +22,13 @@ var minimalLoadTimeInterval = setInterval(function () {
   }
 }, 1000);
 
-function autoScroll (to) {
-  if(window.scrollY > to) {
+function autoScroll(to) {
+  if (window.scrollY > to) {
     $(window).scrollTop(window.scrollY - 10);
     setTimeout(function () {
-      autoScroll (to)
-    },10);
-  }else if (window.scrollY < to) {
+      autoScroll(to)
+    }, 10);
+  } else if (window.scrollY < to) {
     $(window).scrollTop(to);
   }
 }
@@ -43,11 +43,9 @@ function fixScheduleHeader(active) {
         $('.active-tab').removeClass('active-tab');
         $('.schedule-nav ul').children().eq(child).addClass('active-tab');
         $('.itinerary ul').children().eq(child).addClass('active-tab');
-        if(window.scrollY > $('#schedule-inner-nav').offset().top -150 ) {
-          autoScroll($('#schedule-inner-nav').offset().top -150);
+        if (window.scrollY > $('#schedule-inner-nav').offset().top - 150) {
+          autoScroll($('#schedule-inner-nav').offset().top - 150);
         }
-//        var scrollToVal = window.scrollY < $('#menu-trigger').offset().top + 100 ? window.scrollY : $('#menu-trigger').offset().top + 100;
-//        $(window).scrollTop(scrollToVal);
       });
     });
     $(window).on('scroll', function () {
@@ -70,161 +68,7 @@ function fixScheduleHeader(active) {
   }
 }
 
-function thisConfigProps(e, _this) {
-  return {offset: _this.offset(), relX: e.pageX - _this.offset().left, relY: e.pageY - _this.offset().top, x: _this.width() / 2, y: _this.height() / 2};
-}
-
-function followTheLeader(e, _this) {
-  _this.prop = thisConfigProps(e, _this);
-  var index = 1;
-  var opStyle = 1;
-  var opLayer = 1 / _this.children().length;
-  _this.children().each(function () {
-    var item = $(this);
-    var itemIndexOffset = index;
-    index += opLayer;
-
-    var distance = {
-      x: _this.prop.x - (( _this.prop.x - _this.prop.relX) / itemIndexOffset) - _this.prop.x,
-      y: _this.prop.y - (( _this.prop.y - _this.prop.relY) / itemIndexOffset) - _this.prop.y
-    };
-    switch (item.parent().attr('data-move')) {
-      case 'random' :
-        var dir = Math.floor(Math.random() * 2) > 0 ? 1 : -1;
-        itemIndexOffset = Math.random() * (itemIndexOffset / 2) * dir;
-        distance = {
-          x: Math.random() * (_this.prop.x - (( _this.prop.x - _this.prop.relX) / itemIndexOffset) - _this.prop.x),
-          y: Math.random() * (_this.prop.y - (( _this.prop.y - _this.prop.relY) / itemIndexOffset) - _this.prop.y)
-        };
-        break;
-
-    }
-    if (distance.x === undefined) {
-      console.log(index, 'clear');
-      return;
-    }
-
-    item.css({top: distance.y, left: distance.x, opacity: opStyle});
-    opStyle -= opLayer;
-  });
-
-}
-
-function pointData(arr) {
-  var obj = {}, data = arr.split(',');
-  obj.x = parseInt(data[0]);
-  obj.y = parseInt(data[1]);
-  return obj;
-}
-
-function moveSingleLetter(letter, points) {
-  var opLayer = 1 / points.length;
-  for (var i = 0; i < points.length; i++) {
-    var point = pointData(points[i][0]);
-    var op = opLayer * i;
-    letter.eq(0).children('.item').eq(i).css({top: point.y, left: point.x, opacity: op});
-  }
-
-}
-
-function trailTheLeader(e, _this) {
-  var points = _this.attr('dataPoints') ? JSON.parse(_this.attr('dataPoints')) : {};
-  var lettersCount = _this.attr('shadow');
-  var num = e.originalEvent.clientY + e.originalEvent.clientX;
-  if (points['0'] && points['0'].length >= lettersCount && (num % 7 !== 2)) {
-    return;
-  }
-  var childes = _this.children('.single-letter');
-  _this.prop = thisConfigProps(e, _this);
-  var wildCardX = _this.prop.x > _this.prop.relX ? 1 : -1;
-  var wildCardY = _this.prop.y > _this.prop.relY ? -1 : 1;
-  for (var i = 0; i < childes.length; i++) {
-    var child = childes.eq(i);
-    var arr = points.hasOwnProperty(i) ? points[i] : [
-      [parseInt(child.css('left')) + ',' + parseInt(child.css('top'))]
-    ];
-    var p = arr.length !== 0 ? pointData(arr[arr.length - 1][0]) : pointData(child.css('left') + ',' + child.css('top'));
-    var dirX = child.attr('dirX') ? parseInt(child.attr('dirX')) : Math.floor(Math.random() * 2) > 0 ? -1 : 1;
-    var dirY = child.attr('dirY') ? parseInt(child.attr('dirY')) : Math.floor(Math.random() * 2) > 0 ? -1 : 1;
-
-    var margin = Math.floor(Math.random() * 20);
-    var bound = {xMin: 0, xMax: 100, yMin: 0, yMax: 100};
-    var x = p.x + (margin * dirX * wildCardX);
-    var y = p.y + (margin * dirY * wildCardY);
-
-    if (y < bound.xMin) {
-      dirX = dirX * -1;
-      x = bound.xMin + margin;
-    }
-
-    if (y > bound.xMax) {
-      dirX = dirX * -1;
-      x = bound.xMax - margin;
-    }
-
-    if (y < bound.yMin) {
-      dirY = dirY * -1;
-      y = bound.yMin + margin;
-    }
-
-    if (y > bound.yMax) {
-      dirY = dirY * -1;
-      y = bound.yMax - margin;
-    }
-
-    child.attr('dirX', dirX);
-    child.attr('dirY', dirY);
-
-    if (child.children('.item').length < parseInt(lettersCount)) {
-      arr.push([x + ',' + y]);
-      var suvChild = child.children('.item').eq(0).clone();
-      child.append(suvChild);
-    } else {
-      arr.shift();
-      arr.push([x + ',' + y]);
-    }
-    points[i] = arr;
-    if (points[i].length >= lettersCount) {
-      moveSingleLetter(child, points[i]);
-    }
-
-  }
-  _this.attr('dataPoints', JSON.stringify(points));
-}
-
-function textAnimationOut() {
-  var centerPoint = {x: $(this).width() / 2, y: $(this).height() / 2};
-  var item = $(this).children('.item');
-  var relX = centerPoint.x - (item.width() / 2);
-  var relY = centerPoint.y - (item.height() / 2);
-
-  if (item.attr('dataPoints')) {
-    item.attr('dataPoints', JSON.stringify({0: '0,0'}));
-  }
-
-  if ($(this).attr('data-move') === 'trailing') {
-    var that = $(this);
-    that.children('.single-letter').children('.item').each(
-        function (index) {
-          var elem = that.children('.single-letter').children('.item').eq(index);
-          var point = elem.attr('initial-poz').split(',');
-          relX = point[0];
-          relY = point[1];
-          elem.css({top: relY, left: relX });
-
-        });
-  } else {
-    if (item.parent().attr('initial-poz')) {
-      var point = item.parent().attr('initial-poz').split(',');
-      relX = point[0];
-      relY = point[1];
-    }
-    item.css({top: relY, left: relX });
-  }
-}
-
 function reorderPages() {
-  var margin = 10;
   var zindex = 9;
   var numOfPages = $('.pages-stack').children('.page').length;
   var currentCue = $('.page').index($('.current'));
@@ -237,17 +81,14 @@ function reorderPages() {
       currentCue = 0;
     }
   }
-
   for (var i = 0; i < pagesNewOrder.length; i++) {
     var page = pagesNewOrder[i];
+    page.removeAttr('data-pos');
     if (i === 0) {
-      page.css({zIndex: zindex, opacity: 1, top: 270, transform: 'scale(.9)'});
+      page.css({zIndex: zindex});
     } else {
-      var depth = 300 - (margin * i);
-      var newWidth = 0.9 - (i / 10) + 0.05;
       var newIndex = zindex - i;
-      var newOpacity = (1 / numOfPages) * (numOfPages - i);
-      page.css({zIndex: newIndex, opacity: newOpacity, top: depth, transform: 'scaleX(' + newWidth + ')'});
+      page.css({zIndex: newIndex}).attr('data-pos', i);
     }
   }
 }
@@ -338,33 +179,6 @@ $(document).ready(function () {
   $('body')
       .addClass('ready')
       .toggleClass('mobile', isMobile);
-
-  $('.multiple-wrapper').on('mouseover',function () {
-
-    var itemsCount = parseInt($(this).attr('data-count')) ? parseInt($(this).attr('data-count')) : 0;
-    var childes = $(this).children('.item');
-    if ($(this).children('.item').length !== itemsCount) {
-      while ($(this).children('.item').length < itemsCount) {
-        var item = childes.eq(0).clone();
-        $(this).append(item);
-      }
-    }
-    return;
-    $(this).on('mousemove', function (e) {
-      switch ($(this).attr('data-move')) {
-        case 'trailing':
-          trailTheLeader(e, $(this));
-          break;
-        case 'random':
-          followTheLeader(e, $(this));
-          break;
-        default:
-          followTheLeader(e, $(this));
-          break;
-
-      }
-    });
-  }).on('mouseout', textAnimationOut);
 
   $('input[type="email"]').blur(function () {
     $(this).toggleClass('full', $(this).val() !== '');
