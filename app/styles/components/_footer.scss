@@ -12,20 +12,27 @@ footer {
 
   .sponsors-wrapper {
     height: 20vh;
-    padding-top: 5vh;
+    padding-top: 7vh;
+    padding-bottom: 7vh;
+
+    .sponsors-logos .single-sponsor {
+      margin-right: 15px;
+      padding-left: 0;
+    }
   }
 }
 
 .footer {
   height: 28vh;
-  padding-top: 10vh;
+  padding-top:7vh;
   position: relative;
-  border-bottom: $border-blue;
-  padding-bottom: 50px;
+  border-bottom: 1px solid rgba(1,12,25,0.2);
+  padding-bottom: 100px;
 
   h4 {
     letter-spacing: 9px;
-    margin-bottom: 45px;
+    margin-bottom: 25px;
+    font-weight: 400;
   }
 
   a {
@@ -36,13 +43,16 @@ footer {
 
   .link,
   p {
-    width: 342px;
-    letter-spacing: 3px;
-    color: $color-blue;
+    width: 300px;
+    letter-spacing: 1px;
+    color: #021e40;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 23px;
   }
 
   form {
-    margin-top: 67px;
+    margin-top: 30px;
     flex-wrap: nowrap;
     justify-content: flex-start;
     display: flex;
@@ -67,32 +77,34 @@ footer {
 
       span {
         position: absolute;
-        top: 16px;
+        top: 14px;
         transition: all .2s;
-        font-size: 16px;
+        font-size: 14px;
         font-weight: 200;
         left: 5%;
+        letter-spacing: 1px;
       }
     }
   }
 
   input {
-    height: 50px;
-    line-height: 50px;
+    height: 45px;
+    line-height: 45px;
     letter-spacing: 1px;
 
     &[type='email'] {
       color: $color-blue;
-      border: $border-blue;
+      border: 1px solid $color-blue;
       width: 100%;
       padding: 0 2%;
     }
 
     &[type='submit'] {
-      width: 20%;
+      width: 15%;
       border: 2px solid $color-blue;
       color: $color-white;
       background-color: $color-blue;
+      font-size: 14px;
     }
 
   }
