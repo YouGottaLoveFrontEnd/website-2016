@@ -1,6 +1,6 @@
 
 .pages-stack {
-  margin-bottom: 70vh;
+  margin-bottom: calc(70vh + 200px);
   z-index: 100;
   pointer-events: none;
   perspective: 1200px;
