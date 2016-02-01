@@ -63,6 +63,8 @@ footer {
     justify-content: flex-start;
     display: flex;
     padding: 0;
+    min-width: 300px;
+    margin-bottom: 20px;
 
     label {
       color: $color-blue;
