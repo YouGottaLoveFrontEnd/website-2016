@@ -26,7 +26,7 @@ function autoScroll(to) {
   if (window.scrollY > to) {
     $(window).scrollTop(window.scrollY - 10);
     setTimeout(function () {
-      autoScroll(to)
+      autoScroll(to);
     }, 10);
   } else if (window.scrollY < to) {
     $(window).scrollTop(to);
@@ -152,10 +152,6 @@ function initShadow(config) {
   $(window).on('mousemove', function () {
     $('.shadow').each(function () {
       $(this).mousemove(function (evt) {
-        var box = {
-          centerX: $(this).width() / 2,
-          centerY: $(this).height() / 2
-        };
         var pointer = {x: evt.offsetX, y: evt.offsetY};
         var range = 400;
         var Xunit = $(this).width() / range;
@@ -183,8 +179,9 @@ $(document).ready(function () {
   $('input[type="email"]').blur(function () {
     $(this).toggleClass('full', $(this).val() !== '');
   });
-
-  initShadow({count: 4});
+  if (!isMobile) {
+    initShadow({count: 4});
+  }
   hashchange();
 
   $('.pages-nav .link').each(function () {

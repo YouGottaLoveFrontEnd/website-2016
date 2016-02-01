@@ -81,10 +81,41 @@ section {
     font-size: 16px;
     letter-spacing: 2px;
     line-height: 30px;
+  }
+}
 
-    &:first-child {
-      padding-left: 0;
+@media (max-width: $screen-md-min) {
+  section {
+    width: 90vw;
+  }
+
+  .pages-stack {
+    margin-bottom: 0;
+  }
+
+  .page {
+    padding-top: 100px;
+  }
+}
+
+@media (max-width: $screen-sm-min) {
+  .page-intro {
+    h2 {
+      font-size: 80px;
+      padding: 20px 0;
+    }
+
+    .sub-title {
+      margin-left: 0;
     }
   }
 }
 
+@media (max-width: $screen-xs-min) {
+  .page-intro {
+    h2 {
+      font-size: 70px;
+      padding: 10px 0;
+    }
+  }
+}

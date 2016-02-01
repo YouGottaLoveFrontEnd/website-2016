@@ -108,6 +108,7 @@
   .view {
     top: 0;
     width: 100%;
+    min-width: 300px;
     padding-top: 30px;
     position: relative;
     opacity: .2;
@@ -191,8 +192,39 @@
   font-size: 18px;
 }
 
-sup{
+sup {
   text-transform: uppercase;
   font-size: 11px;
 }
 
+@media (max-width: $screen-md-min) {
+  .views {
+
+    .day-1,
+    .day-2 {
+      opacity: 0;
+      max-width: 0;
+      min-width: 0;
+      overflow: hidden;
+      padding: 0;
+    }
+  }
+
+  input[type='radio'] {
+
+    &#day-1:checked ~ .views .day-1 {
+      max-width: 100%;
+
+    }
+
+    &#day-2:checked ~ .views .day-2 {
+      max-width: 100%;
+    }
+  }
+}
+
+@media (max-width: $screen-sm-min) {
+  .schedule-nav {
+    padding-top: 34px;
+  }
+}

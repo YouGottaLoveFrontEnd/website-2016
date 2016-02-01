@@ -54,7 +54,7 @@
 
   .speaker-description {
     position: relative;
-    display: inline-block;
+    display: table-row;
 
     img {
       box-shadow: 0 13px 42px 0 rgba(0, 0, 0, .3);
@@ -76,8 +76,8 @@
         //        min-width: 300px;
         margin-left: 20px;
         //        margin-left: -350px;
-//        transition: opacity .6s .2s;
-                transition: opacity 1ms cubic-bezier(.215,.61,.355,1);
+        //        transition: opacity .6s .2s;
+        transition: opacity 1ms cubic-bezier(.215, .61, .355, 1);
         padding-right: 20px;
         margin-right: 0;
         opacity: 0;
@@ -88,16 +88,7 @@
       }
     }
 
-    &:hover {
-      .overlay {
-        max-width: 100%;
 
-        p {
-                    margin-left: 20px;
-          opacity: 1;
-        }
-      }
-    }
   }
 
   img {
@@ -133,3 +124,80 @@
   }
 }
 
+@media (min-width: $screen-md-min) {
+
+  .speaker-details {
+    &:hover {
+      .speaker-description .overlay {
+        max-width: 100%;
+
+        p {
+          margin-left: 20px;
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: $screen-md-min) {
+
+  .right {
+    text-align: left;
+    width: 100%;
+
+    .single-speaker {
+      flex-direction: row;
+    }
+    .speaker-social {
+      margin-right: 20px;
+      margin-left: 0;
+    }
+
+    .speaker-personal-details {
+      left: 40%;
+      right: auto;
+    }
+  }
+
+  .speakers-wrapper {
+    .single-speaker {
+      max-width: 280px;
+      min-width: auto;
+    }
+  }
+
+  .speaker-details {
+    .speaker-personal-details,
+    .overlay {
+      position: relative;
+      right: 0;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+    }
+
+    .speaker-description {
+      .overlay {
+        max-width: 100%;
+
+        p {
+          opacity: 1;
+          width: 100%;
+          padding: 0;
+          margin: 0;
+        }
+      }
+    }
+  }
+
+  .speaker-social {
+    margin-right: 20px;
+  }
+}
+
+@media (max-width: $screen-sm-min) {
+}
+
+@media (max-width: $screen-xs-min) {
+}

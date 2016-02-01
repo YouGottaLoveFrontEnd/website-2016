@@ -4,7 +4,8 @@
   perspective: 100px;
   perspective-origin: 50% -50%;
   transform-style: preserve-3d;
-  width: 380px;
+  max-width: 380px;
+  width: 90%;
   height: 150px;
 
   .item {
@@ -28,5 +29,21 @@
   
   .stroke-1 {
     opacity: .9;
+  }
+}
+
+@media (max-width: $screen-sm-min) {
+  .shadow {
+    .item {
+      font-size: 80px;
+    }
+  }
+}
+
+@media (max-width: $screen-xs-min) {
+  .shadow {
+    .item {
+      font-size: 70px;
+    }
   }
 }

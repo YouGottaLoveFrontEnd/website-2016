@@ -20,17 +20,6 @@
   margin: 0;
 }
 
-
-.menu-wrapper {
-  &:hover {
-    .menu-social {
-      a {
-        opacity: 1;
-      }
-    }
-  }
-}
-
 .menu-wrapper {
   width: 126px;
   height: 82px;
@@ -132,11 +121,6 @@
         margin-left: 20px;
       }
     }
-    .transparent-btn:hover {
-      &:after {
-        max-width: 200px;
-      }
-    }
 
     .twitter {
       &:after {
@@ -150,23 +134,6 @@
   max-height: auto;
   transform: scale(1) translateY(130px) ;
   opacity: 1;
-}
-
-
-.menu-trigger:hover ~ .menu-wrapper {
-  .full-btn {
-    color: $color-blue;
-
-    &:after {
-      padding: 0px 35px
-    }
-  }
-
-  .menu-social {
-    a {
-      opacity: 1;
-    }
-  }
 }
 
 .menu-trigger:checked ~ .menu-wrapper {
@@ -240,7 +207,77 @@
         cursor: pointer;
       }
     }
-
   }
+}
+
+@media (min-width: $screen-md-min) {
+
+  .menu-wrapper {
+    &:hover {
+      .menu-social {
+        a {
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  .menu-trigger:hover ~ .menu-wrapper {
+    .full-btn {
+      color: $color-blue;
+
+      &:after {
+        padding: 0px 35px
+      }
+    }
+
+    .menu-social {
+      a {
+        opacity: 1;
+      }
+    }
+  }
+
+  .menu-wrapper {
+    .menu-social {
+      .transparent-btn:hover {
+        &:after {
+          max-width: 200px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: $screen-md-min) {
+  .menu-trigger:checked ~ .pages-nav {
+    transform: scale(1) translateY(10px) ;
+  }
+
+  .menu-trigger:checked ~ .pages-stack .page{
+    &.current {
+      top: 70vh;
+    }
+
+    &[data-pos='1'] {
+      top: 65vh;
+    }
+
+    &[data-pos='2'] {
+      top: 60vh;
+    }
+  }
+
+}
+
+@media (max-width: $screen-sm-min) {
+  .menu-trigger,
+  .menu-wrapper {
+    top: 15px;
+    left: 15px;
+  }
+}
+
+@media (max-width: $screen-xs-min) {
 }
 

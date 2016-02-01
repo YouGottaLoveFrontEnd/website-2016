@@ -64,3 +64,25 @@
 
   }
 }
+
+@media (max-width: $screen-md-min) {
+  .pages-nav {
+    display: block;
+    width: 70%;
+    float: right;
+
+    ul {
+      width: 100%;
+
+      li {
+        margin: 16px auto;
+      }
+    }
+  }
+}
+
+@media (max-width: $screen-sm-min) {
+}
+
+@media (max-width: $screen-xs-min) {
+}

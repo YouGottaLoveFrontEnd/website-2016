@@ -119,3 +119,19 @@ p {
     outline: none;
   }
 }
+
+
+@media (max-width: $screen-md-min) {
+  h1 {
+    font-size: 35px;
+    line-height: 48px;
+    letter-spacing: 2px;
+  }
+
+}
+
+@media (max-width: $screen-sm-min) {
+}
+
+@media (max-width: $screen-xs-min) {
+}
