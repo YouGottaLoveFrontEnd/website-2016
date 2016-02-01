@@ -51,6 +51,7 @@
   .team-gallery {
     margin-top: 50px;
     text-align: center;
+    padding: 0;
   }
 
 }
@@ -58,7 +59,7 @@
 .team-member {
   position: relative;
   display: inline-block;
-  margin-bottom: 15px;
+  margin-bottom: 30px;
 
   img {
     box-shadow: 0 13px 42px 0 rgba(0, 0, 0, .3);
