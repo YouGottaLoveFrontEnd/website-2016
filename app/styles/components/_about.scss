@@ -70,7 +70,7 @@
     max-width: 0;
     top: 0;
     left: 0;
-    transition: max-width .5s;
+    transition: max-width .9s ease-out;
     height: 100%;
     width: 100%;
     background-color: rgba($color-blue, .95);
@@ -80,9 +80,10 @@
     a,
     hr {
       position: absolute;
-      left: -100%;
+      left: 20px;
       opacity: 0;
-      transition: left .3s .2s, opacity .3s;
+      text-align: left;
+      transition: opacity 1ms cubic-bezier(.215,.61,.355,1);
     }
 
     .name {
@@ -108,7 +109,7 @@
 
   &:hover {
     .member-info {
-      max-width: 800px;
+      max-width: 100%;
 
       .name,
       a,

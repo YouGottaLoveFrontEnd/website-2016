@@ -64,7 +64,7 @@
       max-width: 0;
       top: 0;
       left: 0;
-      transition: max-width .5s;
+      transition: max-width .9s ease-out;
       height: 100%;
       width: 100%;
       background-color: rgba($color-blue, .95);
@@ -73,9 +73,11 @@
       p {
         margin-top: 20px;
         width: calc(100% - 20px);
-//        min-width: 300px;
-        margin-left: -350px;
-        transition: margin-left .3s .2s, opacity .3s;
+        //        min-width: 300px;
+        margin-left: 20px;
+        //        margin-left: -350px;
+//        transition: opacity .6s .2s;
+                transition: opacity 1ms cubic-bezier(.215,.61,.355,1);
         padding-right: 20px;
         margin-right: 0;
         opacity: 0;
@@ -88,9 +90,10 @@
 
     &:hover {
       .overlay {
-        max-width: 800px;
+        max-width: 100%;
+        
         p {
-          margin-left: 20px;
+                    margin-left: 20px;
           opacity: 1;
         }
       }
