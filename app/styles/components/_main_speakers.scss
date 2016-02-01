@@ -1,156 +1,129 @@
 
 .speakers-wrapper {
   display: table;
+  margin-top: 50px;
+
+  .single-speaker {
+    display: flex;
+    margin-bottom: 40px;
+    min-width: 300px;
+  }
 }
 
-.single-speaker {
-  height: 512px;
+.speaker-details {
   position: relative;
-  margin-bottom: 100px;
 
-  .expertise {
+  .speaker-personal-details,
+  .overlay {
     position: absolute;
-    transform: rotate(90deg);
-    transform-origin: 0;
-    top: 7px;
-    font-size: 10px;
-    color: rgba(255, 255, 255, 0.5);
+
   }
 
-  .speaker-info {
-    position: relative;
-    max-width: 50%;
-    border-top: 1px solid rgba(0, 208, 157, 0.3);
-    border-bottom: 1px solid rgba(0, 208, 157, 0.3);
-    padding: 10px 0;
-    width: 100%;
-    transition: max-width .5s linear;
+  h3,
+  p {
+    text-align: left;
+  }
 
-    h3,
-    p {
-      pointer-events: none;
-    }
+  .speaker-personal-details {
+    bottom: 30px;
+    max-width: 280px;
+    width: 90%;
+    right: 0;
+    z-index: 90;
+    pointer-events: none;
+    left: 50%;
 
     h3 {
-      font-size: 45px;
-      position: absolute;
-      top: 13%;
-      letter-spacing: 2px;
+      font-size: 24px;
       font-weight: 400;
-      max-width: 390px;
-      width: 390px;
+      letter-spacing: 2px;
+      margin-bottom: 15px;
     }
 
-    .speaker-bio,
-    .speaker-description {
-      position: absolute;
-      font-size: 16px;
-      font-weight: 100;
-      line-height: 26px;
-      letter-spacing: 1px;
+    hr {
+      border-color: $color-green;
+      width: 30px;
+      margin: 0 0 15px;
+    }
+
+    p {
+      font-size: 14px;
+      letter-spacing: 3px;
+    }
+  }
+
+  .speaker-description {
+    position: relative;
+
+    display: inline-block;
+
+    img {
+      box-shadow: 0 13px 42px 0 rgba(0, 0, 0, .3);
+
+    }
+    .overlay {
+      max-width: 0;
+      top: 0;
+      left: 0;
+      transition: max-width .5s;
+      height: 100%;
+      width: 100%;
+      background-color: rgba($color-blue, .95);
       overflow: hidden;
-    }
 
-    .speaker-description {
-      top: 42%;
-      max-width: 500px;
-      width: 90%;
-      opacity: 0;
-    }
-
-    .speaker-bio {
-      top: 26%;
-      font-family: $font-libre;
-      font-style: italic;
-      max-height: auto;
-      font-weight: bolder;
-      max-width: 390px;
-      width: 90%;
-    }
-
-    .speaker-image {
-      max-width: 450px;
+      p {
+        margin-top: 20px;
+        width: calc(100% - 20px);
+//        min-width: 300px;
+        margin-left: -350px;
+        transition: margin-left .3s .2s, opacity .3s;
+        padding-right: 20px;
+        margin-right: 0;
+        opacity: 0;
+        font-size: 14px;
+        letter-spacing: 1;
+        font-weight: 100;
+        line-height: 16px;
+      }
     }
 
     &:hover {
-      max-width: calc(100% - 64px);
-
-      .speaker-description {
-        opacity: 1;
+      .overlay {
+        max-width: 800px;
+        p {
+          margin-left: 20px;
+          opacity: 1;
+        }
       }
     }
   }
+
+  img {
+    max-width: 100%;
+  }
+
 }
 
-.single-speaker.left {
+.right {
+  text-align: right;
+  .single-speaker {
+    flex-direction: row-reverse;
+  }
   .speaker-social {
-    left: -64px;
+    margin-right: 0;
+    margin-left: 10px;
   }
 
-  .expertise {
-    left: 10px;
-  }
-
-  .speaker-info {
-    margin-left: 64px;
-
-    h3,
-    .speaker-bio,
-    .speaker-description {
-      left: 45%;
-      transition: left .5s linear, opacity .5s linear;
-    }
-
-    &:hover {
-      h3,
-      .speaker-bio,
-      .speaker-description {
-        left: 34%;
-      }
-    }
-  }
-}
-
-.single-speaker.right {
-  .speaker-social {
-    right: -50px;
-  }
-
-  .expertise {
-    right: 10px;
-    transform: rotate(-90deg);
-    transform-origin: 100%;
-  }
-
-  .speaker-info {
-    margin-right: 64px;
-    float: right;
-    text-align: right;
-
-    h3,
-    .speaker-bio,
-    .speaker-description {
-      left: 15%;
-      text-align: left;
-      transition: left .5s linear, opacity .5s linear;
-    }
-
-
-    &:hover {
-      h3,
-      .speaker-bio,
-      .speaker-description {
-        left: 34%;
-      }
-    }
+  .speaker-personal-details {
+    right: 40%;
+    left: auto;
   }
 }
 
 .speaker-social {
-  position: absolute;
-  bottom: 0;
   width: 23px;
   text-align: center;
+  margin-right: 10px;
 
   img {
     height: 15px;
