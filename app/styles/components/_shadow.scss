@@ -7,17 +7,15 @@
   max-width: 380px;
   width: 90%;
   height: 150px;
+  transition: all 0.05s;
 
   .item {
-    transition: all .2s linear;
     pointer-events: none;
     -webkit-text-fill-color: transparent;
     -webkit-text-stroke-width: 1px;
     font-size: 90px;
     position: absolute;
     top: 29px;
-
-   
   }
 
   @for $i from 0 through 7 {

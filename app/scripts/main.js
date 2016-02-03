@@ -171,6 +171,90 @@ function windowResize() {
   $('.schedule-nav').css({width: scheduleNavWidth, left: scheduleNavLeft});
 }
 
+function logoInit() {
+
+  var el = document.querySelector('.logo');
+  var rect = el.getBoundingClientRect();
+  var scrollTop = document.scrollingElement.scrollTop;
+  var scrollLeft = document.scrollingElement.scrollLeft;
+
+  var position = {
+    t: rect.top - scrollTop,
+    l: rect.left - scrollLeft,
+    b: rect.bottom - scrollTop,
+    r: rect.right - scrollLeft,
+    cx: (rect.width/2) + rect.left + scrollLeft,
+    cy: (rect.height/2) + rect.top + scrollTop,
+    w: rect.width,
+    h: rect.height
+  };
+
+  var uls = el.querySelectorAll('.letters-tail ul');
+
+  var origins = [].map.call(uls, function(ul){
+    return getComputedStyle(ul)['perspective-origin'].split(' ').map(function(c){
+      return parseInt(c);
+    })
+  });
+
+
+
+
+  var originX = position.cx;
+  var originY = position.cy;
+  var ex = 0;
+  var ey = 0;
+
+  window.addEventListener('resize', function(){
+    rect = el.getBoundingClientRect();
+    scrollTop = document.scrollingElement.scrollTop;
+    scrollLeft = document.scrollingElement.scrollLeft;
+
+
+    position = {
+      t: rect.top - scrollTop,
+      l: rect.left - scrollLeft,
+      b: rect.bottom - scrollTop,
+      r: rect.right - scrollLeft,
+      cx: (rect.width/2) + rect.left + scrollLeft,
+      cy: (rect.height/2) + rect.top + scrollTop,
+      w: rect.width,
+      h: rect.height
+    };
+
+    origins = [].map.call(uls, function(ul){
+      return getComputedStyle(ul)['perspective-origin'].split(' ').map(function(c){
+        return parseInt(c);
+      })
+    });
+  });
+
+
+  window.addEventListener('mousemove', function(e) {
+
+    window.requestAnimationFrame(function(){
+      originX = (e.pageX - originX);
+      originY = (e.pageY - originY);
+
+      origins.forEach(function(c, ind) {
+        c[0] += originX;
+        c[1] += originY;
+
+        uls[ind].style['perspective-origin'] = c.map(function(p){ return p + 'px'}).join(' ')
+      });
+
+      originX = e.pageX;
+      originY = e.pageY;
+
+    });
+
+  }, true);
+
+  var ev = document.createEvent('MouseEvent');
+  ev.initEvent('mousemove');
+  window.dispatchEvent(ev)
+}
+
 $(document).ready(function () {
   $('body')
       .addClass('ready')
@@ -230,7 +314,7 @@ $(document).ready(function () {
 
 $(window).load(function () {
   pageLoaded = true;
-
+  logoInit();
 });
 
 
