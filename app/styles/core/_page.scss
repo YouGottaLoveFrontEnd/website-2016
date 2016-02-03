@@ -1,6 +1,6 @@
 
 .pages-stack {
-  margin-bottom: calc(70vh + 200px);
+  margin-bottom: calc(70vh + 150px);
   z-index: 100;
   pointer-events: none;
   perspective: 1200px;
@@ -21,7 +21,7 @@ section {
 .page {
   background-color: $color-blue;
   padding-top: 194px;
-  transition: transform .3s linear, top .2s linear;
+  transition: transform .2s linear, top .2s linear;
   position: relative;
   z-index: 5;
   width: 100%;
@@ -32,7 +32,8 @@ section {
   &.current {
     z-index: 9;
     opacity: 1;
-    transform: translate3d(0, 0, 0);
+    animation: currentAnimationOut .4s forwards;
+    animation-timing-function: cubic-bezier(0.155, 0.810, 0.590, 0.655);
     pointer-events: auto;
   }
 

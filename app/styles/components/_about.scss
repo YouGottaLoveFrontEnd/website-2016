@@ -55,6 +55,7 @@
   .team-gallery {
     text-align: center;
     padding: 0;
+    margin-top: 50px;
   }
 
 }
@@ -74,10 +75,10 @@
     max-width: 0;
     top: 0;
     left: 0;
-    transition: max-width .9s ease-out;
+    transition: max-width .5s cubic-bezier(.215, .61, .355, 1);
     height: 100%;
     width: 100%;
-    background-color: rgba($color-blue, .95);
+    background-color: rgba($color-blue, .9);
     overflow: hidden;
 
     .name,
@@ -91,9 +92,10 @@
     }
 
     .name {
-      font-size: 18px;
+      font-size: 16px;
       font-weight: 400;
-      line-height: 25px;
+      line-height: 23px;
+      bottom: 40px;
     }
 
     hr {

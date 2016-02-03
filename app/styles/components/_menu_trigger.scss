@@ -131,8 +131,7 @@
 }
 
 .menu-trigger:checked ~ .pages-nav {
-  max-height: auto;
-  transform: scale(1) translateY(130px) ;
+  transform: translateY(20vh);
   opacity: 1;
 }
 
@@ -162,21 +161,87 @@
   }
 }
 
+@keyframes currentAnimationIn {
+  0% {
+    transform: translateY(0) scale(1) translateZ(0)
+  }
+  60% {
+    transform: translateY(50vh) scale(.8) translateZ(80px);
+  }
+  100% {
+    transform: translateY(50vh) scale(.8) translateZ(80px);
+  }
+}
+
+@keyframes currentAnimationOut {
+  from {
+    transform: translateY(50vh) scale(.8) translateZ(80px);
+  }
+
+  to {
+    transform: translateY(0) scale(1) translateZ(0);
+  }
+}
+
+@keyframes pos1AnimationIn {
+  0% {
+    transform: translateY(50vh) scale(.8) translateZ(80px);
+    opacity: 0
+  }
+  50% {
+    transform: translateY(50vh) scale(.8) translateZ(80px);
+    opacity: 0
+  }
+  100% {
+    transform: translateY(50vh) scale(.8) translateZ(40px);
+    opacity: 1
+  }
+}
+
+@keyframes pos2AnimationIn {
+  0% {
+    transform: translateY(50vh) scale(.8) translateZ(80px);
+    opacity: 0
+  }
+  40% {
+    transform: translateY(50vh) scale(.8) translateZ(80px);
+    opacity: 0
+  }
+
+  70% {
+    transform: translateY(50vh) scale(.8) translateZ(40px);
+    opacity: 1
+  }
+  100% {
+    transform: translateY(50vh) scale(.8) translateZ(0px);
+    opacity: 1
+  }
+}
+
+@keyframes changePrespective {
+  0% {
+    perspective-origin: 50%
+  }
+  100% {
+    perspective-origin: 50% -50%;
+  }
+}
+
 .menu-trigger:checked ~ .pages-stack {
-  perspective-origin: 50% -50%;
   height: 100vh;
   top: 0;
   margin-bottom: 0;
+  animation: changePrespective .7s both;
 
   .page {
     border: 1px solid $color-green;
     height: 100vh;
-//    margin-top: 30vh;
 
     &.current {
       z-index: 9;
       opacity: 1;
-      transform: translateY(50vh) scale(.8) translateZ(80px);
+      animation: currentAnimationIn .4s both;
+      //      animation-timing-function: cubic-bezier(0.155, 0.810, 0.590, 0.655);
       pointer-events: auto;
     }
 
@@ -187,7 +252,8 @@
       z-index: 8;
       opacity: .7;
       pointer-events: none;
-      transform: translateY(50vh) scale(.8) translateZ(40px);
+      animation: pos1AnimationIn .4s both;
+      animation-timing-function: cubic-bezier(0.155, 0.810, 0.590, 0.655);
     }
 
     &[data-pos='2'] {
@@ -197,15 +263,9 @@
       z-index: 7;
       opacity: .5;
       pointer-events: none;
-      transform: translateY(50vh) scale(.8) translateZ(0px);
-    }
-    &:not(.current) {
-      pointer-events: auto;
+      animation: pos2AnimationIn .4s both;
+      animation-timing-function: cubic-bezier(0.155, 0.810, 0.590, 0.655);
 
-      &:hover {
-        top: -50px;
-        cursor: pointer;
-      }
     }
   }
 }
@@ -251,10 +311,11 @@
 
 @media (max-width: $screen-md-min) {
   .menu-trigger:checked ~ .pages-nav {
-    transform: scale(1) translateY(10px) ;
+    transform: translateY(10px);
+    opacity: 1;
   }
 
-  .menu-trigger:checked ~ .pages-stack .page{
+  .menu-trigger:checked ~ .pages-stack .page {
     &.current {
       top: 70vh;
     }

@@ -85,10 +85,10 @@ function reorderPages() {
     var page = pagesNewOrder[i];
     page.removeAttr('data-pos');
     if (i === 0) {
-      page.css({zIndex: zindex});
+//      page.css({zIndex: zindex});
     } else {
       var newIndex = zindex - i;
-      page.css({zIndex: newIndex}).attr('data-pos', i);
+      page.attr('data-pos', i);
     }
   }
 }
