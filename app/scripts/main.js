@@ -84,9 +84,7 @@ function reorderPages() {
   for (var i = 0; i < pagesNewOrder.length; i++) {
     var page = pagesNewOrder[i];
     page.removeAttr('data-pos');
-    if (i === 0) {
-//      page.css({zIndex: zindex});
-    } else {
+    if (i !== 0) {
       var newIndex = zindex - i;
       page.attr('data-pos', i);
     }
@@ -149,17 +147,19 @@ function initShadow(config) {
     }
   });
 
-  $(window).on('mousemove', function () {
-    $('.shadow').each(function () {
-      $(this).mousemove(function (evt) {
-        var pointer = {x: evt.offsetX, y: evt.offsetY};
-        var range = 400;
-        var Xunit = $(this).width() / range;
-        var originX = pointer.x / Xunit - (range / 3);
-        var Yunit = $(this).height() / range;
-        var originY = pointer.y / Yunit - (range / 3);
-        $(this).css({'perspective-origin': originX + '% ' + originY + '%'});
-      });
+  $('.shadow').each(function () {
+    $(this).parent().on('mousemove', function (evt) {
+      var pointer = {x: evt.offsetX, y: evt.offsetY};
+      var range = 400;
+      var shadow = $(this).children('.shadow');
+      var Xunit = shadow.width() / range;
+      var originX = pointer.x / Xunit - (range / 3);
+      var Yunit = shadow.height() / range;
+      var originY = pointer.y / Yunit - (range / 3);
+      if (originX >= 280) {
+        originX = 280;
+      }
+      shadow.css({'perspective-origin': originX + '% ' + originY + '%'});
     });
   });
 }

@@ -2,7 +2,7 @@
   position: relative;
   display: table;
   perspective: 100px;
-  perspective-origin: 50% -50%;
+  perspective-origin: 140% -50%;
   transform-style: preserve-3d;
   max-width: 380px;
   width: 90%;
@@ -22,7 +22,8 @@
 
   @for $i from 0 through 7 {
     .stroke-#{$i} {
-      transform: translateZ(0px - 2 * $i) translateX(0px + 6* $i);
+      transform: translateZ(0px - (2 * $i));// translateX(-1px + 6 * (1 + $i));
+//      transform: translateZ(0) translateX(0);
       opacity: 1/ $i;
     }
   }
