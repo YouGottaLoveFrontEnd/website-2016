@@ -1,0 +1,27 @@
+{
+  "name": "website-2016",
+  "version": "0.0.0",
+  "homepage": "https://github.com/YouGottaLoveFrontEnd/website-2016",
+  "authors": [
+    "Sergey Bolshchikov <sergey@bolshchikov.net>"
+  ],
+  "description": "Website for YGLF Conference",
+  "main": "index.html",
+  "keywords": [
+    "website",
+    "conference"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "app/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap-sass": "~3.3.6"
+  }
+}
