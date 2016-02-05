@@ -1,3 +1,4 @@
+/* global $ */
 'use strict';
 
 var isMobile = (function () {
@@ -43,8 +44,8 @@ function fixScheduleHeader(active) {
         $('.active-tab').removeClass('active-tab');
         $('.schedule-nav ul').children().eq(child).addClass('active-tab');
         $('.itinerary ul').children().eq(child).addClass('active-tab');
-        if (window.scrollY > $('#schedule-inner-nav').offset().top - 150) {
-          autoScroll($('#schedule-inner-nav').offset().top - 150);
+        if (window.scrollY > $('#schedule-inner-nav').offset().top - 120) {
+          autoScroll($('#schedule-inner-nav').offset().top - 120);
         }
       });
     });
@@ -126,7 +127,7 @@ function hashchange() {
     return;
   }
 
-  if (hash === 'page-schedule') {
+  if (hash === 'page-program') {
     fixScheduleHeader(true);
   } else {
     fixScheduleHeader(false);
@@ -197,9 +198,6 @@ function logoInit() {
     });
   });
 
-
-
-
   var originX = position.cx;
   var originY = position.cy;
 
@@ -207,7 +205,6 @@ function logoInit() {
     rect = el.getBoundingClientRect();
     scrollTop = document.scrollingElement.scrollTop;
     scrollLeft = document.scrollingElement.scrollLeft;
-
 
     position = {
       t: rect.top - scrollTop,
@@ -289,6 +286,7 @@ $(document).ready(function () {
   });
 
   var weatherURL = 'http://api.openweathermap.org/data/2.5/weather';
+
   $.ajax({
     url: weatherURL,
     data: 'id=293397&appid=17e28f9119f49c8bf85eaacba44455c1&units=metric',

@@ -19,11 +19,6 @@
   "smarttabs": true,
   "jquery": true,
   "globals": {
-    "ScrollMagic": true,
-    "TimelineMax": true,
-    "TweenMax": true,
-    "Power1": true,
-    "Prism": true,
     "google": true,
     "marker": true
   }

@@ -25,7 +25,8 @@
     cursor: pointer;
 
     &.active-tab {
-      border: 2px solid $color-green;
+      color: $color-green;
+      border-bottom-color: $color-green;
     }
   }
 
@@ -75,9 +76,9 @@
 
       &.active-tab {
         color: $color-green;
+        border-bottom-color: $color-green;
 
         &:after {
-          border: 2px solid $color-green;
           max-height: 100%;
         }
       }
