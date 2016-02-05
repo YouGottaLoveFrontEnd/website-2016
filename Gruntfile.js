@@ -339,9 +339,16 @@ module.exports = function (grunt) {
               '*.{ico,png,txt}',
               '.htaccess',
               'images/{,*/}*.webp',
-              '{,*/}*.html',
+              // '{,*/}*.html',
               'styles/fonts/{,*/}*.*'
             ]
+          },
+          {
+            expand: true,
+            dot: true,
+            cwd: '.tmp',
+            dest: '<%= config.dist %>',
+            src: '{,*/}*.html'
           },
           {
             expand: true,
@@ -395,14 +402,14 @@ module.exports = function (grunt) {
       },
       src: ['**']
     },
-    'template': {
-      'serve': {
-        'options': {
+    template: {
+      serve: {
+        options: {
           data: {
             'pages': getHtmlParts('app/pages')
           }
         },
-        'files': {
+        files: {
           '.tmp/index.html': 'app/index.html'
         }
       }
@@ -454,6 +461,7 @@ module.exports = function (grunt) {
     'useminPrepare',
     'concurrent:dist',
     'autoprefixer',
+    'template:serve',
     'concat',
     'cssmin',
     'uglify',
