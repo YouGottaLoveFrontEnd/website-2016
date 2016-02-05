@@ -27,6 +27,7 @@
   article {
     margin: 50px 0 150px;
     display: table;
+    width: 100%;
 
     &.the-team {
       margin: 50px 0;
@@ -44,12 +45,16 @@
     font-size: 16px;
     font-weight: 100;
     letter-spacing: 1px;
-
+  }
+  
+  p.one-column {
+    column-count: 1;
   }
 
   h3 {
     letter-spacing: 2px;
     font-size: 24px;
+    margin-top: 0;
   }
 
   .team-gallery {
