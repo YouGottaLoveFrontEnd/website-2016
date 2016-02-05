@@ -272,8 +272,9 @@ $(document).ready(function () {
       $('.page.current').removeClass('current');
       $(hash).addClass('current');
       reorderPages();
-      if (hash === '#page-schedule') {
+      if (hash === '#page-program') {
         fixScheduleHeader(true);
+        windowResize();
       } else {
         fixScheduleHeader(false);
       }
