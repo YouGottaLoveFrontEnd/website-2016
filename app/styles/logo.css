@@ -1,4 +1,4 @@
-@-webkit-keyframes mainOpacity {
+@keyframes mainOpacity {
     from {
         opacity: 0;
     }
@@ -7,7 +7,7 @@
     }
 }
 
-@-webkit-keyframes colorChange {
+@keyframes colorChange {
     from {
         stroke: #00d09d;
     }
@@ -16,7 +16,7 @@
     }
 }
 
-@-webkit-keyframes op {
+@keyframes op {
     from {
         visibility: hidden;
     }
@@ -25,7 +25,7 @@
     }
 }
 
-@-webkit-keyframes str {
+@keyframes str {
     from {
         stroke-dasharray: 1 100;
     }
@@ -34,7 +34,7 @@
     }
 }
 
-@-webkit-keyframes bg {
+@keyframes bg {
     from {
         fill: rgba(0, 208, 157, 0);
     }

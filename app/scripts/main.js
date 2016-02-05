@@ -1,7 +1,7 @@
 'use strict';
 
 var isMobile = (function () {
-  return typeof(window.orientation) !== 'undefined';
+  return typeof (window.orientation) !== 'undefined';
 })();
 
 var pageLoaded = false;
@@ -52,12 +52,12 @@ function fixScheduleHeader(active) {
       if ($('#menu-trigger').offset().top + 100 > $('.itinerary ul').offset().top) {
         if (!$('.schedule-nav').hasClass('show')) {
           $('.schedule-nav').addClass('show');
-          $('.itinerary ul').css({opacity: 0});
+          $('.itinerary ul').css({ opacity: 0 });
 
         }
       } else {
         if ($('.schedule-nav').hasClass('show')) {
-          $('.itinerary ul').css({opacity: 1});
+          $('.itinerary ul').css({ opacity: 1 });
           $('.schedule-nav').removeClass('show');
         }
       }
@@ -69,7 +69,7 @@ function fixScheduleHeader(active) {
 }
 
 function reorderPages() {
-  var zindex = 9;
+  // var zindex = 9;
   var numOfPages = $('.pages-stack').children('.page').length;
   var currentCue = $('.page').index($('.current'));
   var pagesNewOrder = [];
@@ -85,7 +85,7 @@ function reorderPages() {
     var page = pagesNewOrder[i];
     page.removeAttr('data-pos');
     if (i !== 0) {
-      var newIndex = zindex - i;
+      // var newIndex = zindex - i;
       page.attr('data-pos', i);
     }
   }
@@ -149,7 +149,7 @@ function initShadow(config) {
 
   $('.shadow').each(function () {
     $(this).parent().on('mousemove', function (evt) {
-      var pointer = {x: evt.offsetX, y: evt.offsetY};
+      var pointer = { x: evt.offsetX, y: evt.offsetY };
       var range = 400;
       var shadow = $(this).children('.shadow');
       var Xunit = shadow.width() / range;
@@ -159,16 +159,16 @@ function initShadow(config) {
       if (originX >= 280) {
         originX = 280;
       }
-      shadow.css({'perspective-origin': originX + '% ' + originY + '%'});
+      shadow.css({ 'perspective-origin': originX + '% ' + originY + '%' });
     });
   });
 }
 
 function windowResize() {
   var scheduleNavWidth = $('.itinerary ul').width(),
-      scheduleNavLeft = (window.innerWidth - scheduleNavWidth) / 2;
+    scheduleNavLeft = (window.innerWidth - scheduleNavWidth) / 2;
 
-  $('.schedule-nav').css({width: scheduleNavWidth, left: scheduleNavLeft});
+  $('.schedule-nav').css({ width: scheduleNavWidth, left: scheduleNavLeft });
 }
 
 function logoInit() {
@@ -183,18 +183,18 @@ function logoInit() {
     l: rect.left - scrollLeft,
     b: rect.bottom - scrollTop,
     r: rect.right - scrollLeft,
-    cx: (rect.width/2) + rect.left + scrollLeft,
-    cy: (rect.height/2) + rect.top + scrollTop,
+    cx: (rect.width / 2) + rect.left + scrollLeft,
+    cy: (rect.height / 2) + rect.top + scrollTop,
     w: rect.width,
     h: rect.height
   };
 
   var uls = el.querySelectorAll('.letters-tail ul');
 
-  var origins = [].map.call(uls, function(ul){
-    return getComputedStyle(ul)['perspective-origin'].split(' ').map(function(c){
+  var origins = [].map.call(uls, function (ul) {
+    return getComputedStyle(ul)['perspective-origin'].split(' ').map(function (c) {
       return parseInt(c);
-    })
+    });
   });
 
 
@@ -202,10 +202,8 @@ function logoInit() {
 
   var originX = position.cx;
   var originY = position.cy;
-  var ex = 0;
-  var ey = 0;
 
-  window.addEventListener('resize', function(){
+  window.addEventListener('resize', function () {
     rect = el.getBoundingClientRect();
     scrollTop = document.scrollingElement.scrollTop;
     scrollLeft = document.scrollingElement.scrollLeft;
@@ -216,31 +214,33 @@ function logoInit() {
       l: rect.left - scrollLeft,
       b: rect.bottom - scrollTop,
       r: rect.right - scrollLeft,
-      cx: (rect.width/2) + rect.left + scrollLeft,
-      cy: (rect.height/2) + rect.top + scrollTop,
+      cx: (rect.width / 2) + rect.left + scrollLeft,
+      cy: (rect.height / 2) + rect.top + scrollTop,
       w: rect.width,
       h: rect.height
     };
 
-    origins = [].map.call(uls, function(ul){
-      return getComputedStyle(ul)['perspective-origin'].split(' ').map(function(c){
+    origins = [].map.call(uls, function (ul) {
+      return getComputedStyle(ul)['perspective-origin'].split(' ').map(function (c) {
         return parseInt(c);
-      })
+      });
     });
   });
 
 
-  window.addEventListener('mousemove', function(e) {
+  window.addEventListener('mousemove', function (e) {
 
-    window.requestAnimationFrame(function(){
+    window.requestAnimationFrame(function () {
       originX = (e.pageX - originX);
       originY = (e.pageY - originY);
 
-      origins.forEach(function(c, ind) {
+      origins.forEach(function (c, ind) {
         c[0] += originX;
         c[1] += originY;
 
-        uls[ind].style['perspective-origin'] = c.map(function(p){ return p + 'px'}).join(' ')
+        uls[ind].style['perspective-origin'] = c.map(function (p) {
+          return p + 'px';
+        }).join(' ');
       });
 
       originX = e.pageX;
@@ -252,19 +252,19 @@ function logoInit() {
 
   var ev = document.createEvent('MouseEvent');
   ev.initEvent('mousemove');
-  window.dispatchEvent(ev)
+  window.dispatchEvent(ev);
 }
 
 $(document).ready(function () {
   $('body')
-      .addClass('ready')
-      .toggleClass('mobile', isMobile);
+    .addClass('ready')
+    .toggleClass('mobile', isMobile);
 
   $('input[type="email"]').blur(function () {
     $(this).toggleClass('full', $(this).val() !== '');
   });
   if (!isMobile) {
-    initShadow({count: 4});
+    initShadow({ count: 4 });
   }
   hashchange();
 
