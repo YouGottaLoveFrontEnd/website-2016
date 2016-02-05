@@ -263,7 +263,10 @@ $(document).ready(function () {
   if (!isMobile) {
     initShadow({ count: 4 });
   }
+
   hashchange();
+  pageLoaded = true;
+  logoInit();
 
   $('.pages-nav .link').each(function () {
     $(this).on('click tap touch', function (e) {
@@ -311,9 +314,5 @@ $(document).ready(function () {
   windowResize();
 });
 
-$(window).load(function () {
-  pageLoaded = true;
-  logoInit();
-});
 
 
