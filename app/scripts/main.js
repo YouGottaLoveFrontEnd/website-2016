@@ -59,7 +59,7 @@ function fixScheduleHeader(active) {
         }
       }
 
-      if ($('#menu-trigger').offset().top + 100 <= $('.itinerary ul').offset().top){
+      if ($('#menu-trigger').offset().top + 100 <= $('.itinerary ul').offset().top) {
         if ($('.schedule-nav').hasClass('show')) {
           $('.itinerary ul').css({ opacity: 1 });
           $('.schedule-nav').toggleClass('show');
@@ -115,6 +115,10 @@ function disableLink(hash) {
   $('.pages-nav .link').each(function () {
     if ($(this).attr('href').slice(1) === hash) {
       $(this).addClass('not-active');
+      if (isMobile) {
+        $('.pages-nav .disable').toggleClass('disable');
+        $(this).toggleClass('disable');
+      }
     }
   });
 }
@@ -126,7 +130,7 @@ function hashchange() {
       $('.page').eq(0).addClass('current');
     }
 
-    if(isMobile) {
+    if (isMobile) {
       $('#menu-trigger').attr('checked', false);
     }
     disableLink($('.page').eq(0).attr('id').slice(1));
@@ -139,7 +143,7 @@ function hashchange() {
     fixScheduleHeader(false);
   }
 
-  if(isMobile) {
+  if (isMobile) {
     $('#menu-trigger').attr('checked', false);
   }
   $('.page.current').removeClass('current');
@@ -281,8 +285,8 @@ $(document).ready(function () {
   $('.pages-nav .link').each(function () {
 
     $(this).on('click tap touch', function (e) {
-      var hash = $(this).attr('href');
       e.preventDefault();
+      var hash = $(this).attr('href');
       $('.page.current').removeClass('current');
       $(hash).addClass('current');
       reorderPages();
