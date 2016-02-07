@@ -136,6 +136,7 @@ function hashchange() {
   $('.page.current').removeClass('current');
   $('#' + hash).addClass('current');
   disableLink(hash);
+  window.scrollTo(0,0);
 }
 
 function initShadow(config) {
@@ -265,6 +266,7 @@ $(document).ready(function () {
   }
 
   hashchange();
+  $(window).bind('hashchange',hashchange);
   pageLoaded = true;
   logoInit();
 
@@ -281,10 +283,10 @@ $(document).ready(function () {
       } else {
         fixScheduleHeader(false);
       }
-      setTimeout(function () {
         $('#menu-trigger').attr('checked', false);
+      setTimeout(function () {
         onMenuTriggerChange();
-        disableLink(hash.slice(1));
+        window.location.hash = hash;
       }, 400);
     });
   });
