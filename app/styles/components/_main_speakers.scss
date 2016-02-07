@@ -19,7 +19,6 @@
     &.right {
       flex-direction: row-reverse;
       text-align: left;
-
       &.wide {
         .speaker-personal-details {
           right: 270px;
@@ -125,6 +124,7 @@
         letter-spacing: 1;
         font-weight: 100;
         line-height: 16px;
+        width: 70%;
       }
     }
 
