@@ -136,7 +136,7 @@ function hashchange() {
   $('.page.current').removeClass('current');
   $('#' + hash).addClass('current');
   disableLink(hash);
-  window.scrollTo(0,0);
+  window.scrollTo(0, 0);
 }
 
 function initShadow(config) {
@@ -168,7 +168,7 @@ function initShadow(config) {
 
 function windowResize() {
   var scheduleNavWidth = $('.itinerary ul').width(),
-    scheduleNavLeft = (window.innerWidth - scheduleNavWidth) / 2;
+      scheduleNavLeft = (window.innerWidth - scheduleNavWidth) / 2;
 
   $('.schedule-nav').css({ width: scheduleNavWidth, left: scheduleNavLeft });
 }
@@ -225,7 +225,6 @@ function logoInit() {
     });
   });
 
-
   window.addEventListener('mousemove', function (e) {
 
     window.requestAnimationFrame(function () {
@@ -254,9 +253,10 @@ function logoInit() {
 }
 
 $(document).ready(function () {
+
   $('body')
-    .addClass('ready')
-    .toggleClass('mobile', isMobile);
+      .addClass('ready')
+      .toggleClass('mobile', isMobile);
 
   $('input[type="email"]').blur(function () {
     $(this).toggleClass('full', $(this).val() !== '');
@@ -266,11 +266,12 @@ $(document).ready(function () {
   }
 
   hashchange();
-  $(window).bind('hashchange',hashchange);
+  $(window).bind('hashchange', hashchange).trigger('hashchange');
   pageLoaded = true;
   logoInit();
 
   $('.pages-nav .link').each(function () {
+
     $(this).on('click tap touch', function (e) {
       var hash = $(this).attr('href');
       e.preventDefault();
@@ -283,8 +284,10 @@ $(document).ready(function () {
       } else {
         fixScheduleHeader(false);
       }
-        $('#menu-trigger').attr('checked', false);
+      $('#menu-trigger').attr('checked', false);
       setTimeout(function () {
+        $('#menu-trigger').attr('checked', false);
+
         onMenuTriggerChange();
         window.location.hash = hash;
       }, 400);
