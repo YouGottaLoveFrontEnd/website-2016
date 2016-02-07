@@ -50,16 +50,19 @@ function fixScheduleHeader(active) {
       });
     });
     $(window).on('scroll', function () {
+
       if ($('#menu-trigger').offset().top + 100 > $('.itinerary ul').offset().top) {
         if (!$('.schedule-nav').hasClass('show')) {
-          $('.schedule-nav').addClass('show');
+          $('.schedule-nav').toggleClass('show');
           $('.itinerary ul').css({ opacity: 0 });
 
         }
-      } else {
+      }
+
+      if ($('#menu-trigger').offset().top + 100 <= $('.itinerary ul').offset().top){
         if ($('.schedule-nav').hasClass('show')) {
           $('.itinerary ul').css({ opacity: 1 });
-          $('.schedule-nav').removeClass('show');
+          $('.schedule-nav').toggleClass('show');
         }
       }
     });
@@ -93,7 +96,6 @@ function reorderPages() {
 }
 
 function onMenuTriggerChange() {
-
   if ($('#menu-trigger:checked').length) {
     reorderPages();
     $('footer').toggleClass('show');
@@ -123,6 +125,10 @@ function hashchange() {
     if (!$('.page').hasClass('current')) {
       $('.page').eq(0).addClass('current');
     }
+
+    if(isMobile) {
+      $('#menu-trigger').attr('checked', false);
+    }
     disableLink($('.page').eq(0).attr('id').slice(1));
     return;
   }
@@ -133,10 +139,12 @@ function hashchange() {
     fixScheduleHeader(false);
   }
 
+  if(isMobile) {
+    $('#menu-trigger').attr('checked', false);
+  }
   $('.page.current').removeClass('current');
   $('#' + hash).addClass('current');
   disableLink(hash);
-  window.scrollTo(0, 0);
 }
 
 function initShadow(config) {
@@ -286,7 +294,6 @@ $(document).ready(function () {
       }
       $('#menu-trigger').attr('checked', false);
       setTimeout(function () {
-        $('#menu-trigger').attr('checked', false);
 
         onMenuTriggerChange();
         window.location.hash = hash;

@@ -19,6 +19,7 @@
 .schedule-nav {
   position: fixed;
   padding-top: 135px;
+  transition: .2s;
   width: 100%;
   display: none;
   z-index: 999;
@@ -246,6 +247,6 @@ sup {
 
 @media (max-width: $screen-sm-min) {
   .schedule-nav {
-    padding-top: 34px;
+    padding-top: 104px;
   }
 }
