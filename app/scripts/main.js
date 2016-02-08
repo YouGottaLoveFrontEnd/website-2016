@@ -96,8 +96,8 @@ function reorderPages() {
 }
 
 function onMenuTriggerChange() {
-  if($('.page').attr('style')) {
-    $('.page').removeAttr('style')
+  if ($('.page').attr('style')) {
+    $('.page').removeAttr('style');
   }
 
   if ($('#menu-trigger:checked').length) {
@@ -166,7 +166,7 @@ function initShadow(config) {
     }
   });
 
-  if(isMobile) {
+  if (isMobile) {
     return;
   }
 
@@ -189,7 +189,7 @@ function initShadow(config) {
 
 function windowResize() {
   var scheduleNavWidth = $('.itinerary ul').width(),
-      scheduleNavLeft = (window.innerWidth - scheduleNavWidth) / 2;
+    scheduleNavLeft = (window.innerWidth - scheduleNavWidth) / 2;
 
   $('.schedule-nav').css({ width: scheduleNavWidth, left: scheduleNavLeft });
 }
@@ -276,13 +276,13 @@ function logoInit() {
 $(document).ready(function () {
 
   $('body')
-      .addClass('ready')
-      .toggleClass('mobile', isMobile);
+    .addClass('ready')
+    .toggleClass('mobile', isMobile);
 
   $('input[type="email"]').blur(function () {
     $(this).toggleClass('full', $(this).val() !== '');
   });
-    initShadow({ count: 4 });
+  initShadow({ count: 4 });
 
   hashchange();
   $(window).bind('hashchange', hashchange).trigger('hashchange');
@@ -332,9 +332,9 @@ $(document).ready(function () {
 
   $('#menu-trigger').on('click tap touch', onMenuTriggerChange);
   setTimeout(function () {
-//    if(!isMobile) {
-      $('footer').toggleClass('show');
-//    }
+    //    if(!isMobile) {
+    $('footer').toggleClass('show');
+    //    }
     $('.loading').removeClass('loading');
   }, 400);
 
