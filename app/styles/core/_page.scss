@@ -18,10 +18,18 @@ section {
   margin: 0 auto;
 }
 
+.loading {
+  .page {
+    border: 1px solid $color-green;
+  }
+}
+
 .page {
   background-color: $color-blue;
   padding-top: 194px;
-  transition: transform .2s linear, top .2s linear;
+  border: 1px solid rgba($color-green, 0);
+
+  transition: transform .2s linear, top .2s linear, border-color .4s linear;
   position: relative;
   z-index: 5;
   width: 100%;
@@ -115,7 +123,7 @@ section {
   }
 
   .pages-stack {
-    margin-bottom: 0;
+    margin-bottom: 100vh;
   }
 
   .page {
@@ -124,6 +132,10 @@ section {
 }
 
 @media (max-width: $screen-sm-min) {
+  section {
+    width: 85vw;
+  }
+
   .page-intro {
     h2 {
       font-size: 80px;
@@ -139,8 +151,19 @@ section {
 @media (max-width: $screen-xs-min) {
   .page-intro {
     h2 {
-      font-size: 70px;
+      font-size: 50px;
       padding: 10px 0;
+      margin: 0;
+    }
+
+    hr {
+      max-width: 50px;
+      margin-right: calc(100% - 50px);
+      margin-bottom: 60px;
+    }
+
+    label {
+      line-height: 22px;
     }
   }
 }

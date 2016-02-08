@@ -234,14 +234,13 @@
   animation: changePrespective .7s both;
 
   .page {
-    border: 1px solid $color-green;
+    border-color: rgba($color-green, 1);
     height: 100vh;
 
     &.current {
       z-index: 9;
       opacity: 1;
       animation: currentAnimationIn .4s both;
-      //      animation-timing-function: cubic-bezier(0.155, 0.810, 0.590, 0.655);
       pointer-events: auto;
     }
 
@@ -328,17 +327,33 @@
       top: 60vh;
     }
   }
-
 }
 
 @media (max-width: $screen-sm-min) {
   .menu-trigger,
   .menu-wrapper {
     top: 15px;
-    left: 15px;
+    left: 7.5vw;
+
+  }
+  .menu-button,
+  .menu-trigger {
+    width: 62px;
+    height: 60px;
+  }
+
+  .menu-wrapper {
+
+    .menu-button {
+      font-size: 15px;
+      span {
+
+        &:first-child,
+        &:nth-child(3n) {
+          margin-left: 13px;
+        }
+      }
+    }
+
   }
 }
-
-@media (max-width: $screen-xs-min) {
-}
-

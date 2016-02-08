@@ -170,7 +170,6 @@
         width: 80%;
       }
 
-
       .read-toggle-label,
       .read-toggle {
         display: none;
@@ -184,8 +183,18 @@
   text-align: center;
 
   img {
-    height: 12px;
+    height: 11px;
     margin-bottom: 25px;
+    opacity: 1;
+  }
+  a {
+
+    &:hover {
+      img {
+        opacity: .7;
+        transition: opacity .3s linear;
+      }
+    }
   }
 }
 
@@ -435,10 +444,20 @@
     display: none;
   }
 
+  .speakers-wrapper {
+    margin-top: 15px;
+  }
+
   .speakers-wrapper .single-speaker.right.wide,
   .speakers-wrapper .single-speaker:not(.right),
   .speakers-wrapper .single-speaker:not(.wide),
   .speakers-wrapper .single-speaker {
+
+    max-width: 85vw;
+    margin: 45px auto 0;
+    clear: both;
+    float: none;
+    padding: 0;
 
     &.right {
       flex-direction: inherit;
@@ -447,23 +466,25 @@
       }
     }
 
-    max-width: calc(100% - 40px);
-    margin: 45px auto;
-    clear: both;
-    float: none;
-
     .speaker-description {
       height: inherit;
       min-height: inherit;
       max-width: 100%;
+      width: 100%;
 
       img {
-        width: 260px;
+        width: 100%;
+      }
+
+      p {
+        width: 100%;
+        margin-right: 0;
       }
 
       .speaker-personal-details {
         display: block;
         position: relative;
+        width: 100%;
       }
 
       .overlay {
@@ -478,6 +499,7 @@
           max-height: 0;
           overflow: hidden;
           transition: max-height .4s linear;
+          width: 100%;
 
           &.right {
             float: none;
@@ -505,6 +527,7 @@
 
         img {
           min-height: inherit;
+          padding-right: 10px;
         }
       }
     }
