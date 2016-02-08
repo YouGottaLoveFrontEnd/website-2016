@@ -83,6 +83,29 @@ section {
     font-size: 16px;
     letter-spacing: 2px;
     line-height: 30px;
+    padding: 0;
+
+  }
+
+  a {
+    &:hover {
+      text-decoration: none;
+      color: $color-white;
+    }
+
+    &[href="#click"] {
+
+      &:after {
+        content: 'Click here to sign up ';
+        text-transform: inherit;
+        color: $color-green;
+        font-weight: 400;
+        font-size: 16px;
+        letter-spacing: 2px;
+        line-height: 24px;
+        white-space: nowrap;
+      }
+    }
   }
 }
 
