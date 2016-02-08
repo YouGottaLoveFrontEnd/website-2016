@@ -34,8 +34,13 @@
 
     &:not(.right) {
       &.wide {
+        padding-top: 150px;
         .speaker-personal-details {
           left: 360px;
+        }
+
+        .speaker-details {
+
         }
       }
 
@@ -147,6 +152,11 @@
     height: 13px;
     margin-bottom: 20px;
   }
+}
+
+@media (max-width: 1440px) {
+
+
 }
 
 @media (max-width: $screen-lg-min) {
