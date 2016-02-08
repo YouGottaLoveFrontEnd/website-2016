@@ -169,6 +169,12 @@
         line-height: 24px;
         width: 80%;
       }
+
+
+      .read-toggle-label,
+      .read-toggle {
+        display: none;
+      }
     }
   }
 }
@@ -469,11 +475,24 @@
           opacity: 1;
           width: 260px;
           margin: 0;
+          max-height: 0;
+          overflow: hidden;
+          transition: max-height .4s linear;
 
           &.right {
             float: none;
             clear: both;
           }
+        }
+
+        .read-toggle-label,
+        .read-toggle {
+          display: block;
+        }
+
+        .read-toggle:checked ~ p {
+          max-height: 300px;
+          margin-bottom: 30px;
         }
       }
     }
