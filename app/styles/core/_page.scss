@@ -1,6 +1,6 @@
 
 .pages-stack {
-  margin-bottom: calc(70vh + 150px);
+  margin-bottom: 56vh;
   z-index: 100;
   pointer-events: none;
   perspective: 1200px;
@@ -27,7 +27,8 @@ section {
   width: 100%;
   box-shadow: 0 -1px 10px rgba(0, 0, 0, 0.1);
   top: 0;
-  padding-bottom: 4vh;
+  padding-bottom: 150px;
+  
 
   &.current {
     z-index: 9;

@@ -324,7 +324,9 @@ $(document).ready(function () {
   });
 
   $('#menu-trigger').on('click tap touch', onMenuTriggerChange);
-  $('footer').toggleClass('show');
+  setTimeout(function () {
+    $('footer').toggleClass('show');
+  }, 400);
 
   $(window).resize(windowResize);
   windowResize();
