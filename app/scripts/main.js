@@ -113,7 +113,6 @@ function reorderPages() {
 }
 
 function onMenuTriggerChange() {
-  alert(menuTrigger.checked);
   if (menuTrigger.checked) {
     reorderPages();
     toggleFooter();
@@ -288,9 +287,8 @@ function logoInit() {
 }
 
 function navLink(e) {
-  alert(menuTrigger.checked);
   e.preventDefault();
-  var hash = this.hash;
+  var hash = e.currentTarget.hash;
   switchCurrentPage(hash.slice(1));
   reorderPages();
   if (hash === '#page-program') {
@@ -323,7 +321,7 @@ window.onload = function () {
     } else if (emailInput.value === '') {
       emailInput.className = emailInput.className.replace('full', '');
     }
-  }
+  };
 
   initShadow({ count: 4 });
 
