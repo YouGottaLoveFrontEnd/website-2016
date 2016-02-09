@@ -9,6 +9,10 @@ var pageLoaded = false;
 var minimalLoadTimeCounter = 0;
 var footer = document.getElementsByTagName('footer')[0];
 var pagesStack = document.getElementsByClassName('pages-stack')[0];
+var allPages = [].slice.call(pagesStack.getElementsByClassName('page'));
+var topNavLinks = [].slice.call(document.getElementsByClassName('pages-nav')[0].getElementsByClassName('link'));
+var body = document.getElementsByTagName('body')[0];
+var menuTrigger = document.getElementById('menu-trigger');
 
 var minimalLoadTimeInterval = setInterval(function () {
   minimalLoadTimeCounter++;
@@ -33,6 +37,14 @@ function autoScroll(to) {
     }, 10);
   } else if (window.scrollY < to) {
     $(window).scrollTop(to);
+  }
+}
+
+function toggleFooter() {
+  if (footer.className.indexOf('show') !== -1) {
+    footer.className = footer.className.replace('show', '');
+  } else {
+    footer.className += 'show';
   }
 }
 
@@ -75,13 +87,17 @@ function fixScheduleHeader(active) {
 }
 
 function reorderPages() {
-  // var zindex = 9;
-  var numOfPages = $('.pages-stack').children('.page').length;
-  var currentCue = $('.page').index($('.current'));
+  var numOfPages = allPages.length;
+  var currentCue;
+  allPages.forEach(function (page, index) {
+    if (page.className.indexOf('current') !== -1) {
+      currentCue = index;
+    }
+  });
   var pagesNewOrder = [];
 
   while (pagesNewOrder.length < numOfPages) {
-    pagesNewOrder.push($('.pages-stack').children('.page').eq(currentCue));
+    pagesNewOrder.push(allPages[currentCue]);
     currentCue++;
     if (currentCue >= numOfPages) {
       currentCue = 0;
@@ -89,57 +105,51 @@ function reorderPages() {
   }
   for (var i = 0; i < pagesNewOrder.length; i++) {
     var page = pagesNewOrder[i];
-    page.removeAttr('data-pos');
+    page.removeAttribute('data-pos');
     if (i !== 0) {
-      // var newIndex = zindex - i;
-      page.attr('data-pos', i);
+      page.setAttribute('data-pos', i);
     }
   }
 }
 
 function onMenuTriggerChange() {
-  if ($('.page').attr('style')) {
-    $('.page').removeAttr('style');
-  }
-
-  if (document.getElementById('menu-trigger').checked) {
+  alert(menuTrigger.checked);
+  if (menuTrigger.checked) {
     reorderPages();
-    footer.className += ' show';
+    toggleFooter();
   } else {
-    $('.pages-stack').children('.page').each(function () {
-      $(this).removeAttr('style');
-    });
-    setTimeout(function () {
-      footer.className = footer.className.replace(' show', '');
-    }, 400);
+
+    setTimeout(toggleFooter, 400);
   }
 }
 
 function disableLink(hash) {
-  $('.link.not-active').removeClass('not-active');
-
-  $('.pages-nav .link').each(function () {
-    if ($(this).attr('href').slice(1) === hash) {
-      $(this).addClass('not-active');
-      if (isMobile) {
-        $('.pages-nav .disable').toggleClass('disable');
-        $(this).toggleClass('disable');
-      }
+  topNavLinks.forEach(function (link) {
+    link.className = link.className.replace('not-active', '');
+    link.className = link.className.replace('disable', '');
+    if (link.attributes.href.nodeValue.slice(1) === hash) {
+      link.className += isMobile ? ' not-active disable' : ' not-active';
     }
   });
 }
 
+function switchCurrentPage(pageId) {
+  allPages.forEach(function (page) {
+    page.className = page.className.replace('current', '');
+  });
+  document.getElementById(pageId).className += ' current';
+}
+
 function hashchange() {
-  var hash = location.hash.slice(1);
-  if (hash === undefined || hash === '' || $('#' + hash).hasClass('current')) {
-    if (!$('.page').hasClass('current')) {
-      $('.page').eq(0).addClass('current');
-    }
+  var hash = location.hash ? location.hash.slice(1) : 'page-home';
+  var currentPage = document.getElementById(hash);
+  if (currentPage.className.indexOf('current') === -1) {
+    currentPage.className += ' current';
 
     if (isMobile) {
-      $('#menu-trigger').attr('checked', false);
+      menuTrigger.checked = false;
     }
-    disableLink($('.page').eq(0).attr('id').slice(1));
+    disableLink(hash);
     return;
   }
 
@@ -150,10 +160,9 @@ function hashchange() {
   }
 
   if (isMobile) {
-    $('#menu-trigger').attr('checked', false);
+    menuTrigger.checked = false;
   }
-  $('.page.current').removeClass('current');
-  $('#' + hash).addClass('current');
+  switchCurrentPage(hash);
   disableLink(hash);
 }
 
@@ -190,7 +199,7 @@ function initShadow(config) {
 }
 
 function windowResize() {
-  if(!isMobile) {
+  if (!isMobile) {
     $('.pages-stack').css({'margin-bottom': $('footer').height()});
   }
   var scheduleNavWidth = $('.itinerary ul').width(),
@@ -278,53 +287,57 @@ function logoInit() {
   window.dispatchEvent(ev);
 }
 
-$(document).ready(function () {
-//scroll is slow because of the position has change to relative on mobile
+function navLink(e) {
+  alert(menuTrigger.checked);
+  e.preventDefault();
+  var hash = this.hash;
+  switchCurrentPage(hash.slice(1));
+  reorderPages();
+  if (hash === '#page-program') {
+    fixScheduleHeader(true);
+    windowResize();
+  } else {
+    fixScheduleHeader(false);
+  }
+  menuTrigger.checked = false;
+
+  setTimeout(function () {
+    onMenuTriggerChange();
+    window.location.hash = hash;
+  }, 400);
+}
+
+window.onload = function () {
   if (isMobile) {
     pagesStack.style.zIndex = '100';
-
-    footer.className += ' show';
+    toggleFooter();
     footer.style.zIndex = '0';
+    body.className += ' mobile';
   }
-  $('body')
-      .addClass('ready')
-      .toggleClass('mobile', isMobile);
 
-  $('input[type="email"]').blur(function () {
-    $(this).toggleClass('full', $(this).val() !== '');
-  });
+  body.className += ' ready';
+  var emailInput = document.getElementById('email');
+  emailInput.onblur = function () {
+    if (emailInput.className.indexOf('full') === -1 && emailInput.value !== '') {
+      emailInput.className += ' full';
+    } else if (emailInput.value === '') {
+      emailInput.className = emailInput.className.replace('full', '');
+    }
+  }
+
   initShadow({ count: 4 });
 
   hashchange();
-  $(window).bind('hashchange', hashchange).trigger('hashchange');
+  window.addEventListener('hashchange', hashchange, true);
   pageLoaded = true;
   logoInit();
 
-  $('.pages-nav .link').each(function () {
-
-    $(this).on('click tap touch', function (e) {
-      e.preventDefault();
-      var hash = $(this).attr('href');
-      $('.page.current').removeClass('current');
-      $(hash).addClass('current');
-      reorderPages();
-      if (hash === '#page-program') {
-        fixScheduleHeader(true);
-        windowResize();
-      } else {
-        fixScheduleHeader(false);
-      }
-      $('#menu-trigger').attr('checked', false);
-      setTimeout(function () {
-
-        onMenuTriggerChange();
-        window.location.hash = hash;
-      }, 400);
-    });
+  topNavLinks.forEach(function (elem) {
+    elem.addEventListener('click', navLink, true);
+    elem.addEventListener('touchend', navLink, true);
   });
 
   var weatherURL = 'http://api.openweathermap.org/data/2.5/weather';
-
   $.ajax({
     url: weatherURL,
     data: 'id=293397&appid=17e28f9119f49c8bf85eaacba44455c1&units=metric',
@@ -341,18 +354,14 @@ $(document).ready(function () {
     dataType: 'json'
   });
 
-  $('#menu-trigger').on('click tap touch', onMenuTriggerChange);
+  menuTrigger.addEventListener('click', onMenuTriggerChange, true);
+  menuTrigger.addEventListener('touchend', onMenuTriggerChange, true);
   setTimeout(function () {
-    if (!isMobile) {
-      $('footer').toggleClass('show');
+    if (isMobile) {
+      toggleFooter();
     }
-    $('.loading').removeClass('loading');
+    document.getElementsByClassName('loading')[0].className = document.getElementsByClassName('loading')[0].className.replace('loading', '');
   }, 400);
-
-  $(window).resize(windowResize);
+  window.onresize = windowResize();
   windowResize();
-
-});
-
-
-
+};
