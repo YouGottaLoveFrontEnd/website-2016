@@ -1,3 +1,5 @@
+$top-gutter: 45px;
+
 footer {
   position: fixed;
   bottom: 0;
@@ -19,8 +21,8 @@ footer {
       margin-right: 15px;
       padding-left: 0;
 
-      img{
-        width:85px;
+      img {
+        width: 85px;
       }
 
     }
@@ -28,27 +30,14 @@ footer {
 }
 
 .footer {
-  .facebook img {
-    height: 16px;
-  }
-  
-  .twitter img {
-    height: 13px;
-  }
-  
-  .linkedin img {
-    height: 16px;
-  }
-  
-  height: 28vh;
-  padding-top:7vh;
+  padding-top: $top-gutter;
   position: relative;
-  border-bottom: 1px solid rgba(1,12,25,0.2);
-  padding-bottom: 50px;
+  border-bottom: 1px solid rgba(1, 12, 25, 0.2);
 
   h4 {
     letter-spacing: 9px;
-    margin-bottom: 25px;
+    margin-top: 0;
+    margin-bottom: $top-gutter;
     font-weight: 400;
   }
 
@@ -62,11 +51,11 @@ footer {
   .link,
   p {
     width: 300px;
-    letter-spacing: 1px;
     color: #021e40;
     font-size: 14px;
     font-weight: 300;
     line-height: 23px;
+    text-align: left;
   }
 
   form {
@@ -76,7 +65,8 @@ footer {
     display: flex;
     padding: 0;
     min-width: 300px;
-    margin-bottom: 20px;
+    margin-bottom: $top-gutter;
+    max-width: 430px;
 
     label {
       color: $color-blue;
@@ -97,12 +87,12 @@ footer {
 
       span {
         position: absolute;
-        top: 15px;
+        top: 13px;
         transition: all .2s;
         font-size: 14px;
         font-weight: 200;
         left: 5%;
-        letter-spacing: 1px;
+        letter-spacing: 0;
       }
     }
   }
@@ -129,5 +119,194 @@ footer {
     }
 
   }
+}
 
+.footer {
+
+  .col-md-4,
+  .col-md-6,
+  .col-md-7,
+  .col-md-5,
+  .col-md-12 {
+    padding: 0;
+  }
+
+  &:first-child {
+    hr {
+      opacity: 0;
+      border-color: rgba($color-blue, .2);
+      margin-bottom: $top-gutter;
+    }
+
+  }
+  &:last-child {
+    margin-bottom: $top-gutter;
+    border-bottom: none;
+
+    .designed-by {
+      color: $color-blue;
+      font-weight: 200;
+    }
+
+    a {
+      font-weight: 200;
+      font-size: 14px;
+      text-align: center;
+      line-height: 0;
+
+      &[href='//www.wix.com'] {
+        font-weight: 400;
+        &:after {
+          content: 'Wix Studio';
+          font-weight: 400;
+        }
+      }
+
+      &[href='mailto:hello@yougottalovefrontend.com'] {
+        &:after {
+          content: 'hello@yougottalovefrontend.com';
+        }
+      }
+    }
+
+    .text-btn {
+      &:after {
+        color: $color-white;
+        white-space: nowrap;
+        line-height: 20px;
+        text-transform: initial;
+      }
+    }
+
+    .col-md-2 {
+      padding-right: 0;
+    }
+
+    .footer-social-links {
+      a {
+        opacity: 1;
+        transition: opacity .2s linear;
+      }
+
+      a {
+        &:hover {
+          opacity: .7;
+        }
+      }
+
+      .facebook img {
+        height: 16px;
+      }
+
+      .twitter img {
+        height: 15px;
+      }
+
+      .linkedin img {
+        height: 16px;
+      }
+      .youtube img {
+        height: 19px;
+      }
+    }
+  }
+}
+
+.footer-pages-nav {
+  padding: 0;
+
+  ul {
+    text-align: left;
+
+    li {
+      margin: 0px auto 17px;
+      a {
+        &:after {
+          line-height: 21px;
+          color: $color-white;
+          white-space: nowrap;
+          font-weight: 200;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: $screen-md-min) {
+  .footer {
+    width: 85vw;
+    padding-top: $top-gutter/2;
+
+    &:first-child {
+      hr {
+        opacity: 1;
+      }
+    }
+  }
+
+}
+
+@media (max-width: $screen-sm-min) {
+  footer {
+//    position: relative;
+  }
+
+  .footer {
+    .col-sm-9,
+    .col-md-6 {
+      padding: 0;
+    }
+
+    h4 {
+      margin-bottom: $top-gutter/2;
+    }
+
+    &:first-child {
+      hr {
+        margin-bottom: $top-gutter/2;
+      }
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+      padding-bottom: $top-gutter/2;
+    }
+    form {
+      max-width: 100%;
+      margin-bottom: $top-gutter/2;
+    }
+
+    .footer-pages-nav ul {
+      margin-bottom: 10px;
+
+      li {
+        margin: 0px auto 12px;
+      }
+    }
+
+    .footer-pages-nav ul li a:after,
+    .link {
+      font-size: 11px;
+      line-height: 19px;
+      font-weight: 400;
+    }
+
+    .footer-pages-nav ul li a:after {
+      line-height: 16px;
+    }
+
+    .align-right {
+      text-align: left;
+    }
+
+    .footer-social-links {
+      padding-left: 0;
+    }
+
+    &:last-child {
+      div {
+        margin-bottom: 7px;
+      }
+    }
+  }
 }

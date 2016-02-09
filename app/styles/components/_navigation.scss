@@ -13,14 +13,28 @@
   opacity: 0;
   transition: all .5s ease-out, opacity .7s ease-out;
   margin: 0 auto;
+}
 
+.pages-nav {
   ul {
-    max-width: 460px;
     text-align: center;
 
     li {
       margin: 46px auto;
+      a {
+        &:after {
+          line-height: 26px;
+        }
+      }
+    }
+  }
+}
 
+.footer-pages-nav,
+.pages-nav {
+  ul {
+    max-width: 460px;
+    li {
       a {
         text-decoration: none;
         font-weight: 300;
@@ -34,11 +48,6 @@
 
         &.not-active {
           color: $color-green;
-        }
-
-        &:after {
-          line-height: 26px;
-          font-smoothing: antialiased;
         }
 
         &[href="#page-home"] {
@@ -64,14 +73,26 @@
             content: 'about';
           }
         }
+
         &[href="#page-details"] {
           &:after {
             content: 'details';
           }
         }
+
+        &[href="//eventbrite.com"] {
+          &:after {
+            content: 'Register';
+          }
+        }
+
+        &[href="//2015.yougottalovefrontend.com"] {
+          &:after {
+            content: 'YGLF 2015';
+          }
+        }
       }
     }
-
   }
 }
 

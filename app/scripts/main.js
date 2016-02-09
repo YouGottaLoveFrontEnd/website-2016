@@ -7,6 +7,8 @@ var isMobile = (function () {
 
 var pageLoaded = false;
 var minimalLoadTimeCounter = 0;
+var footer = document.getElementsByTagName('footer')[0];
+var pagesStack = document.getElementsByClassName('pages-stack')[0];
 
 var minimalLoadTimeInterval = setInterval(function () {
   minimalLoadTimeCounter++;
@@ -100,15 +102,15 @@ function onMenuTriggerChange() {
     $('.page').removeAttr('style');
   }
 
-  if ($('#menu-trigger:checked').length) {
+  if (document.getElementById('menu-trigger').checked) {
     reorderPages();
-    $('footer').toggleClass('show');
+    footer.className += ' show';
   } else {
     $('.pages-stack').children('.page').each(function () {
       $(this).removeAttr('style');
     });
     setTimeout(function () {
-      $('footer').toggleClass('show');
+      footer.className = footer.className.replace(' show', '');
     }, 400);
   }
 }
@@ -188,8 +190,11 @@ function initShadow(config) {
 }
 
 function windowResize() {
+  if(!isMobile) {
+    $('.pages-stack').css({'margin-bottom': $('footer').height()});
+  }
   var scheduleNavWidth = $('.itinerary ul').width(),
-    scheduleNavLeft = (window.innerWidth - scheduleNavWidth) / 2;
+      scheduleNavLeft = (window.innerWidth - scheduleNavWidth) / 2;
 
   $('.schedule-nav').css({ width: scheduleNavWidth, left: scheduleNavLeft });
 }
@@ -274,10 +279,16 @@ function logoInit() {
 }
 
 $(document).ready(function () {
+//scroll is slow because of the position has change to relative on mobile
+  if (isMobile) {
+    pagesStack.style.zIndex = '100';
 
+    footer.className += ' show';
+    footer.style.zIndex = '0';
+  }
   $('body')
-    .addClass('ready')
-    .toggleClass('mobile', isMobile);
+      .addClass('ready')
+      .toggleClass('mobile', isMobile);
 
   $('input[type="email"]').blur(function () {
     $(this).toggleClass('full', $(this).val() !== '');
@@ -332,14 +343,15 @@ $(document).ready(function () {
 
   $('#menu-trigger').on('click tap touch', onMenuTriggerChange);
   setTimeout(function () {
-    //    if(!isMobile) {
-    $('footer').toggleClass('show');
-    //    }
+    if (!isMobile) {
+      $('footer').toggleClass('show');
+    }
     $('.loading').removeClass('loading');
   }, 400);
 
   $(window).resize(windowResize);
   windowResize();
+
 });
 
 
