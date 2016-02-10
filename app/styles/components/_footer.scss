@@ -3,13 +3,16 @@ $top-gutter: 45px;
 footer {
   position: fixed;
   bottom: 0;
-  display: none;
+  opacity: 1;
   z-index: -1;
   width: 100%;
+  max-height: inherit;
   background-color: $color-green;
+  transition: opacity .1s .4s;
 
-  &.show {
-    display: block;
+  &.hide {
+    max-height: 0;
+    opacity: 0;
   }
 
   .sponsors-wrapper {
@@ -247,6 +250,9 @@ footer {
 }
 
 @media (max-width: $screen-sm-min) {
+  footer {
+    position: relative;
+  }
 
   .footer {
     .col-sm-9,

@@ -130,6 +130,9 @@ section {
 }
 
 @media (max-width: $screen-sm-min) {
+  .pages-stack {
+    position: relative;
+  }
 
   section {
     width: 85vw;

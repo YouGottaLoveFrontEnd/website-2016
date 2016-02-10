@@ -269,6 +269,12 @@
   }
 }
 
+
+.menu-trigger:checked ~ footer {
+  max-height: 0;
+  opacity: 0;
+}
+
 @media (min-width: $screen-md-min) {
 
   .menu-wrapper {
@@ -342,9 +348,6 @@
     height: 60px;
   }
 
-  .menu-trigger {
-    opacity: 1;
-  }
   .menu-wrapper {
 
     .menu-button {
