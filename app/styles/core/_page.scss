@@ -1,3 +1,6 @@
+.page-radio-nav {
+  display: none;
+}
 
 .pages-stack {
   z-index: 100;
@@ -34,26 +37,46 @@ section {
   width: 100%;
   box-shadow: 0 -1px 10px rgba(0, 0, 0, 0.1);
   top: 0;
+  padding-bottom: 150px;
+  position: absolute;
+  top: 0;
+  opacity: 0;
+  pointer-events: none;
+  display: none;
   padding-bottom: $page-gutter-bottom;
   
 
-  &.current {
-    z-index: 9;
-    opacity: 1;
-    animation: currentAnimationOut .4s forwards;
-    animation-timing-function: cubic-bezier(0.155, 0.810, 0.590, 0.655);
-    pointer-events: auto;
-  }
-
-  &:not(.current) {
-    position: absolute;
-    top: 0;
+  &[data-pos='2'],
+  &[data-pos='1'] {
+    display: block;
     opacity: 0;
-    pointer-events: none;
-    display: none;
+    transform:translateY(100vh) translateZ(0) rotateX(0)  scale(.1);
 
   }
+  &[data-pos='1'] {
+    transition: transform .3s ease-out;
+  }
+  &[data-pos='2'] {
+    transition: transform .4s ease-out;
+  }
 
+}
+
+#radio-nav-sponsors:checked ~ .pages-stack #page-sponsors,
+#radio-nav-program:checked ~ .pages-stack #page-program,
+#radio-nav-about:checked ~ .pages-stack #page-about,
+#radio-nav-details:checked ~ .pages-stack #page-details,
+#radio-nav-training:checked ~ .pages-stack #page-training,
+#radio-nav-buy:checked ~ .pages-stack #page-buy,
+#radio-nav-home:checked ~ .pages-stack #page-home {
+  position: relative;
+  display: block;
+  z-index: 9;
+  opacity: 1;
+  pointer-events: auto;
+  transition: transform .3s ease-out;
+  transform: scale(1) rotateX(0) translateZ(0) translateY(0);
+  transform-origin: 50%;
 }
 
 .page-intro {
