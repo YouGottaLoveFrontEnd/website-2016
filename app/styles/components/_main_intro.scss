@@ -26,8 +26,9 @@
   }
 
   h1,
-  .whether {
+  .weather {
     margin-bottom: 10%;
+    margin-top: 0;
   }
 
   button {
@@ -51,6 +52,15 @@
     position: relative;
     top: 6px;
   }
+  
+  .register {
+    align-self: flex-start;
+  }
+}
+
+.logo-details {
+  display: flex;
+  flex-direction: column;
 }
 
 @media (max-width: $screen-md-min) {
@@ -73,4 +83,44 @@
 }
 
 @media (max-width: $screen-xs-min) {
+  #page-home {
+    padding-top: 75px;
+  }
+  
+  .logo {
+    margin-top: 0;
+    position: relative;
+    width: 90%;
+    padding-bottom: 90%;
+    transform: scale(0.7);
+    margin-bottom: 30px;
+  }
+ 
+  .logo-details {
+    .sub-title {
+      display: none;
+    }
+    
+    * {
+      text-align: center;
+    }
+    
+    h1 {
+      font-size: 1.5rem;
+      line-height: 2.1rem;
+      font-weight: 100;
+    }
+    
+    .description {
+      font-size: 15px;
+      color: $color-green;
+      margin-bottom: 4px;
+    }
+    
+    .register {
+      position: relative;
+      margin-top: 20px;
+      align-self: center;
+    }
+  }
 }

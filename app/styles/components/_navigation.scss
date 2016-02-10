@@ -2,6 +2,20 @@
   pointer-events: auto;
 }
 
+.link[disabled] {
+  text-decoration: line-through;
+  cursor: default;
+  &:after {
+    top: 0;
+    transition: top .3s cubic-bezier(1, 0.36, 0.4, 0.73);
+  }
+  &:hover:after {
+    content: 'coming soon';
+    position: absolute;
+    top: -50px;
+  }
+}
+
 .pages-nav {
   width: 100%;
   max-width: 1380px;

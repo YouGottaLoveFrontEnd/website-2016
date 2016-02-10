@@ -2,6 +2,12 @@
 .speakers-wrapper {
   display: table;
   margin-top: 80px;
+  
+  .speaker-social a {
+    display: block;
+    margin-bottom: 20px;
+    height: 20px;
+  }
 
   .single-speaker {
     position: relative;
