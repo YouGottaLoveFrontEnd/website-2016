@@ -97,6 +97,10 @@
   }
  
   .logo-details {
+    br {
+      display: none;
+    }
+    
     .sub-title {
       display: none;
     }
@@ -106,8 +110,8 @@
     }
     
     h1 {
-      font-size: 1.5rem;
-      line-height: 2.1rem;
+      font-size: 1.3rem;
+      line-height: 2rem;
       font-weight: 100;
     }
     

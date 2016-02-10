@@ -207,4 +207,7 @@
 }
 
 @media (max-width: $screen-xs-min) {
+  .yglf-description p {
+    transform: translateX(0);
+  }
 }
