@@ -189,6 +189,7 @@
     }
   }
 }
+
 #radio-nav-sponsors:checked ~ .menu-trigger:checked ~ .pages-stack #page-sponsors,
 #radio-nav-program:checked ~ .menu-trigger:checked ~ .pages-stack #page-program,
 #radio-nav-about:checked ~ .menu-trigger:checked ~ .pages-stack #page-about,
@@ -253,18 +254,8 @@
     opacity: 1;
   }
 
-  .menu-trigger:checked ~ .pages-stack .page {
-    &.current {
-      top: 70vh;
-    }
-
-    &[data-pos='1'] {
-      top: 65vh;
-    }
-
-    &[data-pos='2'] {
-      top: 60vh;
-    }
+  .menu-trigger:checked ~ .pages-stack {
+    display: none;
   }
 }
 
