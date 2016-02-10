@@ -13,11 +13,12 @@
   height: 70px;
 }
 
-.menu-trigger {
+.menu-trigger[type='checkbox'] {
   opacity: 0;
   cursor: pointer;
   z-index: 1001;
   margin: 0;
+  border: none;
 }
 
 .menu-wrapper {
@@ -204,7 +205,7 @@
   animation: inherit;
 }
 
-.menu-trigger:checked ~ footer {
+.menu-trigger:checked ~ .footer-wrapper  {
   max-height: 0;
   opacity: 0;
 }

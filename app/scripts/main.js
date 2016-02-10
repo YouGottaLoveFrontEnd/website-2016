@@ -7,7 +7,7 @@ var isMobile = (function () {
 
 var pageLoaded = false;
 var minimalLoadTimeCounter = 0;
-var footer = document.getElementsByTagName('footer')[0];
+var footer = document.getElementsByClassName('footer-wrapper')[0];
 var pagesStack = document.getElementsByClassName('pages-stack')[0];
 var allPages = [].slice.call(pagesStack.getElementsByClassName('page'));
 var allPagesRadioBtn = [].slice.call(document.getElementsByClassName('page-radio-nav'));
@@ -194,6 +194,8 @@ function modifyScheduleNavWidth() {
 function windowResize() {
   if (!isMobile) {
     pagesStack.style.marginBottom = footer.clientHeight + 'px';
+  }else {
+    pagesStack.style.marginBottom = '0px';
   }
   modifyScheduleNavWidth();
 }
@@ -299,8 +301,8 @@ function navLink(e) {
 
 window.onload = function () {
   if (isMobile) {
-    pagesStack.style.zIndex = '100';
-    footer.style.zIndex = '0';
+//    pagesStack.style.zIndex = '100';
+    footer.style.top = $(document).height() + 'px';
     body.className += ' mobile';
   }
 

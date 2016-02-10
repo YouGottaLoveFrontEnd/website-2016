@@ -8,6 +8,7 @@
   perspective: 1200px;
   perspective-origin: 50%;
   overflow: hidden;
+  -webkit-overflow-scrolling: touch;
   transition: perspective-origin .4s .2s linear;
   clear: both;
   position: absolute;
@@ -143,10 +144,6 @@ section {
     width: 90vw;
   }
 
-  .pages-stack {
-    margin-bottom: 100vh;
-  }
-
   .page {
     padding-top: 100px;
   }
@@ -154,9 +151,14 @@ section {
 
 @media (max-width: $screen-sm-min) {
   .pages-stack {
-    position: relative;
+    position: absolute;
+//    margin-bottom: 100vh;
+//    transform: translate3d(0,0,0);
   }
 
+  .page {
+    border: none;
+  }
   section {
     width: 85vw;
   }

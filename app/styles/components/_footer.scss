@@ -1,6 +1,6 @@
 $top-gutter: 45px;
 
-footer {
+.footer-wrapper {
   position: fixed;
   bottom: 0;
   opacity: 1;
@@ -251,8 +251,16 @@ footer {
 }
 
 @media (max-width: $screen-sm-min) {
-  footer {
-    position: relative;
+
+  .footer-wrapper {
+    position: absolute;
+    top: 3400px;
+    display: block !important;
+    opacity: 1 !important;
+    height: 100vh;
+    max-height: 100vh !important;
+    width: 100vw!important;
+    max-width: 100vw!important;
   }
 
   .footer {
