@@ -1,5 +1,6 @@
 .yglf-description {
   position: relative;
+  margin-bottom: $article-gutter-bottom;
 
   img {
     width: 100%;
@@ -22,10 +23,9 @@
 }
 
 .yglf-timeline {
-  margin-top: 100px;
 
   article {
-    margin: 50px 0 150px;
+    margin: $article-gutter-top 0 $article-gutter-bottom;
     display: table;
     width: 100%;
 
@@ -36,15 +36,26 @@
     a {
       color: $color-green;
     }
+    
+    .link {
+      font-size: 12px;
+      
+      &:hover {
+        text-decoration: none;
+        color: $color-white;
+      }
+    }
+    
   }
 
   p {
     column-count: 2;
     column-gap: 40px;
     line-height: 27px;
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 100;
     letter-spacing: 1px;
+    text-align: left;
   }
   
   p.one-column {
@@ -53,7 +64,7 @@
 
   h3 {
     letter-spacing: 2px;
-    font-size: 24px;
+    font-size: 26px;
     margin-top: 0;
   }
 

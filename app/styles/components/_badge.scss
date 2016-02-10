@@ -15,4 +15,10 @@
     color: #051931;
     line-height: 44px;
   }
+  
+  a:hover {
+    color: $color-white;
+    text-decoration: none;
+  }
+  
 }
