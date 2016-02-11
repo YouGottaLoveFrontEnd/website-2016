@@ -252,11 +252,11 @@ $top-gutter: 45px;
 
 @media (max-width: $screen-sm-min) {
 
-  .footer-wrapper {
+  .footer-wrapper.mobile {
     position: absolute;
     display: block !important;
     opacity: 1 !important;
-    height: 100vh;
+    height: 100vh !important;
     max-height: 100vh !important;
     width: 100vw!important;
     max-width: 100vw!important;

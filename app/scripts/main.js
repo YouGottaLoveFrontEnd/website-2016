@@ -153,7 +153,6 @@ function hashchange() {
   if(isMobile) {
     footer.style.top = $('.pages-stack').height() + 'px';
   }
-
 }
 
 function initShadow(config) {
@@ -306,6 +305,8 @@ function navLink(e) {
 window.onload = function () {
   if (isMobile) {
     body.className += ' mobile';
+    footer.className += ' mobile';
+    footer.className = footer.className.replace('hide', '');
   }
 
   body.className += ' ready';
