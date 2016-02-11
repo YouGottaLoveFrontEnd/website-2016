@@ -142,7 +142,6 @@ function hashchange() {
     window.location.hash = '#page-home';
     return;
   }
-  window.scrollTo(0, 0);
   currentPage.checked = true;
   if (hash === 'page-program') {
     fixScheduleHeader(true);
@@ -150,6 +149,14 @@ function hashchange() {
     fixScheduleHeader(false);
   }
   menuTrigger.checked = false;
+  reorderPages(function () {
+    onMenuTriggerChange();
+    window.location.hash = hash;
+    window.scrollTo(0, 0);
+    for (var i = 0; i < allPages.length; i++) {
+      allPages[i].removeAttribute('data-pos');
+    }
+  });
   disableLink(hash);
   if (isMobile) {
     footer.style.top = $('.pages-stack').height() + 'px';
@@ -283,26 +290,6 @@ function logoInit() {
   }
 }
 
-function navLink(e) {
-  e.preventDefault();
-  var hash = e.currentTarget.hash;
-  if (hash === '#page-program') {
-    fixScheduleHeader(true);
-    modifyScheduleNavWidth();
-  } else {
-    fixScheduleHeader(false);
-  }
-  menuTrigger.checked = false;
-  reorderPages(function () {
-    onMenuTriggerChange();
-    window.location.hash = hash;
-    window.scrollTo(0, 0);
-    for (var i = 0; i < allPages.length; i++) {
-      allPages[i].removeAttribute('data-pos');
-    }
-  });
-}
-
 window.onload = function () {
   if (isMobile) {
     body.classList.add('mobile');
@@ -326,11 +313,6 @@ window.onload = function () {
   window.addEventListener('hashchange', hashchange, true);
   pageLoaded = true;
   logoInit();
-
-  topNavLinks.forEach(function (elem) {
-    elem.addEventListener('click', navLink, true);
-    elem.addEventListener('touchend', navLink, true);
-  });
 
   var weatherURL = 'http://api.openweathermap.org/data/2.5/weather';
   $.ajax({
