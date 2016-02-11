@@ -293,26 +293,6 @@
     }
   }
 
-  function navLink(e) {
-    e.preventDefault();
-    var hash = e.currentTarget.hash;
-    if (hash === '#page-program') {
-      fixScheduleHeader(true);
-      modifyScheduleNavWidth();
-    } else {
-      fixScheduleHeader(false);
-    }
-    menuTrigger.checked = false;
-    reorderPages(function () {
-      onMenuTriggerChange();
-      window.location.hash = hash;
-      window.scrollTo(0, 0);
-      for (var i = 0; i < allPages.length; i++) {
-        allPages[i].removeAttribute('data-pos');
-      }
-    });
-  }
-
   function initWeather() {
     var r = new XMLHttpRequest();
     var weatherURL = 'http://api.openweathermap.org/data/2.5/weather?id=293397&appid=17e28f9119f49c8bf85eaacba44455c1&units=metric';
@@ -361,11 +341,6 @@
     window.addEventListener('hashchange', hashchange, true);
     pageLoaded = true;
     logoInit();
-
-    topNavLinks.forEach(function (elem) {
-      elem.addEventListener('click', navLink, true);
-      elem.addEventListener('touchend', navLink, true);
-    });
 
     initWeather();
 
