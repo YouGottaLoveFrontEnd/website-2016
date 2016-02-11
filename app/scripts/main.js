@@ -345,7 +345,6 @@
     initWeather();
 
     menuTrigger.addEventListener('click', onMenuTriggerChange, true);
-    menuTrigger.addEventListener('touchend', onMenuTriggerChange, true);
     setTimeout(function () {
       footer.classList.remove('hide');
       body.classList.remove('loading');
