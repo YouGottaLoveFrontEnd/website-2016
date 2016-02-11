@@ -14,11 +14,13 @@
   a {
     color: #051931;
     line-height: 44px;
+    &:after {
+      content: 'Call For Speakers';
+      top: -12px;
+      color: $color-white;
+    }
+
   }
   
-  a:hover {
-    color: $color-white;
-    text-decoration: none;
-  }
   
 }

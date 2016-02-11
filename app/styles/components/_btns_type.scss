@@ -6,6 +6,7 @@
   position: relative;
   cursor: pointer;
   padding: 1px 15px 0px 23px;
+  white-space: nowrap;
 
   &:after {
     position: absolute;
@@ -45,7 +46,6 @@
     max-width: 100%;
     color: $color-blue;
     z-index: 1;
-    text-transform: uppercase;
     overflow: hidden;
     padding: 1px 15px 0px 23px;
     opacity: 1;
@@ -98,13 +98,13 @@
 .text-btn {
   color: $color-grey;
   position: relative;
+  white-space: nowrap;
 
   &:after {
     background-color: transparent;
     max-width: 0;
     color: $color-green;
     z-index: 1;
-    text-transform: uppercase;
     overflow: hidden;
     opacity: 1;
     transition: max-width .3s ease-out;
