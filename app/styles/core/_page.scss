@@ -83,6 +83,8 @@ section {
 .page-intro {
   height: $header-height;
   margin-bottom: 0px;
+  width: 100vw;
+  padding: 0 16vw;
 
   .multiple-wrapper {
     width: 255px;

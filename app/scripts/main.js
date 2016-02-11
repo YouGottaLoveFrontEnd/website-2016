@@ -182,16 +182,20 @@
     }
 
     $('.shadow').each(function () {
-      $(this).parent().on('mousemove', function (evt) {
+      $(this).on('mousemove', function (evt) {
+        var shadow = $(this);//.children('.shadow');
         var pointer = { x: evt.offsetX, y: evt.offsetY };
-        var range = 400;
-        var shadow = $(this).children('.shadow');
-        var Xunit = shadow.width() / range;
-        var originX = pointer.x / Xunit - (range / 3);
-        var Yunit = shadow.height() / range;
-        var originY = pointer.y / Yunit - (range / 3);
-        if (originX >= 280) {
-          originX = 280;
+        console.log(pointer.x);
+        var range = 1;
+        var Xunit = shadow.width() / 100;
+        var originX = pointer.x / Xunit - 80;
+        var Yunit = shadow.height();
+        var originY = pointer.y;
+        if (originX >= 160) {
+          originX = 160;
+        }
+        if(originX - 30 <= 0 ) {
+          originX = 0;
         }
         shadow.css({ 'perspective-origin': originX + '% ' + originY + '%' });
       });

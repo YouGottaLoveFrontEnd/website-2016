@@ -8,6 +8,14 @@
   width: 90%;
   height: 150px;
   transition: all 0.05s;
+  width: 100vw;
+  padding: 0 16vw;
+  left: -16vw;
+
+
+  h2 {
+    pointer-events: none;
+  }
 
   .item {
     pointer-events: none;
