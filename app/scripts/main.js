@@ -186,10 +186,8 @@
         var shadow = $(this);//.children('.shadow');
         var pointer = { x: evt.offsetX, y: evt.offsetY };
         console.log(pointer.x);
-        var range = 1;
         var Xunit = shadow.width() / 100;
         var originX = pointer.x / Xunit - 80;
-        var Yunit = shadow.height();
         var originY = pointer.y;
         if (originX >= 160) {
           originX = 160;
