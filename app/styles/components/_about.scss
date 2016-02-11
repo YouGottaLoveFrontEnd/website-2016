@@ -226,7 +226,18 @@
 }
 
 @media (max-width: $screen-xs-min) {
+  .yglf-timeline {
+    margin-left: 14px;
+    margin-top: 0;
+    
+    article {
+      margin-top: 0;
+    }  
+  }
+  
   .yglf-description p {
+    text-align: left;
     transform: translateX(0);
+    margin-top: 60px;
   }
 }

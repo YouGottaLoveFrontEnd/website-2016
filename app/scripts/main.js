@@ -310,7 +310,7 @@
 
     r.open('GET', weatherURL, true);
     r.onreadystatechange = function () {
-      if (r.readyState != 4 || r.status != 200) {
+      if (r.readyState !== 4 || r.status !== 200) {
         return;
       }
       tempSuccess(JSON.parse(r.responseText));
