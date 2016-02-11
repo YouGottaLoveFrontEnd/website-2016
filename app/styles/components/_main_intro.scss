@@ -1,5 +1,5 @@
 #page-home {
-  padding-top: 250px;
+  padding-top: 19vh;
 }
 
 .intro {
@@ -21,11 +21,17 @@
   }
 
   .description {
-    margin-bottom: 17%;
+    &:first-child {
+      margin-bottom: 12%;
+    }
+
+    &:last-child {
+      margin-bottom: 14%;
+    }
+    
     letter-spacing: .3vw;
   }
 
-  h1,
   .weather {
     margin-bottom: 10%;
     margin-top: 0;
@@ -34,9 +40,10 @@
   button {
     line-height: 47px;
     letter-spacing: 8px;
-    border: 1px solid rgba(255,255,255,0);
+    border: 1px solid rgba(255, 255, 255, 0);
     cursor: pointer;
     font-family: $font-family;
+    border-radius: 0;
 
     &:after {
       content: ' ';
@@ -52,7 +59,7 @@
     position: relative;
     top: 6px;
   }
-  
+
   .register {
     align-self: flex-start;
   }
@@ -86,7 +93,7 @@
   #page-home {
     padding-top: 75px;
   }
-  
+
   .logo {
     margin-top: 0;
     position: relative;
@@ -95,32 +102,32 @@
     transform: scale(0.7);
     margin-bottom: 30px;
   }
- 
+
   .logo-details {
     br {
       display: none;
     }
-    
+
     .sub-title {
       display: none;
     }
-    
+
     * {
       text-align: center;
     }
-    
+
     h1 {
       font-size: 1.3rem;
       line-height: 2rem;
       font-weight: 100;
     }
-    
+
     .description {
       font-size: 15px;
       color: $color-green;
       margin-bottom: 4px;
     }
-    
+
     .register {
       position: relative;
       margin-top: 20px;

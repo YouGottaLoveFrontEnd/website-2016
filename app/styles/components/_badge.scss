@@ -4,15 +4,14 @@
   top: 51px;
   right: -53px;
   height: 45px;
-  background-color: #01ac8a;
+  background-color: $color-green;
   z-index: 1000;
   margin: 0 auto;
   transform: rotate(45deg);
   text-align: center;
-  opacity: 0.9;
-  
+
   a {
-    color: #051931;
+    color: $color-blue;
     line-height: 44px;
     &:after {
       content: 'Call For Speakers';
