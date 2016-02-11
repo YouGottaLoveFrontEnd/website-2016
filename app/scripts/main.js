@@ -142,6 +142,7 @@ function hashchange() {
     window.location.hash = '#page-home';
     return;
   }
+  window.scrollTo(0, 0);
   currentPage.checked = true;
   if (hash === 'page-program') {
     fixScheduleHeader(true);
