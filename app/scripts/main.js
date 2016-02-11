@@ -144,6 +144,7 @@
       window.location.hash = '#page-home';
       return;
     }
+
     currentPage.checked = true;
     if (hash === 'page-program') {
       fixScheduleHeader(true);
@@ -290,6 +291,26 @@
     if (!isMobile) {
       window.addEventListener('mousemove', logoTailMoveHandler, true);
     }
+  }
+
+  function navLink(e) {
+    e.preventDefault();
+    var hash = e.currentTarget.hash;
+    if (hash === '#page-program') {
+      fixScheduleHeader(true);
+      modifyScheduleNavWidth();
+    } else {
+      fixScheduleHeader(false);
+    }
+    menuTrigger.checked = false;
+    reorderPages(function () {
+      onMenuTriggerChange();
+      window.location.hash = hash;
+      window.scrollTo(0, 0);
+      for (var i = 0; i < allPages.length; i++) {
+        allPages[i].removeAttribute('data-pos');
+      }
+    });
   }
 
   function initWeather() {
