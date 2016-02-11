@@ -1,8 +1,3 @@
-// ======================================================================
-// =| Config |===========================================================
-// ======================================================================
-$size-factor: 10px;
-$state-factor: 10%;
 
 // Colors Palette
 // ----------------------------------------------------------------------
@@ -23,125 +18,10 @@ $font-libre: 'Libre Baskerville', $font-family;
 // Misc
 // ----------------------------------------------------------------------
 $border-width: 7px;
-
 $header-height: 23vw;
 $article-gutter-top: 50px;
 $article-gutter-bottom: 50px;
-
 $page-gutter-bottom: 70px;
-
-// ======================================================================
-// =| Core |=============================================================
-// ======================================================================
-
-// Skin
-// ----------------------------------------------------------------------
-$skin-font-family: $font-family;
-$skin-background: lighten($color-black, 5%);
-
-// ======================================================================
-// =| Component Configuration |==========================================
-// ======================================================================
-
-// Nav
-// ----------------------------------------------------------------------
-$nav-offset: 80px;
-$nav-link-color: $color-white;
-$nav-link-font-size: 0.6rem;
-$nav-link-vertical-spacing: 0.5rem;
-$nav-link-mobile-font-size: 1rem;
-$nav-link-mobile-vertical-spacing: 1.1rem;
-$nav-bullet-size: $border-width;
-$nav-bullet-offset: $nav-bullet-size * -1.5;
-$nav-bullet-opacity: 0.5;
-$nav-bullet-opacity_active: 1;
-$nav-bullet-background: $color-white;
-$nav-toggle-coordinate: 15px;
-$nav-toggle-size: 8px;
-
-// Intro
-// ----------------------------------------------------------------------
-$intro-font-size: 3.2rem;
-$intro-logo-letter-spacing: 3px;
-$intro-logo-font-size: 100%;
-$intro-logo-line-height: 1.25;
-$intro-logo-padding: 3%;
-$intro-title-offset: -15%;
-$intro-title-subtitle-font-size: 30%;
-$intro-title-subtitle-letter-spacing: 3.2px;
-
-// Footer
-// ----------------------------------------------------------------------
-$footer-padding: 150px;
-$footer-logo-border-width: 3px;
-$footer-logo-padding: 1%;
-$footer-logo-font-size: 20px;
-// need it always t be a square, so use px
-$footer-subtitle-font-size: 1rem;
-$footer-subtitle-letter-spacing: 2;
-$footer-email-font-size: 1rem;
-$footer-email-font-weight: 100;
-$footer-email-letter-spacing: 2px;
-$footer-spacing: 20px;
-$footer-letter-width: 20px;
-
-// Sections
-// ----------------------------------------------------------------------
-$section-margin-top: 30%;
-$section-margin-bottom: 5%;
-$section-background: $color-white;
-$section-color: $color-black;
-$section-font-size: 1rem;
-$section-line-height: 2;
-$section-mobile-line-height: 1.5;
-$section-border-color-a: $color-green;
-$section-border-color-b: darken($color-green, 5%);
-$section-brand-letter-color: $color-green;
-$section-brand-letter-font-size: 16rem;
-$section-header-hr-width: 60px;
-$section-header-hr-height: 2px;
-$section-header-hr-background: $color-black;
-;
-$section-header-inner-spacings: 3%;
-$section-title-font-size: 0.6rem;
-$section-subtitle-font-size: 2.1rem;
-$section-inner-spacing: 5%;
-$section-padding: 7%;
-
-// Buttons
-// ----------------------------------------------------------------------
-$button-background: transparent;
-$button-background_hover: $color-black;
-$button-color: $color-black;
-$button-color_hover: $color-white;
-$button-border: solid 1px $color-black;
-$button-font-size: 0.6rem;
-$button-spacing-vertical: 0.45rem;
-$button-spacing-horizontal: 1.3rem;
-$button-action-spacing-vertical: 1rem;
-$button-action-spacing-horizontal: 2.5rem;
-$button-action-font-size: 0.8rem;
-$button-letter-spacing: 0.05rem;
-
-// Speakers
-// ----------------------------------------------------------------------
-$speaker-sizes: (
-	'mobile': 1,
-	"down to phablet": 2,
-	"desktop": 2
-);
-$speaker-horizontal-spacing: 10%;
-$speaker-vertical-spacing: 7%;
-$speaker-horizontal-padding: 1rem;
-$speaker-font-size: 1.2rem;
-$speaker-details-collapsed-height: 2.95rem;
-$speaker-header-vertical-spacing: 2rem, 1.2rem;
-$speaker-header-inner-vertical-spacing: 0.5rem;
-$speaker-header-hr-spacing: 0.4rem;
-$speaker-header-hr-width: 30%;
-$speaker-header-hr-height: 1px;
-$speaker-header-hr-background: $color-black;
-$speaker-name-font-size: 1rem;
 
 //border
 $border-white: 2px solid $color-white;

@@ -1,15 +1,12 @@
 // ======================================================================
 // =| 3rd Party Dependencies |===========================================
 // ======================================================================
-@import "compass";
-@import "compass/reset";
-@import "breakpoint";
 @import "../bower_components/bootstrap-sass/assets/stylesheets/bootstrap-sprockets";
 @import "../bower_components/bootstrap-sass/assets/stylesheets/bootstrap";
 // ======================================================================
 // =| Modules |==========================================================
 // ======================================================================
-@import "modules/breakpoints";
+//@import "modules/breakpoints";
 @import "modules/mixins";
 @import "modules/variables";
 
@@ -25,12 +22,10 @@
 // =| Components |=======================================================
 // ======================================================================
 @import "components/menu_trigger";
-@import "components/flying_letters";
 @import "components/btns_type";
 @import "components/footer";
 @import "components/shadow";
 @import "components/navigation";
-//@import "components/main";
 @import "components/main_intro";
 @import "components/main_speakers";
 @import "components/schedule";
