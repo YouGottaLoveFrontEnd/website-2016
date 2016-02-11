@@ -111,15 +111,35 @@
     }
   }
 
+  function setPagesStackPaddingBottom () {
+    pagesStack.style.paddingBottom = isMobile ? '0px' : footer.clientHeight + 'px';
+
+  }
+
+
+
+  function resetPages(hash) {
+    menuTrigger.checked = false;
+    reorderPages(function () {
+      onMenuTriggerChange();
+      window.location.hash = hash;
+      window.scrollTo(0, 0);
+      for (var i = 0; i < allPages.length; i++) {
+        allPages[i].removeAttribute('data-pos');
+      }
+    });
+    if (isMobile) {
+      footer.style.top = $('.pages-stack').height() + 'px';
+    }
+  }
+
   function onMenuTriggerChange() {
     if (menuTrigger.checked) {
       reorderPages();
-      pagesStack.style.marginBottom = '0px';
-    } else {
-      if (!isMobile) {
-        pagesStack.style.marginBottom = footer.clientHeight + 'px';
-      }
+    }else {
+//      resetPages(window.location.hash.slice(1));
     }
+    setPagesStackPaddingBottom();
   }
 
   function disableLink(hash) {
@@ -129,6 +149,11 @@
       if (link.attributes.href.nodeValue.slice(1) === hash) {
         link.className += isMobile ? ' not-active disable' : ' not-active';
       }
+    });
+
+    document.querySelector('.not-active').addEventListener('click', function (e) {
+      e.preventDefault();
+      menuTrigger.checked = false;
     });
   }
 
@@ -151,19 +176,8 @@
     } else {
       fixScheduleHeader(false);
     }
-    menuTrigger.checked = false;
-    reorderPages(function () {
-      onMenuTriggerChange();
-      window.location.hash = hash;
-      window.scrollTo(0, 0);
-      for (var i = 0; i < allPages.length; i++) {
-        allPages[i].removeAttribute('data-pos');
-      }
-    });
     disableLink(hash);
-    if (isMobile) {
-      footer.style.top = $('.pages-stack').height() + 'px';
-    }
+    resetPages(hash);
   }
 
   function initShadow(config) {
@@ -185,14 +199,13 @@
       $(this).on('mousemove', function (evt) {
         var shadow = $(this);//.children('.shadow');
         var pointer = { x: evt.offsetX, y: evt.offsetY };
-        console.log(pointer.x);
         var Xunit = shadow.width() / 100;
         var originX = pointer.x / Xunit - 80;
         var originY = pointer.y;
         if (originX >= 160) {
           originX = 160;
         }
-        if(originX - 30 <= 0 ) {
+        if (originX - 30 <= 0) {
           originX = 0;
         }
         shadow.css({ 'perspective-origin': originX + '% ' + originY + '%' });
@@ -202,17 +215,13 @@
 
   function modifyScheduleNavWidth() {
     var scheduleNavWidth = $('.itinerary ul').width(),
-      scheduleNavLeft = (window.innerWidth - scheduleNavWidth) / 2;
+        scheduleNavLeft = (window.innerWidth - scheduleNavWidth) / 2;
 
     $('.schedule-nav').css({ width: scheduleNavWidth, left: scheduleNavLeft });
   }
 
   function windowResize() {
-    if (!isMobile) {
-      pagesStack.style.marginBottom = footer.clientHeight + 'px';
-    } else {
-      pagesStack.style.marginBottom = '0px';
-    }
+    setPagesStackPaddingBottom();
     modifyScheduleNavWidth();
   }
 
