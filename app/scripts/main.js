@@ -280,10 +280,6 @@ function logoInit() {
   if (!isMobile) {
     window.addEventListener('mousemove', logoTailMoveHandler, true);
   }
-
-  var ev = document.createEvent('MouseEvent');
-  ev.initEvent('mousemove');
-  window.dispatchEvent(ev);
 }
 
 function navLink(e) {

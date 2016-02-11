@@ -40,10 +40,29 @@
 
     .link {
       font-size: 12px;
-
-      &:hover {
-        text-decoration: none;
+    }
+    
+    .about-conduct {
+      &:after {
         color: $color-white;
+        content: 'code of conduct';
+        top: -4px;
+      }
+    }
+     
+    .about-talks {
+      &:after {
+        color: $color-white;
+        content: 'view 2015 talks';
+        top: -4px;
+      }
+    }
+    
+    .about-contact {
+      &:after {
+        color: $color-white;
+        content: 'drop us an email';
+        top: -3px;
       }
     }
 
@@ -162,7 +181,6 @@
       .name,
       a,
       hr {
-        left: 0;
         opacity: 1;
       }
     }
