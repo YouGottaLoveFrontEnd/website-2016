@@ -181,11 +181,11 @@
     }
 
     &[data-pos='1'] {
-      transform: scale(0.75) rotateX(20deg) translateZ(30px) translateY(46vh);
+      transform: scale(0.75) translateZ(30px) translateY(46vh);
       z-index: 9998;
     }
     &[data-pos='2'] {
-      transform: scale(0.7) rotateX(20deg) translateZ(30px) translateY(42vh);
+      transform: scale(0.7) translateZ(30px) translateY(42vh);
       z-index: 9997;
     }
   }
@@ -200,7 +200,7 @@
 #radio-nav-home:checked ~ .menu-trigger:checked ~ .pages-stack #page-home {
   border-color: #00d09d;
   max-height: 100vh;
-  transform: scale(.8) rotateX(20deg) translateZ(30px) translateY(50vh);
+  transform: scale(.8) translateZ(30px) translateY(50vh);
   z-index: 9999;
   animation: inherit;
 }
@@ -285,6 +285,9 @@
         }
       }
     }
+  }
 
+  .menu-trigger:checked ~ .footer-wrapper  {
+    display: none!important;
   }
 }

@@ -150,6 +150,10 @@ function hashchange() {
   }
   menuTrigger.checked = false;
   disableLink(hash);
+  if(isMobile) {
+    footer.style.top = $('.pages-stack').height() + 'px';
+  }
+
 }
 
 function initShadow(config) {
@@ -301,8 +305,6 @@ function navLink(e) {
 
 window.onload = function () {
   if (isMobile) {
-//    pagesStack.style.zIndex = '100';
-    footer.style.top = $(document).height() + 'px';
     body.className += ' mobile';
   }
 

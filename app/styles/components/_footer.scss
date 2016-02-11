@@ -254,13 +254,16 @@ $top-gutter: 45px;
 
   .footer-wrapper {
     position: absolute;
-    top: 3400px;
     display: block !important;
     opacity: 1 !important;
     height: 100vh;
     max-height: 100vh !important;
     width: 100vw!important;
     max-width: 100vw!important;
+
+    &.hide {
+      display: none!important;
+    }
   }
 
   .footer {
