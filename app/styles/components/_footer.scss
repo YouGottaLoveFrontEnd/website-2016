@@ -167,9 +167,7 @@ $top-gutter: 45px;
       }
 
       &[href='mailto:hello@yougottalovefrontend.com'] {
-        &:after {
-          content: 'hello@yougottalovefrontend.com';
-        }
+        @include page-link-after('hello@yougottalovefrontend.com');
       }
     }
 

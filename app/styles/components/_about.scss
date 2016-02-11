@@ -37,16 +37,16 @@
     a {
       color: $color-green;
     }
-    
+
     .link {
       font-size: 12px;
-      
+
       &:hover {
         text-decoration: none;
         color: $color-white;
       }
     }
-    
+
   }
 
   p {
@@ -58,7 +58,7 @@
     letter-spacing: 1px;
     text-align: left;
   }
-  
+
   p.one-column {
     column-count: 1;
   }

@@ -42,6 +42,7 @@
     letter-spacing: 6px;
     font-size: 16px;
     font-weight: 300;
+    float: left;
 
     &:before {
       content: ' ';
@@ -71,60 +72,16 @@
         transition: all .2s linear;
       }
       &:nth-child(1) {
-        &:after {
-          content: 'M';
-        }
+        @include page-link-after('M');
       }
       &:nth-child(2) {
-        &:after {
-          content: 'E';
-        }
+        @include page-link-after('E');
       }
       &:nth-child(3) {
-        &:after {
-          content: 'N';
-        }
+        @include page-link-after('N');
       }
       &:nth-child(4) {
-        &:after {
-          content: 'U';
-        }
-      }
-    }
-  }
-
-  .menu-social,
-  .menu-button {
-    float: left;
-  }
-
-  .menu-social {
-    width: 20px;
-    text-align: center;
-    margin-left: 15px;
-
-    img {
-      height: 15px;
-    }
-
-    a {
-      margin: 4px 0 18px 0;
-      display: inline-block;
-      position: relative;
-      padding: 0;
-      opacity: 0;
-    }
-
-    .facebook {
-      &:after {
-        content: 'Facebook';
-        margin-left: 20px;
-      }
-    }
-
-    .twitter {
-      &:after {
-        content: 'Twitter';
+        @include page-link-after('U');
       }
     }
   }
@@ -139,24 +96,16 @@
 
   .menu-button span {
     &:nth-child(1) {
-      &:after {
-        content: 'Y';
-      }
+      @include page-link-after('Y');
     }
     &:nth-child(2) {
-      &:after {
-        content: 'G';
-      }
+      @include page-link-after('G');
     }
     &:nth-child(3) {
-      &:after {
-        content: 'L';
-      }
+      @include page-link-after('L');
     }
     &:nth-child(4) {
-      &:after {
-        content: 'F';
-      }
+      @include page-link-after('F');
     }
   }
 }
@@ -174,9 +123,7 @@
     &[data-pos='1'] {
       display: block;
       opacity: 1;
-      border-color: #00d09d;
       max-height: 100vh;
-
       animation: inherit;
     }
 

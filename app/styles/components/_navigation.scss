@@ -48,6 +48,7 @@
 .pages-nav {
   ul {
     max-width: 460px;
+
     li {
       a {
         text-decoration: none;
@@ -64,46 +65,33 @@
           color: $color-green;
         }
 
-        &[href="#page-home"] {
-          &:after {
-            content: 'home';
-          }
+
+        &[href='#page-home'] {
+          @include page-link-after('home');
         }
 
-        &[href="#page-sponsors"] {
-          &:after {
-            content: 'sponsors';
-          }
+        &[href='#page-sponsors'] {
+          @include page-link-after('sponsors');
         }
 
-        &[href="#page-program"] {
-          &:after {
-            content: 'schedule';
-          }
+        &[href='#page-program'] {
+          @include page-link-after('schedule');
         }
 
-        &[href="#page-about"] {
-          &:after {
-            content: 'about';
-          }
+        &[href='#page-about'] {
+          @include page-link-after('about');
         }
 
-        &[href="#page-details"] {
-          &:after {
-            content: 'details';
-          }
+        &[href='#page-details'] {
+          @include page-link-after('details');
         }
 
-        &[href="//eventbrite.com"] {
-          &:after {
-            content: 'Register';
-          }
+        &[href='//eventbrite.com'] {
+          @include page-link-after('Register');
         }
 
-        &[href="//2015.yougottalovefrontend.com"] {
-          &:after {
-            content: 'YGLF 2015';
-          }
+        &[href='//2015.yougottalovefrontend.com'] {
+          @include page-link-after('YGLF 2015');
         }
       }
     }

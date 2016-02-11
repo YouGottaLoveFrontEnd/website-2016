@@ -51,3 +51,9 @@
 		@content;
 	}
 }
+
+@mixin page-link-after($text) {
+    &:after {
+      content: $text;
+    }
+}
