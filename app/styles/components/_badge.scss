@@ -18,8 +18,12 @@
       top: -12px;
       color: $color-white;
     }
-
   }
-  
-  
+}
+
+@media (max-width: $screen-xs-min) {
+  .cfs-badge {
+    top: 31px;
+    right: -77px;
+  }
 }

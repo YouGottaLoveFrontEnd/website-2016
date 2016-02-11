@@ -6,14 +6,17 @@
   text-decoration: line-through;
   cursor: default;
   &:after {
-    top: 0;
-    transition: top .3s cubic-bezier(1, 0.36, 0.4, 0.73);
-  }
-  &:hover:after {
+    top: -16px;
+    transition: top .2s ease-in-out;
+    white-space: initial;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-align: center;
     content: 'coming soon';
     position: absolute;
-    top: -50px;
-    white-space: initial;
+  }
+  &:hover:after {
+    top: -26px;
   }
 }
 
@@ -74,10 +77,6 @@
 
         &[href='#page-sponsors'] {
           @include page-link-after('sponsors');
-        }
-
-        &[href='#page-program'] {
-          @include page-link-after('schedule');
         }
 
         &[href='#page-about'] {
