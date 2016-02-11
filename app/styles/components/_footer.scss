@@ -77,9 +77,8 @@ $top-gutter: 45px;
       padding: 0;
       width: 80%;
 
-//      input.full ~ span,
+      input.full ~ span,
       input:valid ~ span,
-      input:not([value='']) ~ span,
       input:focus ~ span {
         top: -22px;
         left: 0;
