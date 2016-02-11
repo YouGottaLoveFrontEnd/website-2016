@@ -55,6 +55,10 @@ hr {
   font-style: italic;
 }
 
+li {
+  list-style: none;
+}
+
 i {
   display: inline-block;
 
@@ -78,7 +82,7 @@ i {
 }
 
 
-.description { //label
+.description {
   font-size: 1vw;
 }
 
@@ -88,9 +92,7 @@ label,
 input,
 p {
   font-family: $font-family;
-
 }
-
 
 a,
 p {

@@ -4,6 +4,7 @@ body {
   margin: 0;
   overflow-x: hidden;
   color: $color-white;
+  background-color: $color-blue;
 
   &.menu--open {
     height: 100vh;
