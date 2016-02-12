@@ -142,6 +142,10 @@ section {
 }
 
 @media (max-width: $screen-md-min) {
+  .page-intro {
+    padding-left: 5vw;
+  }
+
   section {
     width: 90vw;
   }
@@ -164,6 +168,8 @@ section {
   }
 
   .page-intro {
+    padding-left: 7.5vw;
+    
     h2 {
       font-size: 80px;
       padding: 20px 0;
