@@ -19,7 +19,7 @@
     letter-spacing: 2px;
     font-style: italic;
     font-size: 135%;
-    transform: translateX(25%);
+    @include transform-prefix(translateX(25%));
   }
 }
 
@@ -237,7 +237,7 @@
   
   .yglf-description p {
     text-align: left;
-    transform: translateX(0);
+    @include transform-prefix(translateX(0));
     margin-top: 60px;
   }
 }

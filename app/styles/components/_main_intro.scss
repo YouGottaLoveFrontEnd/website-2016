@@ -99,7 +99,7 @@
     position: relative;
     width: 90%;
     padding-bottom: 90%;
-    transform: scale(0.7);
+    @include transform-prefix(scale(0.7));
     margin-bottom: 30px;
   }
 

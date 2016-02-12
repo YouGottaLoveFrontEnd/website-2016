@@ -5,9 +5,9 @@
 // @param $empty-value - (optional, default nil) definition for "empty value"
 //
 @mixin set-if-exists($property, $value, $empty-value: nil) {
-	@if ($value != $empty-value) {
-		#{$property}: $value;
-	}
+  @if ($value != $empty-value) {
+    #{$property}: $value;
+  }
 }
 
 ////
@@ -17,13 +17,13 @@
 // @param $content - (optional, default: "") the content to be put inside the pseudo element
 //
 @mixin pseudo-element($width: nil, $height: $width, $content: "") {
-	@include dimensions($width, $height);
-	@include set-if-exists(content, $content);
-	display: inline-block;
+  @include dimensions($width, $height);
+  @include set-if-exists(content, $content);
+  display: inline-block;
 }
 
 @mixin brand-gradient($direction: bottom) {
-	@include background-image(linear-gradient(to $direction, $color-blue, $color-green, $color-green));
+  @include background-image(linear-gradient(to $direction, $color-blue, $color-green, $color-green));
 }
 
 @mixin animated-link($color: $color-white, $bottom: 0) {
@@ -47,13 +47,21 @@
 }
 
 @mixin js-mobile() {
-	.mobile & {
-		@content;
-	}
+  .mobile & {
+    @content;
+  }
 }
 
 @mixin page-link-after($text) {
-    &:after {
-      content: $text;
-    }
+  &:after {
+    content: $text;
+  }
+}
+
+@mixin transform-prefix($transform) {
+  transform: $transform;
+  -ms-transform: $transform;
+  -webkit-transform: $transform;
+  -o-transform: $transform;
+  -moz-transform: $transform;
 }

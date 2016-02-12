@@ -24,7 +24,7 @@
   width: 100%;
   max-width: 1380px;
   max-height: 0;
-  transform: translateY(25vh) ;
+  @include transform-prefix(translateY(25vh)) ;
   opacity: 0;
   display: flex;
   flex-wrap: wrap;

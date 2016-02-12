@@ -346,23 +346,20 @@
       }
     };
 
+    initWeather();
     initShadow({ count: 4 });
 
     hashchange();
     window.addEventListener('hashchange', hashchange, true);
-    pageLoaded = true;
-    logoInit();
-
-    initWeather();
 
     menuTrigger.addEventListener('click', onMenuTriggerChange, true);
-    setTimeout(function () {
+    window.setTimeout(function () {
       footer.classList.remove('hide');
       body.classList.remove('loading');
       windowResize();
     }, 400);
     window.addEventListener('resize', windowResize, true);
-
+    logoInit();
   };
 
 })();

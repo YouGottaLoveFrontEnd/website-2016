@@ -28,8 +28,7 @@
 
   @for $i from 0 through 7 {
     .stroke-#{$i} {
-      transform: translateZ(0px - (2 * $i));// translateX(-1px + 6 * (1 + $i));
-//      transform: translateZ(0) translateX(0);
+      @include transform-prefix(translateZ(0px - (2 * $i)));
       opacity: 1/ $i;
     }
   }

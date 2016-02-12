@@ -7,7 +7,7 @@
   background-color: $color-green;
   z-index: 1000;
   margin: 0 auto;
-  transform: rotate(45deg);
+  @include transform-prefix(rotate(45deg));
   text-align: center;
 
   a {
