@@ -142,7 +142,14 @@
     setPagesStackPaddingBottom();
   }
 
+  function notActiveAction (e) {
+    e.preventDefault();
+    menuTrigger.checked = false;
+  }
+
   function disableLink(hash) {
+    document.querySelector('.not-active').removeEventListener('click', notActiveAction);
+
     topNavLinks.forEach(function (link) {
       link.classList.remove('not-active');
       link.classList.remove('disabled');
@@ -151,10 +158,7 @@
       }
     });
 
-    document.querySelector('.not-active').addEventListener('click', function (e) {
-      e.preventDefault();
-      menuTrigger.checked = false;
-    });
+    document.querySelector('.not-active').addEventListener('click', notActiveAction);
   }
 
   function hashchange() {
