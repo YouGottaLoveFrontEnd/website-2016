@@ -40,9 +40,13 @@
     <link rel="stylesheet" href="styles/logo.css">
     <link rel="stylesheet" href="styles/style.css">
     <!-- endbuild -->
-    <!--<link rel="stylesheet" type="text/css" href="styles/demo.css"/>
-    <link rel="stylesheet" type="text/css" href="styles/component.css"/>-->
+    
+    
+    <!-- build:js({app,.tmp}) scripts/vendor.js -->
     <script src="scripts/vendor/modernizr-custom.js"></script>
+    <script src="scripts/vendor/jquery.js"></script>
+    <!-- endbuild -->
+    
 </head>
 <body class="js csstransitions loading">
 <input type="radio" name="page" id="radio-nav-home" class="page-radio-nav">
@@ -99,13 +103,6 @@
 
 <%= pages.navigation_menu_btn %>
 
-
-<script src="scripts/vendor/jquery.min.js"></script>
-
-<!-- build:js(.) scripts/vendor.js -->
-<!-- bower:js -->
-<!-- endbower -->
-<!-- endbuild -->
 
 
 <script src="https://use.typekit.net/dnj6qmh.js"></script>
