@@ -33,7 +33,8 @@
     margin-top: 0;
   }
 
-  button {
+  .register {
+    align-self: flex-start;
     line-height: 47px;
     letter-spacing: 8px;
     border: 1px solid rgba(255, 255, 255, 0);
@@ -54,10 +55,6 @@
     height: 22px;
     position: relative;
     top: 6px;
-  }
-
-  .register {
-    align-self: flex-start;
   }
 }
 
