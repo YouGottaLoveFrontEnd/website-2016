@@ -19,6 +19,7 @@
     letter-spacing: 2px;
     font-style: italic;
     font-size: 135%;
+    text-align: left;
     @include transform-prefix(translateX(25%));
   }
 }
