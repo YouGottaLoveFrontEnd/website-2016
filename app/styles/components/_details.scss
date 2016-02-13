@@ -1,0 +1,15 @@
+.details-getting-there {
+  &:after {
+    color: $color-white;
+    content: 'getting there';
+    top: -4px;
+  }
+}
+
+.details-habima {
+  &:after {
+    color: $color-white;
+    content: '“Habima” Theatre';
+    top: -3px;
+  }
+}
