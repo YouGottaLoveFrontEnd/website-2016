@@ -62,8 +62,8 @@
 }
 
 .logo-details {
-  display: flex;
-  flex-direction: column;
+  display: -webkit-flex;
+  -webkit-flex-direction: column;
 }
 
 @media (max-width: $screen-md-min) {
@@ -104,6 +104,8 @@
   }
 
   .logo-details {
+    display: flex;
+    
     br {
       display: none;
     }

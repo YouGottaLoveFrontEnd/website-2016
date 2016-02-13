@@ -233,16 +233,14 @@
 
     var el = document.querySelector('.logo');
     var rect = el.getBoundingClientRect();
-    var scrollTop = document.scrollingElement.scrollTop;
-    var scrollLeft = document.scrollingElement.scrollLeft;
 
     var position = {
-      t: rect.top - scrollTop,
-      l: rect.left - scrollLeft,
-      b: rect.bottom - scrollTop,
-      r: rect.right - scrollLeft,
-      cx: (rect.width / 2) + rect.left + scrollLeft,
-      cy: (rect.height / 2) + rect.top + scrollTop,
+      t: rect.top,
+      l: rect.left,
+      b: rect.bottom,
+      r: rect.right,
+      cx: (rect.width / 2) + rect.left,
+      cy: (rect.height / 2) + rect.top,
       w: rect.width,
       h: rect.height
     };
@@ -260,16 +258,14 @@
 
     var logoResizeHandler = function () {
       rect = el.getBoundingClientRect();
-      scrollTop = document.scrollingElement.scrollTop;
-      scrollLeft = document.scrollingElement.scrollLeft;
 
       position = {
-        t: rect.top - scrollTop,
-        l: rect.left - scrollLeft,
-        b: rect.bottom - scrollTop,
-        r: rect.right - scrollLeft,
-        cx: (rect.width / 2) + rect.left + scrollLeft,
-        cy: (rect.height / 2) + rect.top + scrollTop,
+        t: rect.top,
+        l: rect.left,
+        b: rect.bottom,
+        r: rect.right,
+        cx: (rect.width / 2) + rect.left,
+        cy: (rect.height / 2) + rect.top,
         w: rect.width,
         h: rect.height
       };
@@ -293,6 +289,7 @@
           uls[ind].style['perspective-origin'] = c.map(function (p) {
             return p + 'px';
           }).join(' ');
+
         });
 
         originX = e.pageX;

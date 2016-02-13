@@ -71,7 +71,7 @@ body {
 
 .main-letters {
 	position: absolute;
-	top:0;
+	top: 0;
 	left: 0;
 }
 
@@ -120,7 +120,7 @@ body {
   height: 45%;
   position: relative;
 
-	-webkit-perspective: 600;
+	perspective: 600px;
 	perspective-origin: 50% 50%;
 	transform-style: preserve-3d;
 	transition: all 0.2s;
@@ -144,12 +144,12 @@ body {
 }
 
 .letters-tail > ul:nth-child(2){
-	perspective-origin: 32% 100%;		
+	perspective-origin: 32% 100%;				
 	transform: translate(32%, 0);
 }
 
 .letters-tail > ul:nth-child(3){
-	perspective-origin: 63% 0%;	
+	perspective-origin: 63% 0%;		
 	transform: translate(37%, 28.5%);
 }
 
@@ -174,7 +174,7 @@ body {
   animation: op 2s 1.7s forwards;
 }
 .letters-tail > ul li:nth-child(1) path{
-  animation-delay: 0s
+  animation-delay: 0s;
 }
 
 
@@ -182,8 +182,8 @@ body {
   transform: translateZ(-10px) rotate(-0.1deg);
   animation: op 2s 1.7666666666666666s forwards;
 }
-.letters-tail > ul li:nth-child(2) path{
-  animation-delay: -0.03333333333333333s
+.letters-tail > ul li:nth-child(2) path {
+  animation-delay: -0.03333333333333333s;
 }
 
 
@@ -192,7 +192,7 @@ body {
   animation: op 2s 1.8333333333333333s forwards;
 }
 .letters-tail > ul li:nth-child(3) path{
-  animation-delay: -0.06666666666666667s
+  animation-delay: -0.06666666666666667s;
 }
 
 
@@ -201,7 +201,7 @@ body {
   animation: op 2s 1.9s forwards;
 }
 .letters-tail > ul li:nth-child(4) path{
-  animation-delay: -0.1s
+  animation-delay: -0.1s;
 }
 
 
@@ -210,7 +210,7 @@ body {
   animation: op 2s 1.9666666666666666s forwards;
 }
 .letters-tail > ul li:nth-child(5) path{
-  animation-delay: -0.13333333333333333s
+  animation-delay: -0.13333333333333333s;
 }
 
 
@@ -219,7 +219,7 @@ body {
   animation: op 2s 2.033333333333333s forwards;
 }
 .letters-tail > ul li:nth-child(6) path{
-  animation-delay: -0.16666666666666666s
+  animation-delay: -0.16666666666666666s;
 }
 
 
@@ -228,7 +228,7 @@ body {
   animation: op 2s 2.1s forwards;
 }
 .letters-tail > ul li:nth-child(7) path{
-  animation-delay: -0.2s
+  animation-delay: -0.2s;
 }
 
 
@@ -237,7 +237,7 @@ body {
   animation: op 2s 2.1666666666666665s forwards;
 }
 .letters-tail > ul li:nth-child(8) path{
-  animation-delay: -0.23333333333333334s
+  animation-delay: -0.23333333333333334s;
 }
 
 
@@ -246,7 +246,7 @@ body {
   animation: op 2s 2.2333333333333334s forwards;
 }
 .letters-tail > ul li:nth-child(9) path{
-  animation-delay: -0.26666666666666666s
+  animation-delay: -0.26666666666666666s;
 }
 
 
@@ -255,7 +255,7 @@ body {
   animation: op 2s 2.3s forwards;
 }
 .letters-tail > ul li:nth-child(10) path{
-  animation-delay: -0.3s
+  animation-delay: -0.3s;
 }
 
 
@@ -264,7 +264,7 @@ body {
   animation: op 2s 2.3666666666666667s forwards;
 }
 .letters-tail > ul li:nth-child(11) path{
-  animation-delay: -0.3333333333333333s
+  animation-delay: -0.3333333333333333s;
 }
 
 
@@ -273,7 +273,7 @@ body {
   animation: op 2s 2.433333333333333s forwards;
 }
 .letters-tail > ul li:nth-child(12) path{
-  animation-delay: -0.36666666666666664s
+  animation-delay: -0.36666666666666664s;
 }
 
 
@@ -282,7 +282,7 @@ body {
   animation: op 2s 2.5s forwards;
 }
 .letters-tail > ul li:nth-child(13) path{
-  animation-delay: -0.4s
+  animation-delay: -0.4s;
 }
 
 
@@ -291,7 +291,7 @@ body {
   animation: op 2s 2.5666666666666664s forwards;
 }
 .letters-tail > ul li:nth-child(14) path{
-  animation-delay: -0.43333333333333335s
+  animation-delay: -0.43333333333333335s;
 }
 
 
@@ -300,7 +300,7 @@ body {
   animation: op 2s 2.6333333333333333s forwards;
 }
 .letters-tail > ul li:nth-child(15) path{
-  animation-delay: -0.4666666666666667s
+  animation-delay: -0.4666666666666667s;
 }
 
 
@@ -309,7 +309,7 @@ body {
   animation: op 2s 2.7s forwards;
 }
 .letters-tail > ul li:nth-child(16) path{
-  animation-delay: -0.5s
+  animation-delay: -0.5s;
 }
 
 
@@ -318,7 +318,7 @@ body {
   animation: op 2s 2.7666666666666666s forwards;
 }
 .letters-tail > ul li:nth-child(17) path{
-  animation-delay: -0.5333333333333333s
+  animation-delay: -0.5333333333333333s;
 }
 
 
@@ -327,7 +327,7 @@ body {
   animation: op 2s 2.833333333333333s forwards;
 }
 .letters-tail > ul li:nth-child(18) path{
-  animation-delay: -0.5666666666666667s
+  animation-delay: -0.5666666666666667s;
 }
 
 
@@ -336,7 +336,7 @@ body {
   animation: op 2s 2.9s forwards;
 }
 .letters-tail > ul li:nth-child(19) path{
-  animation-delay: -0.6s
+  animation-delay: -0.6s;
 }
 
 
@@ -345,7 +345,7 @@ body {
   animation: op 2s 2.966666666666667s forwards;
 }
 .letters-tail > ul li:nth-child(20) path{
-  animation-delay: -0.6333333333333333s
+  animation-delay: -0.6333333333333333s;
 }
 
 
@@ -354,7 +354,7 @@ body {
   animation: op 2s 3.033333333333333s forwards;
 }
 .letters-tail > ul li:nth-child(21) path{
-  animation-delay: -0.6666666666666666s
+  animation-delay: -0.6666666666666666s;
 }
 
 
@@ -363,7 +363,7 @@ body {
   animation: op 2s 3.0999999999999996s forwards;
 }
 .letters-tail > ul li:nth-child(22) path{
-  animation-delay: -0.7s
+  animation-delay: -0.7s;
 }
 
 
@@ -372,7 +372,7 @@ body {
   animation: op 2s 3.1666666666666665s forwards;
 }
 .letters-tail > ul li:nth-child(23) path{
-  animation-delay: -0.7333333333333333s
+  animation-delay: -0.7333333333333333s;
 }
 
 
@@ -381,7 +381,7 @@ body {
   animation: op 2s 3.2333333333333334s forwards;
 }
 .letters-tail > ul li:nth-child(24) path{
-  animation-delay: -0.7666666666666667s
+  animation-delay: -0.7666666666666667s;
 }
 
 
@@ -390,7 +390,7 @@ body {
   animation: op 2s 3.3s forwards;
 }
 .letters-tail > ul li:nth-child(25) path{
-  animation-delay: -0.8s
+  animation-delay: -0.8s;
 }
 
 
@@ -399,41 +399,41 @@ body {
   animation: op 2s 3.3666666666666667s forwards;
 }
 .letters-tail > ul li:nth-child(26) path{
-  animation-delay: -0.8333333333333334s
+  animation-delay: -0.8333333333333334s;
 }
 
 
-.letters-tail > ul li:nth-child(27){
+.letters-tail > ul li:nth-child(27) {
   transform: translateZ(-260px) rotate(-2.6deg);
   animation: op 2s 3.4333333333333336s forwards;
 }
-.letters-tail > ul li:nth-child(27) path{
-  animation-delay: -0.8666666666666667s
+.letters-tail > ul li:nth-child(27) path {
+  animation-delay: -0.8666666666666667s;
 }
 
 
-.letters-tail > ul li:nth-child(28){
+.letters-tail > ul li:nth-child(28) {
   transform: translateZ(-270px) rotate(-2.7deg);
   animation: op 2s 3.5s forwards;
 }
-.letters-tail > ul li:nth-child(28) path{
-  animation-delay: -0.9s
+.letters-tail > ul li:nth-child(28) path {
+  animation-delay: -0.9s;
 }
 
 
-.letters-tail > ul li:nth-child(29){
+.letters-tail > ul li:nth-child(29) {
   transform: translateZ(-280px) rotate(-2.8000000000000003deg);
   animation: op 2s 3.5666666666666664s forwards;
 }
 .letters-tail > ul li:nth-child(29) path{
-  animation-delay: -0.9333333333333333s
+  animation-delay: -0.9333333333333333s;
 }
 
 
-.letters-tail > ul li:nth-child(30){
+.letters-tail > ul li:nth-child(30) {
   transform: translateZ(-290px) rotate(-2.9000000000000004deg);
   animation: op 2s 3.6333333333333333s forwards;
 }
-.letters-tail > ul li:nth-child(30) path{
-  animation-delay: -0.9666666666666667s
+.letters-tail > ul li:nth-child(30) path {
+  animation-delay: -0.9666666666666667s;
 }
