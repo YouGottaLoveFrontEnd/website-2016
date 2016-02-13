@@ -301,7 +301,7 @@
     window.addEventListener('resize', logoResizeHandler);
 
     if (!isMobile) {
-      window.addEventListener('mousemove', logoTailMoveHandler, true);
+      document.querySelector('#page-home .intro').addEventListener('mousemove', logoTailMoveHandler, true);
     }
   }
 
