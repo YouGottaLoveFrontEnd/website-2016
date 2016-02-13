@@ -206,12 +206,12 @@
         var Xunit = shadow.width() / 100;
         var originX = pointer.x / Xunit - 80;
         var originY = pointer.y;
-        if (originX >= 160) {
-          originX = 160;
-        }
-        if (originX - 30 <= 0) {
-          originX = 0;
-        }
+        // if (originX >= 160) {
+        //   originX = 160;
+        // }
+        // if (originX - 30 <= 0) {
+        //   originX = 0;
+        // }
         shadow.css({ 'perspective-origin': originX + '% ' + originY + '%' });
       });
     });
