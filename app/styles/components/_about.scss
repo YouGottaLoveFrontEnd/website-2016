@@ -112,7 +112,7 @@
     max-width: 0;
     top: 0;
     left: 0;
-    transition: max-width .5s cubic-bezier(.215, .61, .355, 1);
+   @include transition-prefix( max-width .5s cubic-bezier(.215, .61, .355, 1));
     height: 100%;
     width: 100%;
     background-color: rgba($color-blue, .9);
@@ -125,7 +125,7 @@
       left: 20px;
       opacity: 0;
       text-align: left;
-      transition: opacity 1ms cubic-bezier(.215, .61, .355, 1);
+      @include transition-prefix( opacity 1ms cubic-bezier(.215, .61, .355, 1));
     }
 
     .name {
@@ -162,7 +162,7 @@
         a,
         hr {
           opacity: 1;
-          left: 20px;
+//          left: 20px;
         }
       }
     }
@@ -183,6 +183,7 @@
       a,
       hr {
         opacity: 1;
+        left: 0;
       }
     }
 

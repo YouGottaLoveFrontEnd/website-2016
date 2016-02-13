@@ -65,3 +65,18 @@
   -o-transform: $transform;
   -moz-transform: $transform;
 }
+
+@mixin transition-prefix($transition, $prop1: '', $prop2: '') {
+  $t: $transition;
+  @if($prop1 != '') {
+    $t: $transition, $prop1;
+  }
+  @if($prop2 !='') {
+    $t: $transition, $prop1, $prop2;
+  }
+  transition: $t;
+  -ms-transition: $t;
+  -webkit-transition: $t;
+  -o-transition: $t;
+  -moz-transition: $t;
+}

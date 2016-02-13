@@ -9,6 +9,13 @@
   margin: 0 auto;
   @include transform-prefix(rotate(45deg));
   text-align: center;
+  opacity: 1;
+  @include transition-prefix(all .5s ease-in-out);
+
+  &.out {
+    opacity: 0;
+    right: -253px;
+  }
 
   a {
     color: $color-blue;

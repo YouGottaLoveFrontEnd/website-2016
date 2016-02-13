@@ -7,7 +7,7 @@
   cursor: default;
   &:after {
     top: -16px;
-    transition: top .2s ease-in-out;
+    @include transition-prefix(top .2s ease-in-out);
     white-space: initial;
     font-size: 11px;
     letter-spacing: 3px;
@@ -24,12 +24,12 @@
   width: 100%;
   max-width: 1380px;
   max-height: 0;
-  @include transform-prefix(translateY(25vh)) ;
+  @include transform-prefix(translateY(25vh));
   opacity: 0;
   display: flex;
   flex-wrap: wrap;
   opacity: 0;
-  transition: all .5s ease-out, opacity .7s ease-out;
+  @include transition-prefix(all .5s ease-out, opacity .7s ease-out);
   margin: 0 auto;
 }
 
@@ -69,7 +69,6 @@
         &.not-active {
           color: $color-green;
         }
-
 
         &[href='#page-home'] {
           @include page-link-after('home');
@@ -124,7 +123,7 @@
     left: -13%;
     top: 19%;
   }
-  
+
   ul {
     display: flex;
     flex-direction: column;

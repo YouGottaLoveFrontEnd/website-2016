@@ -357,6 +357,10 @@
     window.setTimeout(function () {
       footer.classList.remove('hide');
       body.classList.remove('loading');
+      for (var i = 0; i < allPages.length; i++) {
+        allPages[i].classList.remove('loading');
+      }
+      document.querySelector('.cfs-badge').classList.remove('out');
       windowResize();
     }, 400);
     window.addEventListener('resize', windowResize, true);

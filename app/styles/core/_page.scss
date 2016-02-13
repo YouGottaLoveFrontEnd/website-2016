@@ -1,3 +1,13 @@
+@keyframes loadPage {
+  0% {
+    transform: scale(.5) translateZ(0) translateY(100vh);
+  }
+
+  100% {
+    transform: scale(1) translateZ(0) translateY(0);
+  }
+}
+
 .page-radio-nav {
   display: none;
 }
@@ -9,7 +19,7 @@
   perspective-origin: 50%;
   overflow: hidden;
   -webkit-overflow-scrolling: touch;
-  transition: perspective-origin .4s .2s linear;
+  @include transition-prefix(perspective-origin .4s .2s linear);
   clear: both;
   position: absolute;
   width: 100%;
@@ -32,7 +42,7 @@ section {
   padding-top: 194px;
   border: 1px solid rgba($color-green, 0);
 
-  transition: transform .2s linear, top .2s linear, border-color .4s linear;
+  @include transition-prefix(transform .2s linear, top .2s linear, border-color .4s linear);
   position: relative;
   z-index: 5;
   width: 100%;
@@ -45,20 +55,19 @@ section {
   pointer-events: none;
   display: none;
   padding-bottom: $page-gutter-bottom;
-  
 
   &[data-pos='2'],
   &[data-pos='1'] {
     display: block;
     opacity: 0;
-    transform:translateY(100vh) translateZ(0)  scale(.1);
+    transform: translateY(100vh) translateZ(0) scale(.1);
 
   }
   &[data-pos='1'] {
-    transition: transform .3s ease-out;
+    @include transition-prefix(transform .3s ease-out);
   }
   &[data-pos='2'] {
-    transition: transform .4s ease-out;
+    @include transition-prefix(transform .4s ease-out);
   }
 
 }
@@ -75,9 +84,13 @@ section {
   z-index: 9;
   opacity: 1;
   pointer-events: auto;
-  transition: transform .3s ease-out;
+  @include transition-prefix(transform .3s ease-out);
   transform: scale(1) translateZ(0) translateY(0);
   transform-origin: 50%;
+
+  &.loading {
+    animation: loadPage .4s forwards;
+  }
 }
 
 .page-intro {

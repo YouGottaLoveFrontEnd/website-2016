@@ -8,7 +8,7 @@ $top-gutter: 45px;
   width: 100%;
   max-height: inherit;
   background-color: $color-green;
-  transition: opacity .1s .4s;
+  @include transition-prefix(opacity .1s .4s);
 
   &.hide {
     max-height: 0;
@@ -47,7 +47,7 @@ $top-gutter: 45px;
 
   a {
     color: $color-blue;
-    transition: all .3s;
+    @include transition-prefix(all .3s);
     text-decoration: none;
     padding-left: 0;
   }
@@ -92,7 +92,7 @@ $top-gutter: 45px;
       span {
         position: absolute;
         top: 13px;
-        transition: all .2s;
+        @include transition-prefix(all .2s);
         font-size: 14px;
         font-weight: 200;
         left: 5%;
@@ -189,7 +189,7 @@ $top-gutter: 45px;
     .footer-social-links {
       a {
         opacity: 1;
-        transition: opacity .2s linear;
+        @include transition-prefix(opacity .2s linear);
       }
 
       a {
@@ -259,11 +259,11 @@ $top-gutter: 45px;
     opacity: 1 !important;
     height: 443px !important;
     min-height: 50vh !important;
-    width: 100vw!important;
-    max-width: 100vw!important;
+    width: 100vw !important;
+    max-width: 100vw !important;
 
     &.hide {
-      display: none!important;
+      display: none !important;
     }
   }
 

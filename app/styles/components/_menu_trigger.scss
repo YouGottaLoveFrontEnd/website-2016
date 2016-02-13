@@ -1,3 +1,33 @@
+@keyframes turnToXCW {
+  0% {
+    width: 0;
+    transform: rotate(0);
+  }
+  50% {
+    width: 45px;
+    transform: rotate(0);
+  }
+  100% {
+    width: 45px;
+    transform: rotate(45deg);
+  }
+}
+
+@keyframes turnToXCCW {
+  0% {
+    width: 0;
+    transform: rotate(0);
+  }
+  50% {
+    width: 45px;
+    transform: rotate(0);
+  }
+  100% {
+    width: 45px;
+    transform: rotate(-45deg);
+  }
+}
+
 .menu-trigger,
 .menu-wrapper {
   position: fixed;
@@ -27,7 +57,7 @@
 
   .full-btn {
     &:after {
-      transition: padding .2s linear;
+      @include transition-prefix(padding .2s linear);
     }
   }
 
@@ -69,7 +99,7 @@
       }
 
       &:after {
-        transition: all .2s linear;
+        @include transition-prefix(all .2s linear);
       }
       &:nth-child(1) {
         @include page-link-after('M');
@@ -107,19 +137,23 @@
       }
     }
     &:nth-child(1),
-    &:nth-child(2){
+    &:nth-child(2) {
       &:after {
-        border-bottom: 1px solid;
-        width: 70px;
-        margin: 0;
-        transform-origin: 50%;
-        transform: rotate(45deg);
+        border-bottom: 2px solid;
+        margin: 0 auto;
         display: block;
+        transform-origin: 50%;
+
       }
     }
-    &:nth-child(2){
+    &:nth-child(1) {
       &:after {
-        transform: rotate(-45deg);
+        animation: turnToXCW .5s both;
+      }
+    }
+    &:nth-child(2) {
+      &:after {
+        animation: turnToXCCW .5s both;
       }
     }
   }
@@ -143,11 +177,11 @@
     }
 
     &[data-pos='1'] {
-      @include transform-prefix(scale(0.75) translateZ(30px) translateY(46vh));
+      @include transform-prefix(scale(0.75) translateZ(30px) translateY(56vh));
       z-index: 9998;
     }
     &[data-pos='2'] {
-      @include transform-prefix(scale(0.7) translateZ(30px) translateY(42vh));
+      @include transform-prefix(scale(0.7) translateZ(30px) translateY(52vh));
       z-index: 9997;
     }
   }
@@ -162,12 +196,12 @@
 #radio-nav-home:checked ~ .menu-trigger:checked ~ .pages-stack #page-home {
   border-color: #00d09d;
   max-height: 100vh;
-  @include transform-prefix(scale(.8) translateZ(30px) translateY(50vh));
+  @include transform-prefix(scale(.8) translateZ(30px) translateY(60vh));
   z-index: 9999;
   animation: inherit;
 }
 
-.menu-trigger:checked ~ .footer-wrapper  {
+.menu-trigger:checked ~ .footer-wrapper {
   max-height: 0;
   opacity: 0;
 }
@@ -249,7 +283,7 @@
     }
   }
 
-  .menu-trigger:checked ~ .footer-wrapper  {
-    display: none!important;
+  .menu-trigger:checked ~ .footer-wrapper {
+    display: none !important;
   }
 }
