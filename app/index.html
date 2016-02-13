@@ -2,14 +2,14 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>You Gotta Love Frontend Conference | June 20-21, 2016 | Tel Aviv, Israel</title>
+    <title>You Gotta Love Frontend Conference | June 27-27, 2016 | Tel Aviv, Israel</title>
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
-    <meta name="description" content="Tel Aviv Front End Conference | June 20-21, 2016">
+    <meta name="description" content="Tel Aviv Front End Conference | June 27-27, 2016">
 
     <!-- open graph meta tags -->
     <meta property="og:title" content="You Gotta Love Frontend Conference">
     <meta property="og:url" content="http://yougottalovefrontend.com">
-    <meta property="og:description" content="Tel Aviv Front End Conference | June 20-21, 2016">
+    <meta property="og:description" content="Tel Aviv Front End Conference | June 27-27, 2016">
     <meta property="og:type" content="website">
     <meta property="og:image" content="http://yougottalovefrontend.com/images/YGLFConf.png"/>
 
@@ -18,7 +18,7 @@
     <meta name="twitter:site" content="@YGLF_Conf">
     <meta name="twitter:creator" content="@YGLF_Conf">
     <meta name="twitter:title" content="You Gotta Love Frontend Conference">
-    <meta name="twitter:description" content="Tel Aviv Front End Conference | June 20-21, 2016">
+    <meta name="twitter:description" content="Tel Aviv Front End Conference | June 27-28, 2016">
     <meta name="twitter:image:src" content="http://yougottalovefrontend.com/images/YGLFConf_rect.png">
 
     <!-- google plus verification -->
@@ -67,11 +67,11 @@
     <ul>
         <li class="col-sm-6 active-tab"><label for="day-1" class="w100">
           <p class="day-label">Day 1</p>
-          <p class="day-date">June 20th</p>
+          <p class="day-date">June 27th</p>
         </label></li>
         <li class="col-sm-6 "><label for="day-2" class="w100">
           <p class="day-label">Day 2</p>
-          <p class="day-date">June 21th</p>
+          <p class="day-date">June 27th</p>
         </label></li>
     </ul>
 </div>
@@ -100,9 +100,7 @@
 <%= pages.navigation_menu_btn %>
 
 
-<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-
-<script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+<script src="scripts/vendor/jquery.min.js"></script>
 
 <!-- build:js(.) scripts/vendor.js -->
 <!-- bower:js -->
@@ -114,23 +112,17 @@
 <script>Typekit.load()</script>
 
 <script>
-    (function (b, o, i, l, e, r) {
-        b.GoogleAnalyticsObject = l;
-        b[l] || (b[l] = function () {
-            (b[l].q = b[l].q || []).push(arguments)
-        });
-        b[l].l = +new Date;
-        e = o.createElement(i);
-        r = o.getElementsByTagName(i)[0];
-        e.src = '//www.google-analytics.com/analytics.js';
-        r.parentNode.insertBefore(e, r)
-    }(window, document, 'script', 'ga'));
-    ga('create', 'UA-61020025-1');
-    ga('send', 'pageview');
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-61020025-5', 'auto');
+  ga('send', 'pageview');
+
 </script>
 
 <!-- build:js({app,.tmp}) scripts/main.js -->
-<script src="scripts/vanilla.js"></script>
 <script src="scripts/main.js"></script>
 <!-- endbuild -->
 </body>
