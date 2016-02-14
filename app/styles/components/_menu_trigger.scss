@@ -39,8 +39,8 @@
 
 .menu-button,
 .menu-trigger {
-  width: 72px;
-  height: 70px;
+  width: 62px;
+  height: 60px;
 }
 
 .menu-trigger[type='checkbox'] {
@@ -91,7 +91,7 @@
 
       &:first-child,
       &:nth-child(3n) {
-        margin-left: 18px;
+        margin-left: 13px;
       }
 
       &:nth-child(2n) {
@@ -229,7 +229,7 @@
       color: $color-blue;
 
       &:after {
-        padding: 0px 35px
+        padding: 0px 29px
       }
     }
 

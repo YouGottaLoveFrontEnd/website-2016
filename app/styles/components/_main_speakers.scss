@@ -153,7 +153,7 @@
       height: 100%;
       width: 100%;
       margin-left: -100%;
-      @include transition-prefix(margin-left .9s cubic-bezier(.215, .61, .355, 1));
+      @include transition-prefix( margin-left .9s cubic-bezier(.215, .61, .355, 1));
       background-color: rgba($color-blue, .8);
       overflow: hidden;
 
@@ -161,7 +161,7 @@
         margin-top: 20px;
         width: calc(100% - 20px);
         margin-left: 30px;
-        @include transition-prefix(opacity .4ms cubic-bezier(.215, .61, .355, 1));
+        @include transition-prefix( opacity .4ms cubic-bezier(.215, .61, .355, 1));
         padding-right: 20px;
         margin-right: 0;
         opacity: 0;
@@ -194,7 +194,7 @@
     &:hover {
       img {
         opacity: .7;
-        @include transition-prefix(opacity .3s linear);
+        @include transition-prefix( opacity .3s linear);
       }
     }
   }
@@ -500,7 +500,7 @@
           margin: 0;
           max-height: 0;
           overflow: hidden;
-          @include transition-prefix(max-height .4s linear);
+          @include transition-prefix(  max-height .4s linear);
           width: 100%;
 
           &.right {
