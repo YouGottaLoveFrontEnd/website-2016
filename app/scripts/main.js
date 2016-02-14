@@ -350,7 +350,7 @@
     };
 
     initWeather();
-    initShadow({ count: 4 });
+    // initShadow({ count: 4 });
 
     hashchange();
     window.addEventListener('hashchange', hashchange, true);
