@@ -114,10 +114,7 @@
 
   .logo-details {
     display: flex;
-    
-    h1 {
-      margin-bottom: 9%;
-    }
+    margin-top: -10px;
     
     br {
       display: none;
@@ -135,6 +132,7 @@
       font-size: 2.4rem;
       line-height: 3.2rem;
       font-weight: 200;
+      margin-bottom: 9%;
     }
 
     .description {
@@ -142,6 +140,10 @@
       color: $color-green;
       margin-bottom: 4px;
       font-weight: 300;
+    }
+    
+    .description.space {
+      margin-bottom: 6%;
     }
 
     .register {
