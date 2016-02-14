@@ -184,38 +184,38 @@
     resetPages(hash);
   }
 
-  function initShadow(config) {
+  // function initShadow(config) {
 
-    var shadowCount = config.count + 1;
-    $('.shadow').each(function () {
-      var firstChildValue = $(this).children().eq(0).text();
-      for (var i = 0; i < shadowCount; i++) {
-        var shadowDemi = '<div class="item stroke-' + i + '">' + firstChildValue + '</div>';
-        $(this).append(shadowDemi);
-      }
-    });
+  //   var shadowCount = config.count + 1;
+  //   $('.shadow').each(function () {
+  //     var firstChildValue = $(this).children().eq(0).text();
+  //     for (var i = 0; i < shadowCount; i++) {
+  //       var shadowDemi = '<div class="item stroke-' + i + '">' + firstChildValue + '</div>';
+  //       $(this).append(shadowDemi);
+  //     }
+  //   });
 
-    if (isMobile) {
-      return;
-    }
+  //   if (isMobile) {
+  //     return;
+  //   }
 
-    $('.shadow').each(function () {
-      $(this).on('mousemove', function (evt) {
-        var shadow = $(this);//.children('.shadow');
-        var pointer = { x: evt.offsetX, y: evt.offsetY };
-        var Xunit = shadow.width() / 100;
-        var originX = pointer.x / Xunit - 80;
-        var originY = pointer.y;
-        // if (originX >= 160) {
-        //   originX = 160;
-        // }
-        // if (originX - 30 <= 0) {
-        //   originX = 0;
-        // }
-        shadow.css({ 'perspective-origin': originX + '% ' + originY + '%' });
-      });
-    });
-  }
+  //   $('.shadow').each(function () {
+  //     $(this).on('mousemove', function (evt) {
+  //       var shadow = $(this);//.children('.shadow');
+  //       var pointer = { x: evt.offsetX, y: evt.offsetY };
+  //       var Xunit = shadow.width() / 100;
+  //       var originX = pointer.x / Xunit - 80;
+  //       var originY = pointer.y;
+  //       // if (originX >= 160) {
+  //       //   originX = 160;
+  //       // }
+  //       // if (originX - 30 <= 0) {
+  //       //   originX = 0;
+  //       // }
+  //       shadow.css({ 'perspective-origin': originX + '% ' + originY + '%' });
+  //     });
+  //   });
+  // }
 
   function modifyScheduleNavWidth() {
     var scheduleNavWidth = $('.itinerary ul').width(),
