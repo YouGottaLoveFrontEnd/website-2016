@@ -13,3 +13,11 @@
     margin-bottom: 45px;
   }
 }
+
+.sponsors-callout {
+  &:after {
+    color: $color-white;
+    content: 'Help us to make it happen';
+    top: -4px;
+  }
+} 
