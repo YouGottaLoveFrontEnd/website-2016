@@ -92,7 +92,11 @@
 
 @media (max-width: $screen-xs-min) {
   #page-home {
-    padding-top: 75px;
+    padding-top: 55px;
+    
+    .canvas {
+      display: none;
+    }
   }
   
   .intro {
@@ -110,6 +114,10 @@
 
   .logo-details {
     display: flex;
+    
+    h1 {
+      margin-bottom: 9%;
+    }
     
     br {
       display: none;
