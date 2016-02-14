@@ -111,7 +111,7 @@
     }
   }
 
-  function setPagesStackPaddingBottom () {
+  function setPagesStackPaddingBottom() {
     pagesStack.style.paddingBottom = isMobile ? '0px' : footer.clientHeight + 'px';
 
   }
@@ -136,13 +136,13 @@
   function onMenuTriggerChange() {
     if (menuTrigger.checked) {
       reorderPages();
-    }else {
-//      resetPages(window.location.hash.slice(1));
+    } else {
+      //      resetPages(window.location.hash.slice(1));
     }
     setPagesStackPaddingBottom();
   }
 
-  function notActiveAction (e) {
+  function notActiveAction(e) {
     e.preventDefault();
     menuTrigger.checked = false;
   }
@@ -219,7 +219,7 @@
 
   function modifyScheduleNavWidth() {
     var scheduleNavWidth = $('.itinerary ul').width(),
-        scheduleNavLeft = (window.innerWidth - scheduleNavWidth) / 2;
+      scheduleNavLeft = (window.innerWidth - scheduleNavWidth) / 2;
 
     $('.schedule-nav').css({ width: scheduleNavWidth, left: scheduleNavLeft });
   }
@@ -229,18 +229,20 @@
     modifyScheduleNavWidth();
   }
 
-  function logoInit() {
+  function initLogo() {
 
     var el = document.querySelector('.logo');
     var rect = el.getBoundingClientRect();
+    var scrollTop = document.scrollingElement.scrollTop;
+    var scrollLeft = document.scrollingElement.scrollLeft;
 
     var position = {
-      t: rect.top,
-      l: rect.left,
-      b: rect.bottom,
-      r: rect.right,
-      cx: (rect.width / 2) + rect.left,
-      cy: (rect.height / 2) + rect.top,
+      t: rect.top - scrollTop,
+      l: rect.left - scrollLeft,
+      b: rect.bottom - scrollTop,
+      r: rect.right - scrollLeft,
+      cx: (rect.width / 2) + rect.left + scrollLeft,
+      cy: (rect.height / 2) + rect.top + scrollTop,
       w: rect.width,
       h: rect.height
     };
@@ -301,7 +303,7 @@
     window.addEventListener('resize', logoResizeHandler);
 
     if (!isMobile) {
-      document.querySelector('#page-home .intro').addEventListener('mousemove', logoTailMoveHandler, true);
+      document.querySelector('#page-home .canvas').addEventListener('mousemove', logoTailMoveHandler, true);
     }
   }
 
@@ -362,9 +364,9 @@
       }
       document.querySelector('.cfs-badge').classList.remove('out');
       windowResize();
+      initLogo();
     }, 400);
     window.addEventListener('resize', windowResize, true);
-    logoInit();
   };
 
 })();
