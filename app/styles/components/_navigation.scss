@@ -46,6 +46,22 @@
         }
       }
     }
+
+    &.social {
+
+      max-width: inherit;
+      opacity: 0;
+      @include transition-prefix(opacity .7s .3s ease-out);
+
+      li {
+        margin: 0 auto;
+        height: 20px;
+
+        img {
+          height: 100%;
+        }
+      }
+    }
   }
 }
 
@@ -106,6 +122,11 @@
 
     ul {
       width: 100%;
+      
+      &.social {
+        display: flex;
+        flex-direction: inherit;
+      }
 
       li {
         margin: 16px auto;

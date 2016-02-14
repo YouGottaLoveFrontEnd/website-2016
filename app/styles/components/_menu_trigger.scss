@@ -120,6 +120,12 @@
 .menu-trigger:checked ~ .pages-nav {
   @include transform-prefix(translateY(20vh));
   opacity: 1;
+
+  ul {
+    &.social {
+      opacity: 1;
+    }
+  }
 }
 
 .menu-trigger:checked ~ .menu-wrapper {
