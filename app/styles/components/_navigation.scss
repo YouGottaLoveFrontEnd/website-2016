@@ -57,6 +57,17 @@
       li {
         margin: 0 auto;
         height: 20px;
+        
+        a {
+          opacity: 1;
+          @include transition-prefix(opacity .2s linear);
+        }
+
+        a {
+          &:hover {
+            opacity: .7;
+          }
+        }
 
         .facebook img,
         .linkedin img {
