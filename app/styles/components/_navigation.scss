@@ -48,7 +48,8 @@
     }
 
     &.social {
-
+      display: flex;
+      margin: 0 auto;
       max-width: inherit;
       opacity: 0;
       @include transition-prefix(opacity .7s .3s ease-out);
@@ -57,8 +58,15 @@
         margin: 0 auto;
         height: 20px;
 
-        img {
-          height: 100%;
+        .facebook img,
+        .linkedin img {
+          height: 16px;
+        }
+        .twitter img {
+          height: 14px;
+        } 
+        .youtube img {
+          height: 19px;
         }
       }
     }
