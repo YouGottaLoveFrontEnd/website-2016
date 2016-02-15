@@ -11,7 +11,7 @@
     <meta property="og:url" content="http://yougottalovefrontend.com">
     <meta property="og:description" content="Tel Aviv Front End Conference | June 27-28, 2016">
     <meta property="og:type" content="website">
-    <meta property="og:image" content="http://yougottalovefrontend.com/images/twitter.png"/>
+    <meta property="og:image" content="http://yougottalovefrontend.com/images/facebook-thumbnail.png"/>
 
     <!-- twitter card meta tags -->
     <meta name="twitter:card" content="summary_large_image">
@@ -19,13 +19,13 @@
     <meta name="twitter:creator" content="@YGLF_Conf">
     <meta name="twitter:title" content="You Gotta Love Frontend Conference">
     <meta name="twitter:description" content="Tel Aviv Front End Conference | June 27-28, 2016">
-    <meta name="twitter:image:src" content="http://yougottalovefrontend.com/images/twitter.png">
+    <meta name="twitter:image:src" content="http://yougottalovefrontend.com/images/twitter-thumbnail.png">
 
     <!-- google plus verification -->
     <meta name="google-site-verification" content="hkRiKO491ufMYDmeGTCXHaV6YiM2yN8EzA46_jZOkKw"/>
 
     <!-- site thumbnail -->
-    <link rel="image_src" href="images/twitter.png"/>
+    <link rel="image_src" href="images/twitter-thumbnail.png"/>
     <!-- favicon -->
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
     <link rel="shortcut icon" type="image/png" href="/favicon.png">
@@ -46,7 +46,18 @@
     <script src="scripts/vendor/modernizr-custom.js"></script>
     <script src="scripts/vendor/jquery.js"></script>
     <!-- endbuild -->
-    
+
+    <script>
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+    document,'script','//connect.facebook.net/en_US/fbevents.js');
+
+    fbq('init', '991598027599430');
+    fbq('track', "PageView");
+    </script>
+    <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=991598027599430&ev=PageView&noscript=1"/></noscript>
 </head>
 <body class="js csstransitions loading">
 <input type="radio" name="page" id="radio-nav-home" class="page-radio-nav">
@@ -115,18 +126,6 @@
   ga('create', 'UA-61020025-5', 'auto');
   ga('send', 'pageview');
 </script>
-
-<script>
-!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
-n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
-document,'script','//connect.facebook.net/en_US/fbevents.js');
-
-fbq('init', '991598027599430');
-fbq('track', "PageView");
-</script>
-<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=991598027599430&ev=PageView&noscript=1"/></noscript>
 
 <!-- build:js({app,.tmp}) scripts/main.js -->
 <script src="scripts/main.js"></script>
