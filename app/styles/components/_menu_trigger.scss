@@ -211,10 +211,10 @@
   animation: inherit;
 }
 
-.menu-trigger:checked ~ .footer-wrapper {
-  max-height: 0;
-  opacity: 0;
-}
+//.menu-trigger:checked ~ .footer-wrapper {
+//  max-height: 0;
+//  opacity: 0;
+//}
 
 @media (min-width: $screen-md-min) {
 

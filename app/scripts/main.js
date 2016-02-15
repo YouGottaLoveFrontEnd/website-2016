@@ -136,7 +136,9 @@
   function onMenuTriggerChange() {
     if (menuTrigger.checked) {
       reorderPages();
+      footer.classList.add('clear');
     } else {
+      footer.classList.remove('clear');
       //      resetPages(window.location.hash.slice(1));
     }
     setPagesStackPaddingBottom();
@@ -145,6 +147,7 @@
   function notActiveAction(e) {
     e.preventDefault();
     menuTrigger.checked = false;
+    onMenuTriggerChange();
   }
 
   function disableLink(hash) {
