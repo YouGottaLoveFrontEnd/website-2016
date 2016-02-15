@@ -4,11 +4,11 @@
     transform: rotate(0);
   }
   50% {
-    width: 45px;
+    width: 30px;
     transform: rotate(0);
   }
   100% {
-    width: 45px;
+    width: 30px;
     transform: rotate(45deg);
   }
 }
@@ -19,11 +19,11 @@
     transform: rotate(0);
   }
   50% {
-    width: 45px;
+    width: 30px;
     transform: rotate(0);
   }
   100% {
-    width: 45px;
+    width: 30px;
     transform: rotate(-45deg);
   }
 }
@@ -213,6 +213,10 @@
 }
 
 @media (min-width: $screen-md-min) {
+
+  .menu-trigger:checked ~ .pages-nav {
+    @include transform-prefix(translateY(15vh));
+  }
 
   .menu-wrapper {
     &:hover {
