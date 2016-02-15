@@ -1,14 +1,17 @@
 @keyframes turnToXCW {
   0% {
     width: 0;
+    top: 0;
     transform: rotate(0);
   }
   50% {
-    width: 30px;
+    width: 31px;
+    top: 0;
     transform: rotate(0);
   }
   100% {
-    width: 30px;
+    width: 31px;
+    top: 1px;
     transform: rotate(45deg);
   }
 }
@@ -19,11 +22,11 @@
     transform: rotate(0);
   }
   50% {
-    width: 30px;
+    width: 32px;
     transform: rotate(0);
   }
   100% {
-    width: 30px;
+    width: 32px;
     transform: rotate(-45deg);
   }
 }
@@ -155,6 +158,7 @@
     &:nth-child(1) {
       &:after {
         animation: turnToXCW .5s both;
+        position: relative;
       }
     }
     &:nth-child(2) {
