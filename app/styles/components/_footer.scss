@@ -167,6 +167,14 @@ $top-gutter: 45px;
           font-weight: 400;
         }
       }
+      
+      &[href='//dribbble.com/shots/2286042-Stacked-navigation'] {
+        font-weight: 400;
+        &:after {
+          content: 'Ilya Kostin';
+          font-weight: 400;
+        }
+      }
 
       &[href='mailto:hello@yougottalovefrontend.com'] {
         @include page-link-after('hello@yougottalovefrontend.com');
