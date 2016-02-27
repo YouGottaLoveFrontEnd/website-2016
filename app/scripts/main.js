@@ -345,7 +345,7 @@
     body.classList.add('ready');
     var emailInput = document.getElementById('email');
     emailInput.onblur = function () {
-      if (emailInput.classList.contains('full') && emailInput.value !== '') {
+      if (!emailInput.classList.contains('full') && emailInput.value !== '') {
         emailInput.classList.add('full');
       } else if (emailInput.value === '') {
         emailInput.classList.remove('full');
