@@ -20,4 +20,12 @@
     content: 'Help us to make it happen';
     top: -4px;
   }
-} 
+}
+
+.sponsors-logos-wrapper {
+  text-align: center;
+
+  .col-sm-4 {
+    max-width: 50%;
+  }
+}
