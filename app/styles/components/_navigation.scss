@@ -108,6 +108,10 @@
         &[href='#page-home'] {
           @include page-link-after('home');
         }
+        
+        &[href='#page-speakers'] {
+          @include page-link-after('speakers');
+        }
 
         &[href='#page-sponsors'] {
           @include page-link-after('sponsors');
