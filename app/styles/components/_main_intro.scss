@@ -94,7 +94,7 @@
   #page-home {
     padding-top: 50px;
   }
-  
+
   .intro {
     margin-bottom: 0;
   }
@@ -111,7 +111,7 @@
   .logo-details {
     display: flex;
     margin-top: -12px;
-    
+
     br {
       display: none;
     }
@@ -137,7 +137,7 @@
       margin-bottom: 4px;
       font-weight: 300;
     }
-    
+
     .description.space {
       margin-bottom: 5%;
     }
@@ -147,14 +147,54 @@
       margin-top: 20px;
       align-self: center;
     }
-    
+
   }
-  
+
   .page-intro label {
     letter-spacing: 1px;
   }
-  
+
   .page-intro .col-sm-6 {
     width: 80%;
+  }
+}
+
+.go-to-speakers-wrapper {
+  text-align: center;
+
+
+  .go-to-speakers {
+    color: $color-white;
+    align-self: flex-start;
+    line-height: 47px;
+    letter-spacing: 8px;
+    border: $border-white;
+    cursor: pointer;
+    font-family: $font-family;
+    border-radius: 0;
+    display: inline-block;
+    padding: 0 20px;
+    transition: color .2s linear;
+
+    &:before {
+      content: '';
+      display: block;
+      background-color: $color-white;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      left: 0;
+      z-index: -1;
+      max-width: 0;
+      transition: max-width .3s ease-in-out;
+    }
+
+    &:hover {
+      color: $color-blue;
+
+      &:before {
+       max-width: 100%;
+      }
+    }
   }
 }
