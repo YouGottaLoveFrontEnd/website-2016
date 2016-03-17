@@ -31,6 +31,24 @@
   }
 }
 
+.sponsors-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.is-premium {
+  margin-bottom: 5em;
+}
+
+.is-premium img {
+  height: 15em;
+}
+
+.is-regular img {
+  height: 9em;
+}
+
 .sponsors-spacer {
   margin-top: 70px;
 }
