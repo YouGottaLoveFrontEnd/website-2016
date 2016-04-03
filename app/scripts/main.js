@@ -365,7 +365,6 @@
       for (var i = 0; i < allPages.length; i++) {
         allPages[i].classList.remove('loading');
       }
-      document.querySelector('.cfs-badge').classList.remove('out');
       windowResize();
       initLogo();
     }, 400);
