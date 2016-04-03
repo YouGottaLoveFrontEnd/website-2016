@@ -4,6 +4,13 @@
   }
 }
 
+.sponsors-label {
+  border-bottom: 1px solid white;
+  padding: 20px;
+  font-size: 16px;
+  font-weight: 100;
+}
+
 .sponsors-wrapper {
   height: 40vh;
   padding-top: 80px;
@@ -35,6 +42,14 @@
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
+  
+  a {
+    width: 210px;
+    height: 175px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }
 
 .is-premium {
