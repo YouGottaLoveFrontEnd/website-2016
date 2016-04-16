@@ -33,6 +33,7 @@
     flex-flow: row wrap;
     justify-content: space-around;
     margin: 0 auto;
+    padding: 0;
   }
 
   &.show {
@@ -70,6 +71,7 @@
     width: 100%;
     margin: 0 auto;
     height: 75px;
+    padding: 0;
 
     li {
       padding: 0;
