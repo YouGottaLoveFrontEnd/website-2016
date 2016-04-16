@@ -223,8 +223,6 @@
   function modifyScheduleNavWidth() {
     var scheduleNavWidth = $('.itinerary ul').width(),
       scheduleNavLeft = (window.innerWidth - scheduleNavWidth) / 2;
-
-    $('.schedule-nav').css({ width: scheduleNavWidth, left: scheduleNavLeft });
   }
 
   function windowResize() {

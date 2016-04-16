@@ -20,10 +20,12 @@
   position: fixed;
   padding-top: 135px;
   @include transition-prefix(all .2s);
-  width: 100%;
+  width: 68vw;
   display: none;
   z-index: 999;
   background-color: $color-blue;
+  left: 50%;
+  transform: translateX(-50%);
 
   ul {
     height: 75px;
@@ -43,6 +45,7 @@
     cursor: pointer;
     color: $color-white;
     opacity: .4;
+    width: 50%;
 
     &.active-tab {
       color: $color-green;
@@ -76,6 +79,7 @@
       @include transition-prefix(color .2s ease-out, border-bottom .2s ease-out);
       color: $color-white;
       opacity: .4;
+      width: 50%;
 
       &:after {
         content: ' ';
@@ -243,10 +247,18 @@ sup {
       max-width: 100%;
     }
   }
+
+  .schedule-nav {
+    width: 90vw;
+  }
 }
 
 @media (max-width: $screen-sm-min) {
   .schedule-nav {
     padding-top: 104px;
+  }
+
+  .itinerary ul {
+    padding: 0;
   }
 }
