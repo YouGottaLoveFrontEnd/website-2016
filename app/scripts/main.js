@@ -59,7 +59,7 @@
         });
       });
       $(window).on('scroll', function () {
-        console.log('got scrolled',!$('.schedule-nav').hasClass('show') && !menuTrigger.checked);
+        console.log('got scrolled', !$('.schedule-nav').hasClass('show') && !menuTrigger.checked);
         if ($('#menu-trigger').offset().top + 100 > $('.itinerary ul').offset().top) {
           if (!$('.schedule-nav').hasClass('show') && !menuTrigger.checked) {
             $('.schedule-nav').addClass('show');
@@ -113,7 +113,6 @@
 
   function setPagesStackPaddingBottom() {
     pagesStack.style.paddingBottom = isMobile ? '0px' : footer.clientHeight + 'px';
-
   }
 
 
@@ -135,9 +134,8 @@
 
   function onMenuTriggerChange() {
     if (menuTrigger.checked) {
-      if($('#radio-nav-program')[0].checked &&  $('.schedule-nav').hasClass('show')) {
-          $('.schedule-nav').removeClass('show');
-        console.log('remove');
+      if ($('#radio-nav-program')[0].checked && $('.schedule-nav').hasClass('show')) {
+        $('.schedule-nav').removeClass('show');
       }
       reorderPages();
       footer.classList.add('clear');
@@ -229,14 +227,14 @@
   //   });
   // }
 
-  function modifyScheduleNavWidth() {
-    var scheduleNavWidth = $('.itinerary ul').width(),
-      scheduleNavLeft = (window.innerWidth - scheduleNavWidth) / 2;
-  }
+  // function modifyScheduleNavWidth() {
+  //   var scheduleNavWidth = $('.itinerary ul').width(),
+  //     scheduleNavLeft = (window.innerWidth - scheduleNavWidth) / 2;
+  // }
 
   function windowResize() {
     setPagesStackPaddingBottom();
-    modifyScheduleNavWidth();
+    // modifyScheduleNavWidth();
   }
 
   function initLogo() {
