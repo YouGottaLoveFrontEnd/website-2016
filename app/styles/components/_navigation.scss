@@ -113,6 +113,10 @@
           @include page-link-after('speakers');
         }
 
+        &[href='#page-program'] {
+          @include page-link-after('schedule');
+        }
+
         &[href='#page-sponsors'] {
           @include page-link-after('sponsors');
         }
