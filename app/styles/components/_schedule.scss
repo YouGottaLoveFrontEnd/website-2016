@@ -61,6 +61,7 @@
 
 }
 
+.main-itinerary,
 .itinerary {
   margin-top: 17vh;
 
@@ -123,6 +124,14 @@
     }
 
     &#day-2:checked ~ .views .day-2 {
+      opacity: 1;
+    }
+
+    &#main-day-1:checked ~ .views .main-day-1 {
+      opacity: 1;
+    }
+
+    &#main-day-2:checked ~ .views .main-day-2 {
       opacity: 1;
     }
   }
@@ -228,6 +237,8 @@ sup {
 @media (max-width: $screen-md-min) {
   .views {
 
+    .main-day-1,
+    .main-day-2,
     .day-1,
     .day-2 {
       opacity: 0;
@@ -248,6 +259,14 @@ sup {
     &#day-2:checked ~ .views .day-2 {
       max-width: 100%;
     }
+    &#main-day-1:checked ~ .views .main-day-1 {
+      max-width: 100%;
+
+    }
+
+    &#main-day-2:checked ~ .views .main-day-2 {
+      max-width: 100%;
+    }
   }
 
   .schedule-nav {
@@ -260,6 +279,7 @@ sup {
     padding-top: 104px;
   }
 
+  .main-itinerary ul,
   .itinerary ul {
     padding: 0;
   }

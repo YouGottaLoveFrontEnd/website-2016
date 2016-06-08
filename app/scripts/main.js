@@ -43,34 +43,44 @@
     }
   }
 
-  function fixScheduleHeader(active) {
+  function fixScheduleHeader(active, hash) {
     if (active) {
-      $('.schedule-nav li , .itinerary ul li').each(function (index) {
+      $('.schedule-nav li , .itinerary ul li, .main-itinerary ul li').each(function (index) {
         $(this).on('click tap touch', function () {
-          var child = index % 2;
-          $('.itinerary input[name="view"]:checked').prop('checked', false);
-          $('#' + $(this).children('label').attr('for')).prop('checked', true);
-          $('.active-tab').removeClass('active-tab');
-          $('.schedule-nav ul').children().eq(child).addClass('active-tab');
-          $('.itinerary ul').children().eq(child).addClass('active-tab');
-          if (window.scrollY > $('#schedule-inner-nav').offset().top - 120) {
-            autoScroll($('#schedule-inner-nav').offset().top - 120);
+          var parent = hash === 'page-program' ? '.itinerary' : '.main-itinerary';
+          var groupName = hash === 'page-program' ? 'view' : 'main-view';
+          var innerSchedule = hash === 'page-program' ? '#schedule-inner-nav' : '#main-schedule-inner-nav';
+          var newCheckedElement = $(this).children('label').attr('for');
+          if (hash === 'page-home' && newCheckedElement.indexOf('main-') === -1) {
+            newCheckedElement = 'main-' + newCheckedElement;
           }
+          newCheckedElement = '#' + newCheckedElement;
+          var child = index % 2;
+          $(parent + ' input[name="' + groupName + '"]:checked').prop('checked', false);
+          $(newCheckedElement).prop('checked', true);
+          $(parent + ' .active-tab').removeClass('active-tab');
+          $('.schedule-nav .active-tab').removeClass('active-tab');
+          $('.schedule-nav ul').children().eq(child).addClass('active-tab');
+          $(parent + ' ul').children().eq(child).addClass('active-tab');
+          if (window.scrollY > $(innerSchedule).offset().top) {
+            autoScroll($(innerSchedule).offset().top - 120);
+          }
+
         });
       });
       $(window).on('scroll', function () {
-        console.log('got scrolled', !$('.schedule-nav').hasClass('show') && !menuTrigger.checked);
-        if ($('#menu-trigger').offset().top + 100 > $('.itinerary ul').offset().top) {
+        var element = window.location.hash === '#page-program' ? '.itinerary ul' : '.main-itinerary ul';
+        if ($('#menu-trigger').offset().top + 100 > $(element).offset().top) {
           if (!$('.schedule-nav').hasClass('show') && !menuTrigger.checked) {
             $('.schedule-nav').addClass('show');
-            $('.itinerary ul').css({ opacity: 0 });
+            $(parent + ' ul').css({opacity: 0});
 
           }
         }
 
-        if ($('#menu-trigger').offset().top + 100 <= $('.itinerary ul').offset().top) {
+        if ($('#menu-trigger').offset().top + 100 <= $(element).offset().top) {
           if ($('.schedule-nav').hasClass('show')) {
-            $('.itinerary ul').css({ opacity: 1 });
+            $(element).css({opacity: 1});
             $('.schedule-nav').removeClass('show');
           }
         }
@@ -115,8 +125,6 @@
     pagesStack.style.paddingBottom = isMobile ? '0px' : footer.clientHeight + 'px';
   }
 
-
-
   function resetPages(hash) {
     menuTrigger.checked = false;
     reorderPages(function () {
@@ -133,6 +141,7 @@
   }
 
   function onMenuTriggerChange() {
+    var parent = window.location.hash === '#page-program' ? '.itinerary ul' : '.main-itinerary ul';
     if (menuTrigger.checked) {
       if ($('#radio-nav-program')[0].checked && $('.schedule-nav').hasClass('show')) {
         $('.schedule-nav').removeClass('show');
@@ -141,9 +150,9 @@
       footer.classList.add('clear');
     } else {
       footer.classList.remove('clear');
-      if ($('#menu-trigger').offset().top + 100 <= $('.itinerary ul').offset().top) {
+      if ($('#menu-trigger').offset().top + 100 <= $(parent).offset().top) {
         if (!$('.schedule-nav').hasClass('show') && !menuTrigger.checked) {
-          $('.itinerary ul').css({ opacity: 1 });
+          $(parent).css({opacity: 1});
           $('.schedule-nav').removeClass('show');
         }
       }
@@ -185,10 +194,10 @@
     }
 
     currentPage.checked = true;
-    if (hash === 'page-program') {
-      fixScheduleHeader(true);
+    if (hash === 'page-program' || hash === 'page-home') {
+      fixScheduleHeader(true, hash);
     } else {
-      fixScheduleHeader(false);
+      fixScheduleHeader(false, hash);
     }
     disableLink(hash);
     resetPages(hash);
