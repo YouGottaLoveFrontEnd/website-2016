@@ -199,10 +199,15 @@ section {
 
 @media (max-width: $screen-xs-min) {
   .page {
-    padding-left: 14px;
+    //padding-left: 0;
   }
 
   .page-intro {
+
+    .sub-title {
+      max-width: 90%;
+    }
+
     h2 {
       font-size: 50px;
       padding: 10px 0;

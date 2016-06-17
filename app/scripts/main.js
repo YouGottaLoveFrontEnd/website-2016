@@ -59,7 +59,16 @@
         });
       });
       $(window).on('scroll', function () {
-        console.log('got scrolled', !$('.schedule-nav').hasClass('show') && !menuTrigger.checked);
+        //console.log('got scrolled', !$('.schedule-nav').hasClass('show') && !menuTrigger.checked);
+
+        if($('.page').offset().top > $('#page-program').height()- 100 && $('.schedule-nav').hasClass('show')) {
+          $('.schedule-nav').addClass('fade');
+        } else {
+          if($('.schedule-nav').hasClass('fade')) {
+            $('.schedule-nav').removeClass('fade');
+          }
+        }
+
         if ($('#menu-trigger').offset().top + 100 > $('.itinerary ul').offset().top) {
           if (!$('.schedule-nav').hasClass('show') && !menuTrigger.checked) {
             $('.schedule-nav').addClass('show');
