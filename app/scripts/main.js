@@ -217,6 +217,9 @@
     currentPage.checked = true;
     if (hash === 'page-program') {
       fixScheduleHeader(true);
+      if (window.innerWidth <= 768) {
+        $('.schedule-nav').show();
+      }
     } else {
       fixScheduleHeader(false);
     }
@@ -371,8 +374,8 @@
   }
 
   window.onload = function () {
-    if(window.innerWidth <= 768) {
-      $('.schedule-nav').hide();
+    if ($('#radio-nav-program')[0].checked && window.innerWidth <= 768) {
+      $('.schedule-nav').show();
     }
     if (isMobile) {
       body.classList.add('mobile');
