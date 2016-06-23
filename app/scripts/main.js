@@ -371,6 +371,9 @@
   }
 
   window.onload = function () {
+    if(window.innerWidth <= 768) {
+      $('.schedule-nav').hide();
+    }
     if (isMobile) {
       body.classList.add('mobile');
       footer.classList.add('mobile');
