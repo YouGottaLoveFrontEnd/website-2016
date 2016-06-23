@@ -265,6 +265,26 @@ sup {
 
 @media (max-width: $screen-sm-min) {
 
+  .views {
+
+    .day-1,
+    .day-2 {
+     display: none;
+    }
+  }
+
+  input[type='radio'] {
+
+    &#day-1:checked ~ .views .day-1 {
+      display: block;
+
+    }
+
+    &#day-2:checked ~ .views .day-2 {
+      display: block;
+    }
+  }
+
   #page-program .page-intro {
     margin-top: 90px;
   }
