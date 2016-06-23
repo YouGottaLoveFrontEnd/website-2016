@@ -256,7 +256,7 @@ sup {
   }
 
   .schedule-nav {
-    display: none !important;
+    //display: none !important;
     width: 85vw;
     left: 7.5vw;
     transform: translateX(0);
@@ -264,8 +264,48 @@ sup {
 }
 
 @media (max-width: $screen-sm-min) {
+
+  #page-program .page-intro {
+    margin-top: 90px;
+  }
+
+  #schedule-inner-nav {
+    visibility: hidden;
+    max-height: 1px;
+  }
+
+  .itinerary {
+    margin-top: 5vh;
+  }
+
   .schedule-nav {
-    padding-top: 104px;
+    display: block;
+    padding-top: 90px;
+    padding-bottom: 10px;
+    width: 100vw;
+    left: 0;
+    transform: translateX(0);
+
+    li * {
+      pointer-events: none;
+
+    }
+    label {
+
+      .day-date {
+        font-size: 12px;
+        margin-top: 0;
+      }
+
+      .day-label {
+        margin-bottom: 3px;
+        font-size: 15px;
+      }
+    }
+
+    ul {
+      width: 100vw;
+    }
   }
 
   .itinerary ul {

@@ -32,23 +32,25 @@
     }
   }, 1000);
 
-  function autoScroll(to) {
-    if (window.scrollY > to) {
-      $(window).scrollTop(window.scrollY - 10);
+  function autoScroll(to, direction) {
+    if ((direction < 0 && window.scrollY > to) || (direction > 0 && window.scrollY < to)) {
+      $(window).scrollTop(window.scrollY + (direction * 10));
       setTimeout(function () {
-        autoScroll(to);
+        autoScroll(to, direction);
       }, 10);
-    } else if (window.scrollY < to) {
+    } else if (direction < 0 && window.scrollY < to) {
+      $(window).scrollTop(to);
+    } else if (direction > 0 && window.scrollY > to) {
       $(window).scrollTop(to);
     }
   }
 
-  function showScheduleFixedHeader (show) {
-    if(show) {
+  function showScheduleFixedHeader(show) {
+    if (show) {
       $('.schedule-nav').addClass('show');
-      $('.itinerary ul').css({ opacity: 0 });
-    }else {
-      $('.itinerary ul').css({ opacity: 1 });
+      $('.itinerary ul').css({opacity: 0});
+    } else {
+      $('.itinerary ul').css({opacity: 1});
       $('.schedule-nav').removeClass('show');
     }
   }
@@ -64,17 +66,19 @@
           $('.schedule-nav ul').children().eq(child).addClass('active-tab');
           $('.itinerary ul').children().eq(child).addClass('active-tab');
           if (window.scrollY > $('#schedule-inner-nav').offset().top - 120) {
-            autoScroll($('#schedule-inner-nav').offset().top - 120);
+            autoScroll($('#schedule-inner-nav').offset().top - 120, -1);
+          } else {
+            autoScroll($('#schedule-inner-nav').offset().top - 120, 1);
           }
         });
       });
       $(window).on('scroll', function () {
         //console.log('got scrolled', !$('.schedule-nav').hasClass('show') && !menuTrigger.checked);
 
-        if($('.page').offset().top > $('#page-program').height()- 100 && $('.schedule-nav').hasClass('show')) {
+        if ($('.page').offset().top > $('#page-program').height() - 100 && $('.schedule-nav').hasClass('show')) {
           $('.schedule-nav').addClass('fade');
         } else {
-          if($('.schedule-nav').hasClass('fade')) {
+          if ($('.schedule-nav').hasClass('fade')) {
             $('.schedule-nav').removeClass('fade');
           }
         }
@@ -82,7 +86,6 @@
         if ($('#menu-trigger').offset().top + 100 > $('.itinerary ul').offset().top) {
           if (!$('.schedule-nav').hasClass('show') && !menuTrigger.checked) {
             showScheduleFixedHeader(true);
-
 
           }
         }
@@ -133,8 +136,6 @@
     pagesStack.style.paddingBottom = isMobile ? '0px' : footer.clientHeight + 'px';
   }
 
-
-
   function resetPages(hash) {
     menuTrigger.checked = false;
     reorderPages(function () {
@@ -153,8 +154,13 @@
 
   function onMenuTriggerChange() {
     if (menuTrigger.checked) {
+
       if ($('#radio-nav-program')[0].checked && $('.schedule-nav').hasClass('show')) {
         $('.schedule-nav').removeClass('show');
+      }
+
+      if ($('#radio-nav-program')[0].checked && window.innerWidth <= 768) {
+        $('.schedule-nav').hide();
       }
       reorderPages();
       footer.classList.add('clear');
@@ -163,6 +169,10 @@
       if ($('#menu-trigger').offset().top + 100 <= $('.itinerary ul').offset().top) {
         if (!$('.schedule-nav').hasClass('show') && !menuTrigger.checked) {
           showScheduleFixedHeader(false);
+        }
+
+        if ($('#radio-nav-program')[0].checked && window.innerWidth <= 768) {
+          $('.schedule-nav').show();
         }
       }
     }
