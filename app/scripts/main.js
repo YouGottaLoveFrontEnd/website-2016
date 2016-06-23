@@ -43,6 +43,16 @@
     }
   }
 
+  function showScheduleFixedHeader (show) {
+    if(show) {
+      $('.schedule-nav').addClass('show');
+      $('.itinerary ul').css({ opacity: 0 });
+    }else {
+      $('.itinerary ul').css({ opacity: 1 });
+      $('.schedule-nav').removeClass('show');
+    }
+  }
+
   function fixScheduleHeader(active) {
     if (active) {
       $('.schedule-nav li , .itinerary ul li').each(function (index) {
@@ -71,16 +81,15 @@
 
         if ($('#menu-trigger').offset().top + 100 > $('.itinerary ul').offset().top) {
           if (!$('.schedule-nav').hasClass('show') && !menuTrigger.checked) {
-            $('.schedule-nav').addClass('show');
-            $('.itinerary ul').css({ opacity: 0 });
+            showScheduleFixedHeader(true);
+
 
           }
         }
 
         if ($('#menu-trigger').offset().top + 100 <= $('.itinerary ul').offset().top) {
           if ($('.schedule-nav').hasClass('show')) {
-            $('.itinerary ul').css({ opacity: 1 });
-            $('.schedule-nav').removeClass('show');
+            showScheduleFixedHeader(false);
           }
         }
       });
@@ -139,6 +148,7 @@
     if (isMobile) {
       footer.style.top = $('.pages-stack').height() + 'px';
     }
+
   }
 
   function onMenuTriggerChange() {
@@ -152,8 +162,7 @@
       footer.classList.remove('clear');
       if ($('#menu-trigger').offset().top + 100 <= $('.itinerary ul').offset().top) {
         if (!$('.schedule-nav').hasClass('show') && !menuTrigger.checked) {
-          $('.itinerary ul').css({ opacity: 1 });
-          $('.schedule-nav').removeClass('show');
+          showScheduleFixedHeader(false);
         }
       }
     }
@@ -164,6 +173,7 @@
     e.preventDefault();
     menuTrigger.checked = false;
     onMenuTriggerChange();
+
   }
 
   function disableLink(hash) {
@@ -181,6 +191,7 @@
   }
 
   function hashchange() {
+    showScheduleFixedHeader(false);
     var hash = location.hash ? location.hash.slice(1) : null;
     if (hash === null) {
       window.location.hash = '#page-home';
